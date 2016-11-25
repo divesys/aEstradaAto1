@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://fundo/parallax.gd" type="Script" id=1]
+[ext_resource path="res://fundo/montanhas/montanhasUnidade.tscn" type="PackedScene" id=2]
+
+[node name="montanhas" type="Node2D"]
+
+script/script = ExtResource( 1 )
+velocidadeMedia = 0
+
+[node name="montanhasUnidade" parent="." instance=ExtResource( 2 )]
+
+

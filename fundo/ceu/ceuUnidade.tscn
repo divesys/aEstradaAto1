@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://fundo/extendeFundo.gd" type="Script" id=1]
+[ext_resource path="res://fundo/selecionaTexturaProporcao.gd" type="Script" id=2]
+[ext_resource path="res://fundo/ceu/ceu16_9.png" type="Texture" id=3]
+[ext_resource path="res://fundo/ceu/ceu16_10.png" type="Texture" id=4]
+[ext_resource path="res://fundo/reposicionaSprite.gd" type="Script" id=5]
+
+[node name="ceuUnidade" type="Sprite"]
+
+z/z = -2
+script/script = ExtResource( 1 )
+
+[node name="selecionaTextura" type="Node2D" parent="."]
+
+script/script = ExtResource( 2 )
+textura16_9 = ExtResource( 3 )
+textura16_10 = ExtResource( 4 )
+
+[node name="reposicionaSprite" type="Node2D" parent="."]
+
+script/script = ExtResource( 5 )
+
+

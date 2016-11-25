@@ -1,26 +1,20 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://fundo/ceu16_10.png" type="Texture" id=1]
-[ext_resource path="res://parallax.gd" type="Script" id=2]
+[ext_resource path="res://fundo/ceu/ceu16_10.png" type="Texture" id=1]
+[ext_resource path="res://fundo/parallax.gd" type="Script" id=2]
 [ext_resource path="res://fundo/montanhas.png" type="Texture" id=3]
 [ext_resource path="res://fundo/bck_estradaP1.png" type="Texture" id=4]
 
-[sub_resource type="GDScript" id=1]
-
-script/source = "#teste\n\nextends Node2D"
 
 [node name="Fundo" type="Node2D"]
 
 z/z = -10
-script/script = SubResource( 1 )
 
 [node name="camadas" type="Node2D" parent="."]
 
 transform/pos = Vector2( 0, 210 )
 
 [node name="ceu" type="Node2D" parent="camadas"]
-
-editor/display_folded = true
 
 [node name="ceu0" type="Sprite" parent="camadas/ceu"]
 
@@ -41,15 +35,13 @@ velocidadeMedia = 0
 
 [node name="montanhas" type="Node2D" parent="camadas"]
 
-editor/display_folded = true
-
 [node name="montanhas0" type="Sprite" parent="camadas/montanhas"]
 
 z/z = -1
 texture = ExtResource( 3 )
 centered = false
 script/script = ExtResource( 2 )
-velocidadeMedia = 25
+velocidadeMedia = 0
 
 [node name="montanhas1" type="Sprite" parent="camadas/montanhas"]
 
@@ -58,18 +50,16 @@ z/z = -1
 texture = ExtResource( 3 )
 centered = false
 script/script = ExtResource( 2 )
-velocidadeMedia = 25
+velocidadeMedia = 0
 
 [node name="estrada" type="Node2D" parent="camadas"]
-
-editor/display_folded = true
 
 [node name="estrada0" type="Sprite" parent="camadas/estrada"]
 
 texture = ExtResource( 4 )
 centered = false
 script/script = ExtResource( 2 )
-velocidadeMedia = 50
+velocidadeMedia = 0
 
 [node name="estrada1" type="Sprite" parent="camadas/estrada"]
 
@@ -77,6 +67,6 @@ transform/pos = Vector2( 1920, 0 )
 texture = ExtResource( 4 )
 centered = false
 script/script = ExtResource( 2 )
-velocidadeMedia = 50
+velocidadeMedia = 0
 
 
