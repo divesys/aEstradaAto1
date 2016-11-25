@@ -14,10 +14,10 @@ z/z = -10
 
 [node name="montanhas" parent="camadas" instance=ExtResource( 2 )]
 
-velocidadeMedia = 25
+velocidadeMedia = 10
 
 [node name="estrada" parent="camadas" instance=ExtResource( 3 )]
 
-velocidadeMedia = 50
+velocidadeMedia = 15
 
 

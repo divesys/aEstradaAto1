@@ -39,7 +39,7 @@ func _process(delta):
 		get_node(node.get_path()).set_pos(Vector2(0,0))
 		get_node(node.get_path()).set_pos(Vector2((get_pos().x + larguraPadrao),get_pos().y)) #move o novo no para direita usando a larguraPadrao
 		extendeuFundo = true
-		print(get_name())
+		#print(get_name())
 		
 	elif(posicaoAbsolutaX < linhaDestruicao and extendeuFundo == true):
 		
