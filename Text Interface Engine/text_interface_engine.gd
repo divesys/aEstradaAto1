@@ -36,6 +36,7 @@ onready var _input_timer_limit = 1
 onready var _input_index = 0
 
 onready var lastBufferSpeed = 0
+onready var actualBufferSpeed = 0
 
 # =============================================== 
 # Text display properties!
@@ -116,9 +117,21 @@ func add_newline(): # Add a new line to the label text
 func get_text(): # Get current text on Label
 	return _label.get_text()
 	
+func get_buffer(): #get the current buffer content
+	
+	 return _buffer
+	
 func get_lastBufferSpeed(): #get the bufferSpeed used on buff_text()
 	
 	return lastBufferSpeed
+	
+func get_actualBufferSpeed():
+	
+	return actualBufferSpeed
+	
+func capture_speed(s):
+	
+	actualBufferSpeed = s
 
 func set_turbomode(s): # Print stuff in the maximum velocity and ignore breaks
 	_turbo = s;
@@ -144,8 +157,8 @@ func set_break_key_by_scancode(i): # Set a new key to resume breaks (uses scanco
 	_break_key = i
 
 func set_buff_speed(v): # Changes the velocity of the text being printed
-	if (_buffer[0][0] == 1):
-		_buffer[0][2] = v
+	if (_buffer[0]["buff_type"] == BUFF_TEXT):
+		_buffer[0]["buff_vel"] = v
 
 # ==============================================
 # Reserved methods
@@ -175,6 +188,8 @@ func _ready():
 	add_user_signal("tag_buff",[{"tag":TYPE_STRING}]) # When the _buffer reaches a buff which is tagged
 
 func _fixed_process(delta):
+	
+	
 	if(_state == STATE_OUTPUT): # Output
 		if(_buffer.size() == 0):
 			set_state(STATE_WAITING)
@@ -205,6 +220,7 @@ func _fixed_process(delta):
 				o["buff_vel"] = 0
 			
 			if(o["buff_vel"] == 0): # If the velocity is 0, than just print everything
+				capture_speed(o["buff_vel"])
 				while(o["buff_text"] != ""): # Not optimal (not really printing everything at the same time); but is the only way to work with line break
 					if(AUTO_SKIP_WORDS and (o["buff_text"][0] == " " or _buff_beginning)):
 						_skip_word()
@@ -216,6 +232,7 @@ func _fixed_process(delta):
 					
 			else: # Else, print each character according to velocity
 				_output_delay_limit = o["buff_vel"]
+				capture_speed(o["buff_vel"])
 				if(_buff_beginning):
 					_output_delay = _output_delay_limit + delta
 				else:
@@ -263,7 +280,8 @@ func _fixed_process(delta):
 			if(_blink_input_timer > _input_timer_limit):
 				_blink_input_timer -= _input_timer_limit
 				_blink_input()
-	
+				
+	#print(_output_delay)
 	pass
 
 func _input(event):
