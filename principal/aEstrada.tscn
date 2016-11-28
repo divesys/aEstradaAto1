@@ -2,7 +2,7 @@
 
 [ext_resource path="res://fundo/fundo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://personagens/ego/ego.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Text Interface Engine/text_interface_engine.scn" type="PackedScene" id=3]
+[ext_resource path="res://interface/textbox/textBox.tscn" type="PackedScene" id=3]
 
 [node name="aEstrada" type="Node2D"]
 
@@ -13,6 +13,11 @@
 transform/pos = Vector2( 0, 853 )
 z/z = 10
 
-[node name="text_interface_engine" parent="." instance=ExtResource( 3 )]
+[node name="textBox" parent="." instance=ExtResource( 3 )]
+
+margin/left = 596.0
+margin/top = 351.0
+margin/right = 636.0
+margin/bottom = 391.0
 
 

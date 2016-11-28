@@ -35,6 +35,8 @@ onready var _blink_input_timer = 0
 onready var _input_timer_limit = 1
 onready var _input_index = 0
 
+onready var lastBufferSpeed = 0
+
 # =============================================== 
 # Text display properties!
 export(bool) var SCROLL_ON_MAX_LINES = true # If this is true, the text buffer update will stop after reaching the maximum number of lines; else, it will stop to wait for user input, and than clear the text.
@@ -58,6 +60,7 @@ func buff_debug(f, lab = false, arg0 = null, push_front = false): # For simple d
 
 func buff_text(text, vel = 0, tag = "", push_front = false): # The text for the output, and its printing velocity (per character)
 	var b = {"buff_type":BUFF_TEXT, "buff_text":text, "buff_vel":vel, "buff_tag":tag}
+	lastBufferSpeed = vel
 	if !push_front:
 		_buffer.append(b)
 	else:
@@ -112,6 +115,10 @@ func add_newline(): # Add a new line to the label text
 
 func get_text(): # Get current text on Label
 	return _label.get_text()
+	
+func get_lastBufferSpeed(): #get the bufferSpeed used on buff_text()
+	
+	return lastBufferSpeed
 
 func set_turbomode(s): # Print stuff in the maximum velocity and ignore breaks
 	_turbo = s;
