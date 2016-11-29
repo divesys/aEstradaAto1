@@ -15,4 +15,6 @@ margin/bottom = 40.0
 
 [node name="narrativa" parent="." instance=ExtResource( 1 )]
 
+velocidadePadrao = 0.05
+
 

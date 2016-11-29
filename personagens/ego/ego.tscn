@@ -17,7 +17,7 @@ animation = "egoParado"
 playing = true
 centered = false
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="moveEgo" type="Node2D" parent="."]
 
 script/script = ExtResource( 5 )
 

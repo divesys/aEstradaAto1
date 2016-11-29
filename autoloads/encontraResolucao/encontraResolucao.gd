@@ -59,7 +59,7 @@ func _ready():
 	#OS.set_window_size(Vector2(larguraPadrao, alturaPadrao))
 	#VisualServer.black_bars_set_margins(-1,-1,-1,-1)
 	
-	print(get_tree().get_root().get_size_override())
+	#(get_tree().get_root().get_size_override())
 	
 
 func getStringProporcao():

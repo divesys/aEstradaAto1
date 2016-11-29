@@ -6,10 +6,16 @@ func _ready():
 	
 func _process(delta):
 	
-	if(Input.is_action_pressed("moveDireita")):
+	if(controleFluxoHistoria.getEventoEspecial("andarAutomatico") == false):
+		
+		if(Input.is_action_pressed("moveDireita")):
+			
+			get_parent().set_animation("egoAndandoDireita")
+			
+		else:
+			
+			get_parent().set_animation("egoParado")
+			
+	elif(controleFluxoHistoria.getEventoEspecial("andarAutomatico") == true):
 		
 		get_parent().set_animation("egoAndandoDireita")
-		
-	else:
-		
-		get_parent().set_animation("egoParado")

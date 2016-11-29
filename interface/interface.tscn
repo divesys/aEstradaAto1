@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://interface/textbox/textBox.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = " #posiciona os itens da interface\n\nexport var posTextboxNarrador = Vector2(0,0) setget setPosTextboxNarrador, getposTextboxNarrador\n\nfunc setPosTextboxNarrador(vector2):\n\t\n\tposTextboxNarrador = vector2\n\t\nfunc getPosTextboxNarrador():\n\t\n\treturn posTextboxNarrador"
+
+[node name="interface" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = SubResource( 1 )
+posTextboxNarrador = Vector2( 0, 0 )
+
+[node name="textBox" parent="." instance=ExtResource( 1 )]
+
+margin/left = 644.0
+margin/top = 332.0
+margin/right = 684.0
+margin/bottom = 372.0
+
+

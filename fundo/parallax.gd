@@ -16,16 +16,23 @@ func _ready():
 func _process(delta):
 	
 	#move o fundo ao apertar moveDireita >
-	
-	if(Input.is_action_pressed("moveDireita")):
+	if(controleFluxoHistoria.getEventoEspecial("andarAutomatico") == false):
+			
+		if(Input.is_action_pressed("moveDireita")):
+			
+			velocidadeInstantanea = Vector2(-velocidadeMedia,0)
+			
+		else:
+			
+			velocidadeInstantanea = Vector2(0,0)
+		
+		set_pos(get_pos() + velocidadeInstantanea * delta)
+		
+	elif(controleFluxoHistoria.getEventoEspecial("andarAutomatico") == true):
 		
 		velocidadeInstantanea = Vector2(-velocidadeMedia,0)
 		
-	else:
-		
-		velocidadeInstantanea = Vector2(0,0)
-	
-	set_pos(get_pos() + velocidadeInstantanea * delta)
+		set_pos(get_pos() + velocidadeInstantanea * delta)
 	
 	#move o fundo ao apertar moveDireita <
 	
