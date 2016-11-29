@@ -14,18 +14,7 @@ var origemTextoAnterior = "" #determina a ultima origem do texto
 	#textbox >
 	
 	#textbox narrador
-var posTextboxNarrador = { #margens do textbox
-
-	"anchorLeft" : ANCHOR_BEGIN
-	,"marginLeft" : 600
-	,"anchorRight" : ANCHOR_BEGIN
-	,"marginRight" : 0
-	,"anchorTop" : ANCHOR_BEGIN
-	,"marginTop" : 150
-	,"anchorBottom" : ANCHOR_BEGIN
-	,"marginBottom" : 0
-
-}
+var posTextboxNarrador = {} #margens do textbox
 
 #textbox <
 
@@ -41,10 +30,21 @@ func _ready():
 	
 	#ajusta a a área utilizavel da tela
 	set_size(Vector2(larguraArea,alturaArea))
-	print(get_size())
 	set_pos(Vector2(0,(diferencaAltura/2)))
-	print(get_pos())
-		
+	
+	posTextboxNarrador = { #margens do textbox
+
+	"anchorLeft" : ANCHOR_CENTER
+	,"marginLeft" : (textBox.get_size().x/2)
+	,"anchorRight" : ANCHOR_BEGIN
+	,"marginRight" : 0
+	,"anchorTop" : ANCHOR_BEGIN
+	,"marginTop" : 150
+	,"anchorBottom" : ANCHOR_BEGIN
+	,"marginBottom" : 0
+
+	}
+	
 	set_process(true)
 
 func _process(delta):
@@ -55,7 +55,6 @@ func _process(delta):
 	
 	if(origemTextoAtual == "NARRADOR" and origemTextoAtual != origemTextoAnterior):
 		
-		#textBox.set_pos(posTextboxNarrador)
 		textBox.set_anchor_and_margin(MARGIN_LEFT,posTextboxNarrador["anchorLeft"],posTextboxNarrador["marginLeft"])
 		textBox.set_anchor_and_margin(MARGIN_RIGHT,posTextboxNarrador["anchorRight"],posTextboxNarrador["marginRight"])
 		textBox.set_anchor_and_margin(MARGIN_TOP,posTextboxNarrador["anchorTop"],posTextboxNarrador["marginTop"])
