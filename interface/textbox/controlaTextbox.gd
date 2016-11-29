@@ -16,7 +16,7 @@ onready var arrayVelocidades = [] #guarda a velocidade de cada menssagem
 onready var indiceAtualMenssagem = 0 #o indice atual da menssagem, usado para o looping de remoção e para imprimir
 onready var escrevendo = false #indica se a textBox está ativamente escrevendo algum texto
 
-export var origemTexto = "" setget mudaOrigemTexto, getOrigemTexto#indica quem está pronunciando o texto
+
 
 func comecarEscrever(): #comeca a escrever
 
@@ -41,14 +41,6 @@ func imprimeMenssagem(i): #imprime a menssagem da posição i no arrayMenssagem
 	tie.buff_text(arrayMenssagens[i],arrayVelocidades[i])
 	tie.set_state(tie.STATE_OUTPUT)
 	indiceAtualMenssagem += 1
-
-func mudaOrigemTexto(strOrigem):
-	
-	origemTexto = strOrigem
-	
-func getOrigemTexto():
-	
-	return origemTexto
 
 func _ready():
 

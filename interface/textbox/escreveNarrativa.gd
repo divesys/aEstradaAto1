@@ -4,6 +4,7 @@ extends Control
 
 onready var tie = get_node("fundo/text_interface_engine")
 onready var controlaTextbox = get_node("fundo/controlaTextbox")
+onready var origemTextbox = get_parent() #pega o nó textbox
 export var velocidadePadrao = 0.05 #velocidade padrão dessa fonte de texto
 var parteAtual = ""
 var indiceAtual = 0
@@ -39,6 +40,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 		
 		if(indiceAtual == 1):
 			
+			origemTextbox.mudaOrigemTexto("NARRADOR")
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO1"),0.05)
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO2"),0.05)
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO3"),0.05)
@@ -47,6 +49,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			
 		elif(indiceAtual == 3):
 			
+			origemTextbox.mudaOrigemTexto("NARRADOR")
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO4"),0.05)
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO5"),0.05)
 			controlaTextbox.comecarEscrever()

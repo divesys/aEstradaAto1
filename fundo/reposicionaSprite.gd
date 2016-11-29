@@ -7,7 +7,9 @@ func _ready():
 	
 	#variaveis
 	var alturaPadrao = encontraResolucao.getAlturaPadrao() #captura a altura padrao
-	var alturaSprite = get_parent().get_texture().get_height() #captura a altura do sprite
+	var porcentagemTela = 0.65 #o quanto a área visivel do jogo ocupa a tela
+	#var alturaSprite = get_parent().get_texture().get_height() #captura a altura do sprite
+	var alturaSprite = alturaPadrao * porcentagemTela
 	var diferencaAltura = alturaPadrao - alturaSprite #calcula a diferença
 	var parent = get_parent()
 	

@@ -18,7 +18,4 @@ z/z = 10
 
 [node name="interface" parent="." instance=ExtResource( 4 )]
 
-margin/right = 0.0
-margin/bottom = 0.0
-
 

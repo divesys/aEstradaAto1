@@ -2,11 +2,14 @@
 
 extends Node2D
 
+#variaveis de fluxo da historia
 var parteAtual = ""
 var indiceParteAtual = 0
 
+
+
 func _ready():
-	
+
 	#cria eventos especiais
 	controleFluxoHistoria.criaEventoEspecial("andarAutomatico" , true) #evento que determina se o ego devera se manter andando
 	
