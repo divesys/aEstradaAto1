@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://interface/textbox/escreveNarrativa.gd" type="Script" id=1]
+[ext_resource path="res://interface/textbox/Narrador/escreveNarrativa.gd" type="Script" id=1]
 [ext_resource path="res://Text Interface Engine/text_interface_engine.scn" type="PackedScene" id=2]
-[ext_resource path="res://interface/textbox/fonteNarrador.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://interface/textbox/Narrador/fonteNarrador.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://interface/textbox/controlaTextbox.gd" type="Script" id=4]
 
 [node name="narrativa" type="Control"]

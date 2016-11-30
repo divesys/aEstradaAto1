@@ -27,13 +27,11 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 	
 	if(parteAtual == "prologo"):
 		
-		#print("oi")
-		
 		#configuração inicial
 		if(indiceAtual == 0):
 			
 			tie.set_color(Color(1,1,1))
-			tie.set_font_bypath("res://interface/textbox/fonteNarrador.fnt")
+			tie.set_font_bypath("res://interface/textbox/Narrador/fonteNarrador.fnt")
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
 		#escreve o texto

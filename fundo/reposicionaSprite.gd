@@ -20,5 +20,3 @@ func _ready():
 	#ajusta a posição do sprite
 	parent.set_pos(Vector2(get_pos().x,get_pos().y + (diferencaAltura/2)))
 	
-	#print(get_parent().get_pos())
-	

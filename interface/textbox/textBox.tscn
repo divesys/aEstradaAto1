@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://interface/textbox/origemTextbox.gd" type="Script" id=1]
-[ext_resource path="res://interface/textbox/narrativa.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/textbox/Narrador/narrativa.tscn" type="PackedScene" id=2]
 
 [node name="textBox" type="Control"]
 

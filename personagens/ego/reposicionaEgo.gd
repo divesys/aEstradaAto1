@@ -15,8 +15,8 @@ func _ready():
 	var diferencaAltura = alturaPadrao - alturaUtilizada #calcula a diferença
 	var posicaoAreaUtil = Vector2(0,(diferencaAltura/2))
 	var parent = get_parent()
-	#var alturaEgo = parent.get_frame().get_texture()
-	#print(alturaEgo)
+	var alturaEgo = parent.get_sprite_frames().get_frame(parent.get_animation(),parent.get_frame()).get_height()
+	var larguraEgo = parent.get_sprite_frames().get_frame(parent.get_animation(),parent.get_frame()).get_width()
 	
 	#determina a posição do ego baseado na área util
 	if(formaMedida == "relativo"):
@@ -27,7 +27,7 @@ func _ready():
 			
 		elif(ancoraVertical == "inferior"):
 			
-			parent.set_pos(Vector2((larguraUtilizada * valorPosicao.x),(posicaoAreaUtil.y + alturaUtilizada) - (alturaUtilizada * valorPosicao.y)))
+			parent.set_pos(Vector2((larguraUtilizada * valorPosicao.x),(posicaoAreaUtil.y + alturaUtilizada) - ((alturaUtilizada * valorPosicao.y)+ alturaEgo)))
 			
 	elif(formaMedida == "absoluta"):
 	
@@ -37,4 +37,4 @@ func _ready():
 			
 		elif(ancoraVertical == "inferior"):
 			
-			parent.set_pos(Vector2((valorPosicao.x),(posicaoAreaUtil.y + alturaUtilizada) - (valorPosicao.y)))
+			parent.set_pos(Vector2((valorPosicao.x),(posicaoAreaUtil.y + alturaUtilizada) - ((valorPosicao.y)+larguraEgo)))

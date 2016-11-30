@@ -23,12 +23,12 @@ centered = false
 
 script/script = ExtResource( 5 )
 
-[node name="posicionaEgo" type="Node2D" parent="."]
+[node name="reposicionaEgo" type="Node2D" parent="."]
 
 script/script = ExtResource( 6 )
 ancoraVertical = "inferior"
 formaMedida = "relativo"
-valorPosicao = Vector2( 0, 0.17 )
+valorPosicao = Vector2( 0, 0.09 )
 
 [node name="contadorDePassos" type="Node2D" parent="."]
 
