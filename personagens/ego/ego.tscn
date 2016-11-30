@@ -10,10 +10,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 
-animations = [ { "frames":[ ExtResource( 1 ) ], "loop":true, "name":"egoParado", "speed":5.0 }, { "frames":[ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ], "loop":true, "name":"egoAndandoDireita", "speed":3.2 } ]
+animations = [ { "frames":[ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ], "loop":true, "name":"egoAndandoDireita", "speed":3.2 }, { "frames":[ ExtResource( 1 ) ], "loop":true, "name":"egoParado", "speed":5.0 } ]
 
 [node name="ego" type="AnimatedSprite"]
 
+editor/display_folded = true
 frames = SubResource( 1 )
 animation = "egoParado"
 playing = true

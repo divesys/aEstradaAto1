@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://principal/main.gd" type="Script" id=1]
 [ext_resource path="res://fundo/fundo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://personagens/ego/ego.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/interface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://debug.gd" type="Script" id=5]
 
 [node name="aEstrada" type="Node2D"]
 
@@ -17,5 +18,20 @@ transform/pos = Vector2( 0, 853 )
 z/z = 10
 
 [node name="interface" parent="." instance=ExtResource( 4 )]
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 57.0
+margin/top = 782.0
+margin/right = 357.0
+margin/bottom = 882.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 5 )
 
 

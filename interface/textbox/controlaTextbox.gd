@@ -16,31 +16,45 @@ onready var arrayVelocidades = [] #guarda a velocidade de cada menssagem
 onready var indiceAtualMenssagem = 0 #o indice atual da menssagem, usado para o looping de remoção e para imprimir
 onready var escrevendo = false #indica se a textBox está ativamente escrevendo algum texto
 
+#variavel de controle de indice da historia
+onready var adicionouIndiceHistoria = false
 
 
 func comecarEscrever(): #comeca a escrever
 
 	escrevendo = true
+	adicionouIndiceHistoria = false
+	#print("comecei")
 	imprimeMenssagem(indiceAtualMenssagem)
-	#indiceAtualMenssagem += 1
+	indiceAtualMenssagem += 1
 	
 func pararEscrever(): #para de escrever
 
+	tie.reset()
+	arrayMenssagens.clear()
+	arrayVelocidades.clear()
 	escrevendo = false
+	indiceAtualMenssagem = 0
+	if(adicionouIndiceHistoria == false):
+	
+		adicionouIndiceHistoria = true
+		controleFluxoHistoria.acrescentaIndiceParte() #adiciona um ao indice da parte ao encerrar a exibição das menssagens
 
 func adicionaMenssagem(menssagem,vel): #adiciona uma menssagem ao array de menssagens na posição i
 	
-	#print(menssagem)
+	print(menssagem)
 	arrayMenssagens.append(str(menssagem))
 	arrayVelocidades.append(vel)
+	print(arrayMenssagens.size())
 	
 func imprimeMenssagem(i): #imprime a menssagem da posição i no arrayMenssagem
 
-	#("imprimindo")
+	#print("imprimindo")
+	#print(indiceAtualMenssagem)
 	#print(arrayMenssagens[i])
 	tie.buff_text(arrayMenssagens[i],arrayVelocidades[i])
 	tie.set_state(tie.STATE_OUTPUT)
-	indiceAtualMenssagem += 1
+	#indiceAtualMenssagem += 1
 
 func _ready():
 
@@ -53,6 +67,7 @@ func _process(delta):
 	#mantem a velocidade normal atualizada
 	#velocidadeNormal = tie.get_lastBufferSpeed()
 	#print(tie.get_actualBufferSpeed())
+	#print(indiceAtualMenssagem)
 	#print(arrayMenssagens.size())
 	
 	if(escrevendo == false):
@@ -78,6 +93,7 @@ func _process(delta):
 			tie.set_buff_speed(arrayVelocidades[indiceAtualMenssagem - 1])
 			acelerou = false
 
+		#print(tie.get_buffer())
 	elif(tie.get_buffer() == []):
 		
 		if(!Input.is_action_pressed("passarMenssagem") and acelerou == true):
@@ -95,13 +111,11 @@ func _process(delta):
 				
 				#print("entrei")
 				imprimeMenssagem(indiceAtualMenssagem)
-				#indiceAtualMenssagem += 1
+				indiceAtualMenssagem += 1
 				
 			else:
 				
 				#print("fodasse")
-				arrayMenssagens.clear()
-				arrayVelocidades.clear()
 				pararEscrever()
 	
 	

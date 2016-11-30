@@ -45,11 +45,18 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
-		elif(indiceAtual == 3):
 			
-			origemTextbox.mudaOrigemTexto("NARRADOR")
+		elif(indiceAtual == 4):
+			
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO4"),0.05)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+		elif(indiceAtual == 7):
+			
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO5"),0.05)
 			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			pass
 		
 	
