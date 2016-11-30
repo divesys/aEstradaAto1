@@ -1,5 +1,7 @@
  #controla o fluxo da historia, determinando o indice global, indice local, parte (da historia) assim como um array de tags que permite verificar condições especiais
 
+extends Node2D
+
 onready var indiceHistoria = 0 setget ,getIndiceHistoria #determina o indice global da historia, usada apenas para controle
 onready var indiceParte = 0 setget pularIndiceParte , getIndiceParte#determina o indice da parte, é zerado em toda mudança de parte
 onready var parte = "" setget mudarParte, getParte #string descrevendo o nome da parte em que o jogo se encontra

@@ -31,6 +31,10 @@ var stringProporcao = "" setget ,getStringProporcao
 var larguraPadrao = 0.0 setget ,getLarguraPadrao
 var alturaPadrao = 0.0 setget ,getAlturaPadrao
 
+#determina a área utilizada da tela, em % na forma de 0.01, referente a altura
+var porcentagemTela = 0.65 #o quanto a área visivel do jogo ocupa a tela, vai de 0 a 1
+var alturaUtilizada = 0.0
+
 func _ready():
 	
 	if(proporcaoReal == proporcaoBase16_9):
@@ -51,16 +55,12 @@ func _ready():
 		larguraPadrao = larguraBase16_9
 		alturaPadrao = alturaBase16_9
 	
+	#verificar se precisa resolver posteriormente
 	Globals.set("display/width", larguraPadrao)
 	Globals.set("display/height", alturaPadrao)
-	#get_tree().get_root().set_size_override_stretch(1)
 	get_tree().get_root().set_size_override(1,Vector2(larguraPadrao,alturaPadrao),Vector2(0,0))
-	#get_tree().get_root().set_rect(Rect2(Vector2(0,0),Vector2(larguraPadrao,alturaPadrao)))
-	#OS.set_window_size(Vector2(larguraPadrao, alturaPadrao))
-	#VisualServer.black_bars_set_margins(-1,-1,-1,-1)
 	
-	#(get_tree().get_root().get_size_override())
-	
+	alturaUtilizada = alturaPadrao * porcentagemTela
 
 func getStringProporcao():
 	
@@ -73,3 +73,7 @@ func getLarguraPadrao():
 func getAlturaPadrao():
 	
 	return alturaPadrao
+	
+func getAlturaUtilizada():
+	
+	return alturaUtilizada

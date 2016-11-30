@@ -1,5 +1,7 @@
 #seleciona a textura baseada na proporção da tela
 
+extends Node2D
+
 #variaveis
 
 export(Texture) var textura16_9 #recebe a textura na proporcao 16:9

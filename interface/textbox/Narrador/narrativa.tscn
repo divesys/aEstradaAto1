@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://interface/textbox/escreveNarrativa.gd" type="Script" id=1]
+[ext_resource path="res://Text Interface Engine/text_interface_engine.scn" type="PackedScene" id=2]
+[ext_resource path="res://interface/textbox/fonteNarrador.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://interface/textbox/controlaTextbox.gd" type="Script" id=4]
+
+[node name="narrativa" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 600.0
+margin/bottom = 350.0
+script/script = ExtResource( 1 )
+velocidadePadrao = 0.05
+
+[node name="fundo" type="Panel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 600.0
+margin/bottom = 350.0
+
+[node name="text_interface_engine" parent="fundo" instance=ExtResource( 2 )]
+
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 580.0
+margin/bottom = 330.0
+FONT = ExtResource( 3 )
+
+[node name="controlaTextbox" type="Control" parent="fundo"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 580.0
+margin/bottom = 330.0
+script/script = ExtResource( 4 )
+
+

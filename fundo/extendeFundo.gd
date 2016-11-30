@@ -1,5 +1,7 @@
  #extende o fundo instanciando um novo nó de fundo e o destruindo depois
 
+extends Node2D
+
  # garante que extenda uma unica vez
 var instanciouCena = false
 var extendeuFundo = false

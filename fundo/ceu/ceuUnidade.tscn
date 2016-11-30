@@ -21,5 +21,6 @@ textura16_10 = ExtResource( 4 )
 [node name="reposicionaSprite" type="Node2D" parent="."]
 
 script/script = ExtResource( 5 )
+porcentagemTela = 0.65
 
 
