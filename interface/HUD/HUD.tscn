@@ -47,7 +47,6 @@ samples/snd_ideiaLiberarPre = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 )
 
 [node name="HUD" type="Control"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -59,7 +58,6 @@ margin/bottom = 50.0
 
 [node name="contadorDePassos" type="Control" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -82,7 +80,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 55.0
+margin/left = 50.0
 margin/top = 5.0
 margin/right = 110.0
 margin/bottom = 43.0

@@ -2,8 +2,8 @@
 
 extends Control
 
-onready var tie = get_node("fundo/text_interface_engine")
-onready var controlaTextbox = get_node("fundo/controlaTextbox")
+onready var tie = get_node("janelaTextBox/text_interface_engine")
+onready var controlaTextbox = get_node("janelaTextBox/controlaTextbox")
 onready var origemTextbox = get_parent() #pega o nó textbox
 export var velocidadePadrao = 0.05 #velocidade padrão dessa fonte de texto
 var parteAtual = ""

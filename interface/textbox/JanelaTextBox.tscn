@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://recursos de base/narradorTextBoxV1.png" type="Texture" id=1]
+[ext_resource path="res://Text Interface Engine/text_interface_engine.scn" type="PackedScene" id=2]
+[ext_resource path="res://interface/textbox/Narrador/fonteNarrador.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://interface/textbox/controlaTextbox.gd" type="Script" id=4]
+[ext_resource path="res://interface/HUD/fonteHud.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://personagens/narrador/rostoNarrador.png" type="Texture" id=6]
+
+[node name="janelaTextBox" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 600.0
+margin/bottom = 440.0
+
+[node name="fundo" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 600.0
+margin/bottom = 440.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="text_interface_engine" parent="." instance=ExtResource( 2 )]
+
+margin/left = 20.0
+margin/top = 190.0
+margin/right = 580.0
+margin/bottom = 420.0
+FONT = ExtResource( 3 )
+
+[node name="controlaTextbox" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 190.0
+margin/right = 580.0
+margin/bottom = 420.0
+script/script = ExtResource( 4 )
+escrevendo = false
+
+[node name="areaSimbolo" type="Container" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 190.0
+margin/top = 20.0
+margin/right = 580.0
+margin/bottom = 170.0
+
+[node name="nome" type="Label" parent="areaSimbolo"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 115.0
+margin/top = 51.0
+margin/right = 264.0
+margin/bottom = 99.0
+custom_fonts/font = ExtResource( 5 )
+text = "Narrador"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fundo" type="Sprite" parent="areaSimbolo"]
+
+[node name="areaFace" type="Container" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 170.0
+margin/bottom = 170.0
+
+[node name="Sprite" type="Sprite" parent="areaFace"]
+
+texture = ExtResource( 6 )
+centered = false
+
+

@@ -39,7 +39,7 @@ func _ready():
 	,"anchorRight" : ANCHOR_BEGIN
 	,"marginRight" : 0
 	,"anchorTop" : ANCHOR_BEGIN
-	,"marginTop" : 150
+	,"marginTop" : 50
 	,"anchorBottom" : ANCHOR_BEGIN
 	,"marginBottom" : 0
 

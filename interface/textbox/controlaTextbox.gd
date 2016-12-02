@@ -14,7 +14,7 @@ var acelerou = false #determina se o úsuario está acelerando o texto na menssa
 onready var arrayMenssagens = [] #guarda as menssagens em sequencia
 onready var arrayVelocidades = [] #guarda a velocidade de cada menssagem
 onready var indiceAtualMenssagem = 0 #o indice atual da menssagem, usado para o looping de remoção e para imprimir
-onready var escrevendo = false #indica se a textBox está ativamente escrevendo algum texto
+export var escrevendo = false #indica se a textBox está ativamente escrevendo algum texto
 
 #variavel de controle de indice da historia
 onready var adicionouIndiceHistoria = false

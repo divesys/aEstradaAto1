@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://interface/textbox/Narrador/escreveNarrativa.gd" type="Script" id=1]
-[ext_resource path="res://Text Interface Engine/text_interface_engine.scn" type="PackedScene" id=2]
-[ext_resource path="res://interface/textbox/Narrador/fonteNarrador.fnt" type="BitmapFont" id=3]
-[ext_resource path="res://interface/textbox/controlaTextbox.gd" type="Script" id=4]
+[ext_resource path="res://interface/textbox/JanelaTextBox.tscn" type="PackedScene" id=2]
 
 [node name="narrativa" type="Control"]
 
@@ -14,39 +12,15 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 600.0
-margin/bottom = 350.0
+margin/bottom = 440.0
 script/script = ExtResource( 1 )
 velocidadePadrao = 0.05
 
-[node name="fundo" type="Panel" parent="."]
+[node name="janelaTextBox" parent="." instance=ExtResource( 2 )]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 600.0
-margin/bottom = 350.0
+[node name="areaFace" parent="janelaTextBox"]
 
-[node name="text_interface_engine" parent="fundo" instance=ExtResource( 2 )]
-
-margin/left = 20.0
-margin/top = 20.0
-margin/right = 580.0
-margin/bottom = 330.0
-FONT = ExtResource( 3 )
-
-[node name="controlaTextbox" type="Control" parent="fundo"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 20.0
-margin/top = 20.0
-margin/right = 580.0
-margin/bottom = 330.0
-script/script = ExtResource( 4 )
+editor/display_folded = false
 
 
+[editable path="janelaTextBox"]
