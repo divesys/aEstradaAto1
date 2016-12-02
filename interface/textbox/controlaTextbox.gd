@@ -42,10 +42,10 @@ func pararEscrever(): #para de escrever
 
 func adicionaMenssagem(menssagem,vel): #adiciona uma menssagem ao array de menssagens na posição i
 	
-	print(menssagem)
+	#print(menssagem)
 	arrayMenssagens.append(str(menssagem))
 	arrayVelocidades.append(vel)
-	print(arrayMenssagens.size())
+	#print(arrayMenssagens.size())
 	
 func imprimeMenssagem(i): #imprime a menssagem da posição i no arrayMenssagem
 

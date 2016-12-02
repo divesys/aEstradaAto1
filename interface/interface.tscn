@@ -1,14 +1,8 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://interface/posicionaInterface.gd" type="Script" id=1]
 [ext_resource path="res://interface/textbox/textBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface/HUD/exibeContadorDePassos.gd" type="Script" id=3]
-[ext_resource path="res://interface/HUD/spr_contadorPassos_0.tex" type="Texture" id=4]
-[ext_resource path="res://interface/HUD/fonteHud.fnt" type="BitmapFont" id=5]
-[ext_resource path="res://interface/HUD/recebeContadorPassos.gd" type="Script" id=6]
-[ext_resource path="res://interface/HUD/exibeContadorDeIdeias.gd" type="Script" id=7]
-[ext_resource path="res://interface/HUD/spr_contadorIdeias_0.tex" type="Texture" id=8]
-[ext_resource path="res://interface/HUD/spr_contadorEnergiaRealizacao_0.tex" type="Texture" id=9]
+[ext_resource path="res://interface/HUD/HUD.tscn" type="PackedScene" id=3]
 
 [node name="interface" type="Control"]
 
@@ -25,124 +19,6 @@ script/script = ExtResource( 1 )
 
 [node name="textBox" parent="." instance=ExtResource( 2 )]
 
-margin/right = 0.0
-margin/bottom = 0.0
-
-[node name="HUD" type="Control" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 600.0
-margin/bottom = 50.0
-
-[node name="contadorDePassos" type="Control" parent="HUD"]
-
-editor/display_folded = true
-visibility/visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 110.0
-margin/bottom = 50.0
-script/script = ExtResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="HUD/contadorDePassos"]
-
-texture = ExtResource( 4 )
-centered = false
-
-[node name="valor" type="Label" parent="HUD/contadorDePassos"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 55.0
-margin/top = 5.0
-margin/right = 110.0
-margin/bottom = 43.0
-custom_fonts/font = ExtResource( 5 )
-text = "0\n"
-autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-script/script = ExtResource( 6 )
-
-[node name="contadorIdeias" type="Control" parent="HUD"]
-
-editor/display_folded = true
-visibility/visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 120.0
-margin/top = 0.0
-margin/right = 230.0
-margin/bottom = 50.0
-script/script = ExtResource( 7 )
-
-[node name="Sprite" type="Sprite" parent="HUD/contadorIdeias"]
-
-texture = ExtResource( 8 )
-centered = false
-
-[node name="valor" type="Label" parent="HUD/contadorIdeias"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 55.0
-margin/top = 5.0
-margin/right = 110.0
-margin/bottom = 47.0
-custom_fonts/font = ExtResource( 5 )
-text = "0"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="contadorEnergiaRealizacao" type="Control" parent="HUD"]
-
-editor/display_folded = true
-visibility/visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 240.0
-margin/top = 0.0
-margin/right = 350.0
-margin/bottom = 50.0
-
-[node name="Sprite" type="Sprite" parent="HUD/contadorEnergiaRealizacao"]
-
-texture = ExtResource( 9 )
-centered = false
-
-[node name="valor" type="Label" parent="HUD/contadorEnergiaRealizacao"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 55.0
-margin/top = 5.0
-margin/right = 110.0
-margin/bottom = 47.0
-custom_fonts/font = ExtResource( 5 )
-text = "0"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+[node name="HUD" parent="." instance=ExtResource( 3 )]
 
 
