@@ -1,4 +1,4 @@
- #cria o texto da narrativa, como é um texto único tudo pode ser iniciado com a função desse script
+#cria o texto do ego
 
 extends Control
 
@@ -26,41 +26,20 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 	indiceAtual = controleFluxoHistoria.getIndiceParte()
 	
 	if(parteAtual == "prologo"):
-		
-		#configuração inicial
-		if(indiceAtual == 0):
-			
-			controleFluxoHistoria.acrescentaIndiceParte()
 			
 		#escreve o texto
 		
-		if(indiceAtual == 1):
+		if(indiceAtual == 9):
 			
 			#determina a textbox
-			origemTextbox.mudaOrigemTexto("narrador")
-			origemTextbox.mudaTipoTexto("fala")
-			origemTextbox.mudaEmocaoTexto("normal")
+			origemTextbox.mudaOrigemTexto("ego")
+			origemTextbox.mudaTipoTexto("pensamento")
+			origemTextbox.mudaEmocaoTexto("pensativo")
 			origemTextbox.mudaVariacaoTexto("")
 			
 			#escreve o texto
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO1"),0.05)
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO2"),0.05)
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO3"),0.05)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO1"),0.05)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
-			
-		elif(indiceAtual == 4):
-			
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO4"),0.05)
-			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
-			
-		elif(indiceAtual == 7):
-			
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO5"),0.05)
-			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
-			pass
-		
 	

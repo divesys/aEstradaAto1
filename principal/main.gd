@@ -24,3 +24,7 @@ func _process(delta):
 	#verifica qual é a parte atual
 	parteAtual = controleFluxoHistoria.getParte()
 	indiceParteAtual = controleFluxoHistoria.getIndiceParte()
+	
+	if(indiceParteAtual == 11):
+		
+		controleFluxoHistoria.alteraEventoEspecial("andarAutomatico",false)

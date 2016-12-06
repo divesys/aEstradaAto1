@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://interface/textbox/Narrador/escreveNarrativa.gd" type="Script" id=1]
+[ext_resource path="res://interface/textbox/Ego/escreveTextoEgo.gd" type="Script" id=1]
 
-[node name="narrativa" type="Control"]
+[node name="egoTexto" type="Control"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -10,8 +10,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 600.0
-margin/bottom = 440.0
+margin/right = 40.0
+margin/bottom = 40.0
 script/script = ExtResource( 1 )
 velocidadePadrao = 0.05
 

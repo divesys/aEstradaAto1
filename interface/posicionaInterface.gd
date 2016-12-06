@@ -42,8 +42,12 @@ func _ready():
 	,"marginTop" : 50
 	,"anchorBottom" : ANCHOR_BEGIN
 	,"marginBottom" : 0
-
 	}
+	
+	textBox.set_anchor_and_margin(MARGIN_LEFT,posTextboxNarrador["anchorLeft"],posTextboxNarrador["marginLeft"])
+	textBox.set_anchor_and_margin(MARGIN_RIGHT,posTextboxNarrador["anchorRight"],posTextboxNarrador["marginRight"])
+	textBox.set_anchor_and_margin(MARGIN_TOP,posTextboxNarrador["anchorTop"],posTextboxNarrador["marginTop"])
+	textBox.set_anchor_and_margin(MARGIN_BOTTOM,posTextboxNarrador["anchorBottom"],posTextboxNarrador["marginBottom"])
 	
 	set_process(true)
 
@@ -51,13 +55,13 @@ func _process(delta):
 	
 	#posiciona a textbox, baseado na resolução e na origem da textbox
 	
-	origemTextoAtual = origemTextbox.getOrigemTexto()
+	#origemTextoAtual = origemTextbox.getOrigemTexto()
 	
-	if(origemTextoAtual == "NARRADOR" and origemTextoAtual != origemTextoAnterior):
+	#if(origemTextoAtual == "narrador" and origemTextoAtual != origemTextoAnterior):
 		
-		textBox.set_anchor_and_margin(MARGIN_LEFT,posTextboxNarrador["anchorLeft"],posTextboxNarrador["marginLeft"])
-		textBox.set_anchor_and_margin(MARGIN_RIGHT,posTextboxNarrador["anchorRight"],posTextboxNarrador["marginRight"])
-		textBox.set_anchor_and_margin(MARGIN_TOP,posTextboxNarrador["anchorTop"],posTextboxNarrador["marginTop"])
-		textBox.set_anchor_and_margin(MARGIN_BOTTOM,posTextboxNarrador["anchorBottom"],posTextboxNarrador["marginBottom"])
+		#textBox.set_anchor_and_margin(MARGIN_LEFT,posTextboxNarrador["anchorLeft"],posTextboxNarrador["marginLeft"])
+		#textBox.set_anchor_and_margin(MARGIN_RIGHT,posTextboxNarrador["anchorRight"],posTextboxNarrador["marginRight"])
+		#textBox.set_anchor_and_margin(MARGIN_TOP,posTextboxNarrador["anchorTop"],posTextboxNarrador["marginTop"])
+		#textBox.set_anchor_and_margin(MARGIN_BOTTOM,posTextboxNarrador["anchorBottom"],posTextboxNarrador["marginBottom"])
 		
-		pass
+		#pass

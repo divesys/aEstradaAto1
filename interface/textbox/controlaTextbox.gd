@@ -4,6 +4,7 @@ extends Control
 
 #recebe o script TIE
 onready var tie = get_parent().get_node("text_interface_engine")
+onready var origemTextBox = get_parent().get_parent()
 
 #variaveis relacionadas a aceleração
 var velocidadeNormal = 0
@@ -47,6 +48,15 @@ func adicionaMenssagem(menssagem,vel): #adiciona uma menssagem ao array de menss
 	arrayVelocidades.append(vel)
 	#print(arrayMenssagens.size())
 	
+func adicionaMenssagemEmocao(strMenssagem,intVel,strOrigem,strTipo,strEmocao,strVariacao): #adiciona menssagem e altera a emoção:
+	
+	origemTextBox.mudaOrigemTexto(strOrigem)
+	origemTextBox.mudaTipoTexto(strTipo)
+	origemTextBox.mudaEmocaoTexto(strEmocao)
+	origemTextBox.mudaVariacaoTexto(strVariacao)
+	arrayMenssagens.append(str(strMenssagem))
+	arrayVelocidades.append(intVel)
+	
 func imprimeMenssagem(i): #imprime a menssagem da posição i no arrayMenssagem
 
 	#print("imprimindo")
@@ -72,11 +82,11 @@ func _process(delta):
 	
 	if(escrevendo == false):
 		
-		get_parent().hide()
+		get_parent().get_parent().hide()
 		
 	else:
 		
-		get_parent().show()
+		get_parent().get_parent().show()
 	
 	
 	if(tie.get_buffer() != []):
