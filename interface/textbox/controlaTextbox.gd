@@ -106,11 +106,11 @@ func _process(delta):
 		#print(tie.get_buffer())
 	elif(tie.get_buffer() == []):
 		
-		if(!Input.is_action_pressed("passarMenssagem") and acelerou == true):
+		if(!Input.is_action_pressed("passarMenssagem") and acelerou == true and controleFluxoHistoria.getTravaTexto() == false):
 			
 			acelerou = false
 		
-		if(Input.is_action_pressed("passarMenssagem") and acelerou == false):
+		if(Input.is_action_pressed("passarMenssagem") and acelerou == false and controleFluxoHistoria.getTravaTexto() == false):
 			
 			#tie.reset()
 			tie.clear_text()

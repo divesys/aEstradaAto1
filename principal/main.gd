@@ -27,4 +27,10 @@ func _process(delta):
 	
 	if(indiceParteAtual == 11):
 		
+		controlaCaixaIdeias.vibraCaixaIdeias(true)
 		controleFluxoHistoria.alteraEventoEspecial("andarAutomatico",false)
+		controleFluxoHistoria.acrescentaIndiceParte()
+		
+	elif(indiceParteAtual == 14):
+		
+		controleFluxoHistoria.setExclusivoTexto(false)

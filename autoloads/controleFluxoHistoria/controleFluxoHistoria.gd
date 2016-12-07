@@ -6,6 +6,8 @@ onready var indiceHistoria = 0 setget ,getIndiceHistoria #determina o indice glo
 onready var indiceParte = 0 setget pularIndiceParte , getIndiceParte#determina o indice da parte, é zerado em toda mudança de parte
 onready var parte = "" setget mudarParte, getParte #string descrevendo o nome da parte em que o jogo se encontra
 onready var eventosEspeciais = {} setget alteraEventoEspecial , getEventoEspecial#dicionarprintio para criar eventos especiais, a chave deverá ser uma string e o valor deverá ser booleano
+onready var exclusivoTexto = false setget setExclusivoTexto, getExclusivoTexto # determina se as interações que não envolvam o texto devem ser travadas
+onready var travaTexto = false setget travarTexto, getTravaTexto #determina se as interações com a textbox deverão ser travadas
 
 func acrescentaIndiceHistoria(): #anda um passo com o indice da historia, raramente é usada de forma externa
 	
@@ -76,3 +78,19 @@ func getEventoEspecial(stringNomeEvento):
 	else:
 		
 		print(" não existe o evento " + stringNomeEvento)
+		
+func setExclusivoTexto(boolValor):
+	
+	exclusivoTexto = boolValor
+	
+func getExclusivoTexto():
+	
+	return exclusivoTexto
+	
+func travarTexto(boolValor):
+	
+	travaTexto = boolValor
+	
+func getTravaTexto():
+	
+	return travaTexto

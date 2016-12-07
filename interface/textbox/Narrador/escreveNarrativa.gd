@@ -43,22 +43,22 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			origemTextbox.mudaVariacaoTexto("")
 			
 			#escreve o texto
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO1"),0.05)
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO2"),0.05)
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO3"),0.05)
+			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO1"),velocidadePadrao)
+			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO2"),velocidadePadrao)
+			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO3"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
 			
 		elif(indiceAtual == 4):
 			
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO4"),0.05)
+			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO4"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
 		elif(indiceAtual == 7):
 			
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO5"),0.05)
+			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO5"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			pass
