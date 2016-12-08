@@ -42,13 +42,13 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 12):
+		elif(controleFluxoHistoria.getIndiceParte() == 13):
 			
 			#muda a emoção
 			origemTextbox.mudaEmocaoTexto("feliz")
 			
 			#impede qualquer outra interação além do texto
-			controleFluxoHistoria.setExclusivoTexto(true)
+			#controleFluxoHistoria.setExclusivoTexto(true)
 			
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO2"),velocidadePadrao)
