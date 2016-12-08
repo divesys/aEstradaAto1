@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://interface/HUD/exibeContadorDePassos.gd" type="Script" id=1]
 [ext_resource path="res://interface/HUD/spr_contadorPassos_0.tex" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://interface/HUD/spr_contadorEnergiaRealizacao_0.tex" type="Texture" id=11]
 [ext_resource path="res://interface/HUD/exibeIconeCaixa.gd" type="Script" id=12]
 [ext_resource path="res://interface/HUD/spr_iconeCaixa_0.png" type="Texture" id=13]
+[ext_resource path="res://interface/interacao.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Animation" id=1]
 
@@ -142,6 +143,7 @@ default/chorus_send = 0.0
 
 [node name="contadorIdeias" type="Control" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -208,6 +210,7 @@ default/chorus_send = 0.0
 
 [node name="contadorEnergiaRealizacao" type="Control" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -273,5 +276,11 @@ playback/active = true
 playback/speed = 1.4
 blend_times = [  ]
 autoplay = ""
+
+[node name="interacao" parent="." instance=ExtResource( 14 )]
+
+margin/left = 350.0
+margin/right = 410.0
+margin/bottom = 50.0
 
 

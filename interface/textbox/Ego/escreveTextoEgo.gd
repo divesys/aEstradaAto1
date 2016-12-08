@@ -45,7 +45,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 		elif(controleFluxoHistoria.getIndiceParte() == 13):
 			
 			#muda a emoção
-			origemTextbox.mudaEmocaoTexto("feliz")
+			origemTextbox.mudaEmocaoTexto("confiante")
 			
 			#impede qualquer outra interação além do texto
 			#controleFluxoHistoria.setExclusivoTexto(true)

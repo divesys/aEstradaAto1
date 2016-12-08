@@ -91,6 +91,10 @@ func _process(delta):
 			if(getEmocaoTexto() == "pensativo"):
 				
 				face.set_texture(load("res://personagens/ego/rostoEgoPensativo.png"))
+				
+			elif(getEmocaoTexto() == "confiante"):
+				
+				face.set_texture(load("res://personagens/ego/rostoEgoConfiante.png"))
 		
 	
 	#origem <<

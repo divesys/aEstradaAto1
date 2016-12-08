@@ -2,9 +2,10 @@
 
 extends Control
 
-#recebe o script TIE
-onready var tie = get_parent().get_node("text_interface_engine")
-onready var origemTextBox = get_parent().get_parent()
+onready var tie = get_parent().get_node("text_interface_engine") #recebe o script TIE
+onready var origemTextBox = get_parent().get_parent() #recebe o script origemtextBox
+onready var iconeTexto = get_parent().get_node("areaIconeMenssagem/Sprite")
+onready var interacaoMouse = origemTextBox.get_node("interacao")
 
 #variaveis relacionadas a aceleração
 var velocidadeNormal = 0
@@ -20,6 +21,8 @@ export var escrevendo = false #indica se a textBox está ativamente escrevendo a
 #variavel de controle de indice da historia
 onready var adicionouIndiceHistoria = false
 
+#variavel de interação
+var clicando = false
 
 func comecarEscrever(): #comeca a escrever
 
@@ -80,6 +83,9 @@ func _process(delta):
 	#print(indiceAtualMenssagem)
 	#print(arrayMenssagens.size())
 	
+	clicando = interacaoMouse.getClicando()
+	#print(clicando)
+	
 	if(escrevendo == false):
 		
 		get_parent().get_parent().hide()
@@ -88,11 +94,20 @@ func _process(delta):
 		
 		get_parent().get_parent().show()
 	
-	
 	if(tie.get_buffer() != []):
 		
+		if(tie._max_lines_reached):
+		
+			#ajusta o icone do texto para esperando
+			iconeTexto.set_animation("esperando")
+		
+		else:
+			
+			#ajusta o icone do texto para escrevendo
+			iconeTexto.set_animation("escrevendo")
+		
 		#acelera e desacelera a menssagem
-		if(Input.is_action_pressed("passarMenssagem")):
+		if(Input.is_action_pressed("passarMenssagem") or clicando == true):
 				
 			tie.set_buff_speed(velocidadeAcelerada)
 			acelerou = true
@@ -106,11 +121,14 @@ func _process(delta):
 		#print(tie.get_buffer())
 	elif(tie.get_buffer() == []):
 		
-		if(!Input.is_action_pressed("passarMenssagem") and acelerou == true and controleFluxoHistoria.getTravaTexto() == false):
+		#ajusta o icone do texto para esperando
+		iconeTexto.set_animation("esperando")
+		
+		if(!Input.is_action_pressed("passarMenssagem") and clicando == false and acelerou == true and controleFluxoHistoria.getTravaTexto() == false):
 			
 			acelerou = false
 		
-		if(Input.is_action_pressed("passarMenssagem") and acelerou == false and controleFluxoHistoria.getTravaTexto() == false):
+		if((Input.is_action_pressed("passarMenssagem")  or clicando == true) and acelerou == false and controleFluxoHistoria.getTravaTexto() == false):
 			
 			#tie.reset()
 			tie.clear_text()
