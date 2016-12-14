@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://recursos de base/ideia.png" type="Texture" id=1]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/reageIdeia.gd" type="Script" id=2]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/fonteIdeia.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/geraIdeia.gd" type="Script" id=4]
+
+[node name="ideia" type="Sprite"]
+
+transform/pos = Vector2( 610.919, 433.205 )
+texture = ExtResource( 1 )
+script/script = ExtResource( 2 )
+
+[node name="texto" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -73.0
+margin/top = -17.0
+margin/right = 72.0
+margin/bottom = 17.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 4 )
+
+

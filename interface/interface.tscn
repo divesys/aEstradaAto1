@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://interface/posicionaInterface.gd" type="Script" id=1]
 [ext_resource path="res://interface/HUD/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/textbox/JanelaTextBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/caixaDeIdeias/caixaDeIdeias.tscn" type="PackedScene" id=4]
 
 [node name="interface" type="Control"]
 
@@ -25,7 +26,9 @@ editor/display_folded = true
 
 [node name="Sprite" parent="textBox/Conteudo/areaIconeMenssagem"]
 
-frame = 5
+frame = 9
+
+[node name="caixaDeIdeias" parent="." instance=ExtResource( 4 )]
 
 
 [editable path="textBox"]

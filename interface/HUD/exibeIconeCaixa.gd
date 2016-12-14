@@ -28,4 +28,5 @@ func _process(delta):
 			hide()
 			anim.stop(true)
 			controlaCaixaIdeias.vibraCaixaIdeias(false)
+			controlaCaixaIdeias.abreCaixaIdeias()
 			exibiuIcone = false

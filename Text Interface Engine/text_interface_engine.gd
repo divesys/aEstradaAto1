@@ -52,6 +52,9 @@ export(bool) var BLINKING_INPUT = true # If there is a _ blinking when input is 
 export(int) var INPUT_CHARACTERS_LIMIT = -1 # If -1, there'll be no limits in the number of characters
 # ===============================================
 
+onready var interacaoMouse = get_parent().get_parent().get_node("interacao")
+onready var clicando = false
+
 func buff_debug(f, lab = false, arg0 = null, push_front = false): # For simple debug purposes; use with care
 	var b = {"buff_type":BUFF_DEBUG,"debug_function":f,"debug_label":lab,"debug_arg":arg0}
 	if(! push_front):
@@ -168,6 +171,7 @@ func set_buff_speed(v): # Changes the velocity of the text being printed
 # Override
 func _ready():
 	set_fixed_process(true)
+	#set_process(true)
 	set_process_input(true)
 	
 	add_child(_label)
@@ -191,10 +195,15 @@ func _ready():
 	add_user_signal("resume_break") # When the engine resumes from a break
 	add_user_signal("tag_buff",[{"tag":TYPE_STRING}]) # When the _buffer reaches a buff which is tagged
 
+#func _process(delta):
+	#clicando = interacaoMouse.getClicando()
+	#print(clicando)
+
 func _fixed_process(delta):
 	
 	#_max_lines = floor(get_size().y/_label.get_line_height())
 	#print(_max_lines)
+	
 	if(_state == STATE_OUTPUT): # Output
 		if(_buffer.size() == 0):
 			set_state(STATE_WAITING)
@@ -290,7 +299,24 @@ func _fixed_process(delta):
 	pass
 
 func _input(event):
-	if(event.type == InputEvent.KEY and event.is_pressed() == true ):
+	
+	clicando = interacaoMouse.getClicando()
+	#print(clicando)
+	
+	if(clicando == true):
+		
+		#print("acho que")
+			
+		if(_state == 1 and _on_break):
+			
+			#print("agora foi")
+			#clicando = interacaoMouse.getClicando()
+			emit_signal("resume_break")
+			_buffer.pop_front() # Pop out break buff
+			_on_break = false
+			pass
+	
+	elif(event.type == InputEvent.KEY and event.is_pressed() == true):
 		if(SCROLL_SKIPPED_LINES and event.scancode == KEY_UP or event.scancode == KEY_DOWN): # User is just scrolling the text
 			if(event.scancode == KEY_UP):
 				if(_label.get_lines_skipped() > 0):
@@ -299,7 +325,8 @@ func _input(event):
 				if(_label.get_lines_skipped() < _label.get_line_count()-_max_lines):
 					_label.set_lines_skipped(_label.get_lines_skipped()+1)
 		elif(_state == 1 and _on_break): # If its on a break
-			if(event.scancode == _break_key):
+			#print(interacaoMouse.getClicando())
+			if(Input.is_action_pressed("passarMenssagem") or clicando == true):#if(event.scancode == _break_key):
 				emit_signal("resume_break")
 				_buffer.pop_front() # Pop out break buff
 				_on_break = false
