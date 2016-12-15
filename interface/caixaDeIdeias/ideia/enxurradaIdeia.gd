@@ -24,7 +24,7 @@ func adicionaNideias(intNumero):
 
 func adicionaIdeias():
 	
-	print("adicionou")
+	#print("adicionou")
 	
 	maximoIdeias = floor(rand_range(1,3))
 	

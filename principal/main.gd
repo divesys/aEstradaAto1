@@ -57,7 +57,7 @@ func _process(delta):
 			atrasaFluxoHistoria.start()
 			iniciouTimer = true
 		
-		print(atrasaFluxoHistoria.get_time_left())
+		#print(atrasaFluxoHistoria.get_time_left())
 
 		
 	elif(indiceParteAtual == 15):
