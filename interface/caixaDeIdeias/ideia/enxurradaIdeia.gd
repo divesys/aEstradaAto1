@@ -13,14 +13,48 @@ onready var xIdeia = 0
 onready var yIdeia = 0
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	
 	pass
 
-func adicionaNideias(intNumero):
+func adicionaIdeiaDetalhada(stringReacao):
 	
-	pass
+	#cria o nó da ideia
+	noIdeia = cenaIdeia.instance()
+	add_child(noIdeia)
+	
+	#pega o tamanho da ídeia
+	larguraIdeia = noIdeia.get_texture().get_width()
+	alturaIdeia = noIdeia.get_texture().get_height()
+	
+	#determina as coordenas
+	randomize()
+	xIdeia = rand_range(larguraIdeia/2,larguraArea - (larguraIdeia/2))
+	yIdeia = rand_range(alturaIdeia/2,alturaArea - (alturaIdeia/2))
+	
+	#posiciona a ideia
+	noIdeia.set_pos(Vector2(xIdeia,yIdeia))
+	
+	noIdeia.decideReacao(stringReacao)
+
+func adicionaNIdeias(intNumeroIdeias):
+	
+	for i in range(1,intNumeroIdeias + 1):
+		
+		#cria o nó da ideia
+		noIdeia = cenaIdeia.instance()
+		add_child(noIdeia)
+		
+		#pega o tamanho da ídeia
+		larguraIdeia = noIdeia.get_texture().get_width()
+		alturaIdeia = noIdeia.get_texture().get_height()
+		
+		#determina as coordenas
+		randomize()
+		xIdeia = rand_range(larguraIdeia/2,larguraArea - (larguraIdeia/2))
+		yIdeia = rand_range(alturaIdeia/2,alturaArea - (alturaIdeia/2))
+		
+		#posiciona a ideia
+		noIdeia.set_pos(Vector2(xIdeia,yIdeia))
 
 func adicionaIdeias():
 	

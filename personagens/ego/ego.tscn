@@ -14,7 +14,6 @@ animations = [ { "frames":[ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 )
 
 [node name="ego" type="AnimatedSprite"]
 
-editor/display_folded = true
 frames = SubResource( 1 )
 animation = "egoParado"
 playing = true

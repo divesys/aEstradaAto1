@@ -80,22 +80,37 @@ func _process(delta):
 				
 	elif(origemTexto == "ego"):
 		
-		simboloNome.add_font_override("font",preload("res://interface/textbox/Narrador/fonteNarrador.fnt"))
+		simboloNome.add_font_override("font",preload("res://interface/textbox/Ego/fonteEgo.fnt"))
 		simboloNome.set_text("Ego")
 		
 		if(getTipoTexto() == "pensamento"):
 			
 			fundoTextBox.set_texture(preload("res://recursos de base/egoTextBoxV1.png")) #aplica o fundo da textbox
-			fonteConteudo.set_font_bypath("res://interface/textbox/Narrador/fonteNarrador.fnt")
+			fonteConteudo.set_font_bypath("res://interface/textbox/Ego/fonteEgo.fnt") #aplica a fonte do conteúdo
 			
 			if(getEmocaoTexto() == "pensativo"):
 				
-				face.set_texture(load("res://personagens/ego/rostoEgoPensativo.png"))
+				face.set_texture(preload("res://personagens/Ego/rostoEgoPensativo.png"))
 				
 			elif(getEmocaoTexto() == "confiante"):
 				
-				face.set_texture(load("res://personagens/ego/rostoEgoConfiante.png"))
-		
+				face.set_texture(preload("res://personagens/Ego/rostoEgoConfiante.png"))
+				
+			elif(getEmocaoTexto() == "feliz"):
+				
+				face.set_texture(preload("res://personagens/Ego/rostoEgoFeliz.png"))
+				
+			elif(getEmocaoTexto() == "triste"):
+				
+				face.set_texture(preload("res://personagens/Ego/rostoEgoTriste.png"))
+				
+			elif(getEmocaoTexto() == "exausto"):
+				
+				face.set_texture(preload("res://personagens/Ego/rostoEgoExausto.png"))
+				
+			elif(getEmocaoTexto() == "raiva"):
+				
+				face.set_texture(preload("res://personagens/Ego/rostoEgoRaiva.png"))
 	
 	#origem <<
 	

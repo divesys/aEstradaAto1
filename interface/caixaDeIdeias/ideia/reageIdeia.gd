@@ -2,6 +2,7 @@
 
 extends Sprite
 
+
 onready var interacaoMouse = get_node("interacao")
 onready var chanceRecusa = 40
 onready var chanceEngana = 30
@@ -11,32 +12,48 @@ onready var reacao = ""
 onready var resorteou = false
 onready var reagindo = false
 onready var animacao = get_node("anim")
+onready var particulas = get_node("Particles2D")
 onready var clicando = false
+
+var atrasa = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
+var iniciouTimer = false
 
 func _ready():
 	
-	sorteaReacao()
+	if(controleFluxoHistoria.getParte() != "prologo"):
+		
+		sorteaReacao()
+		
 	set_process(true)
+	
+#	#cria um timer para atraso entre eventos
+	atrasa.set_one_shot(true)
+	atrasa.set_timer_process_mode(0)
+	atrasa.set_wait_time(0.5)
+	add_child(atrasa)
+	atrasa.connect("timeout", self, "atrasaAutoDestroi")
 	
 func _process(delta):
 	
-	#determina se a reação devera ser resorteada
+	if(controleFluxoHistoria.getParte() != "prologo"):
 	
-	if(resorteou == false and controlaCaixaIdeias.getEstado() == "aberta"):
-		
-		sorteaReacao()
-		resorteou = true
-		
-	elif(controlaCaixaIdeias.getEstado() == "fechada"):
-		
-		resorteou = false
+		#determina se a reação devera ser resorteada
+		if(resorteou == false and controlaCaixaIdeias.getEstado() == "aberta"):
+			
+			sorteaReacao()
+			resorteou = true
+			
+		elif(controlaCaixaIdeias.getEstado() == "fechada"):
+			
+			resorteou = false
 		
 	#executa a reacao
 		
 	clicando = interacaoMouse.getClicando()
 	
-		
-	if(reagindo == false and clicando == true):
+	print(reagindo)
+	
+	if((reagindo == false and clicando == true) and self.is_visible() == true):
 		
 		if(reacao == "recusa"):
 			
@@ -46,13 +63,15 @@ func _process(delta):
 			
 			animacao.play("engana")
 			
-		elif(reacao == "libera"):
+		elif(reacao == "libera" and particulas.is_emitting() == false):
 			
 			animacao.play("libera")
+			
 			
 	if(animacao.is_playing() == false):
 		
 		reagindo = false
+		
 		
 	elif(animacao.is_playing() == true):
 		
@@ -76,3 +95,26 @@ func sorteaReacao():
 	elif(decideReacao > (chanceRecusa + chanceEngana) and decideReacao <= 100):
 		
 		reacao = "libera"
+		
+func decideReacao(stringReacao):
+	
+	reacao = stringReacao
+	
+func getReagindo():
+	
+	return reagindo
+
+func _on_anim_finished():
+	
+	if(reacao == "libera" and particulas.get_emit_timeout() == false):
+		
+		if(iniciouTimer == false):
+			
+			atrasa.set_wait_time(particulas.get_lifetime())
+			atrasa.start()
+			iniciouTimer == true
+	
+func atrasaAutoDestroi():
+	
+	self.queue_free()
+	iniciouTimer = false

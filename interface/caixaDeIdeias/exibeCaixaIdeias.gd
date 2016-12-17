@@ -3,6 +3,7 @@
 extends Control
 
 onready var adicionouIdeia = "" #determina se as ideias foram adicionadas
+onready var areaDeIdeias = get_node("areaDeIdeias")
 
 func _ready():
 
@@ -13,10 +14,18 @@ func _process(delta):
 	if(controlaCaixaIdeias.getEstado() == "abrindo" or controlaCaixaIdeias.getEstado() == "aberta"):
 		
 		show()
-		if(adicionouIdeia == false):
+		
+		if((adicionouIdeia == false) and controleFluxoHistoria.getParte() != "prologo"):
 			
-			get_node("areaDeIdeias").adicionaIdeias()
+			areaDeIdeias.adicionaIdeias()
 			adicionouIdeia = true
+			
+		elif((adicionouIdeia == false) and controleFluxoHistoria.getParte() == "prologo"):
+			
+			if(controleFluxoHistoria.getIndiceParte() == 17):
+				
+				areaDeIdeias.adicionaNIdeias(3)
+				controleFluxoHistoria.acrescentaIndiceParte()
 		
 	elif(controlaCaixaIdeias.getEstado() == "fechando" or controlaCaixaIdeias.getEstado() == "fechada"):
 		

@@ -61,6 +61,3 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO5"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
-			pass
-		
-	

@@ -7,12 +7,14 @@ var parteAtual = ""
 var indiceParteAtual = 0
 var atrasaFluxoHistoria = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
 var iniciouTimer = false
+onready var caixaDeIdeias =get_node("interface/caixaDeIdeias")
 
 
 func _ready():
 
 	#cria eventos especiais
 	controleFluxoHistoria.criaEventoEspecial("andarAutomatico" , true) #evento que determina se o ego devera se manter andando
+	controleFluxoHistoria.criaEventoEspecial("andarHabilitado" , false) #evento que determina se o Ego pode andar ou não
 	
 	#inicia a primeira parte
 	controleFluxoHistoria.mudarParte("prologo")
@@ -63,7 +65,26 @@ func _process(delta):
 	elif(indiceParteAtual == 15):
 		
 		controleFluxoHistoria.setExclusivoTexto(false)
+		controleFluxoHistoria.acrescentaIndiceParte()
 		
+#		if(controlaCaixaIdeias.getEstado() == "aberta"):
+#		
+#			caixaDeIdeias.adicionaIdeiaDetalhada("recusa")
+#			caixaDeIdeias.adicionaIdeiaDetalhada("engana")
+#			caixaDeIdeias.adicionaIdeiaDetalhada("libera")
+			
+			
+	elif(indiceParteAtual == 18):
+		
+		controleFluxoHistoria.setExclusivoTexto(true)
+		controleFluxoHistoria.acrescentaIndiceParte()
+	
+	elif(indiceParteAtual == 23):
+		
+		atrasaFluxoHistoria.set_wait_time(3)
+		controleFluxoHistoria.acrescentaIndiceParte()
+	
+	
 func atrasaAcresentaIndice():
 	
 	#print("oxe")

@@ -2,8 +2,8 @@
 
 [ext_resource path="res://interface/posicionaInterface.gd" type="Script" id=1]
 [ext_resource path="res://interface/HUD/HUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://interface/textbox/JanelaTextBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://interface/caixaDeIdeias/caixaDeIdeias.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/caixaDeIdeias/caixaDeIdeias.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/textbox/JanelaTextBox.tscn" type="PackedScene" id=4]
 
 [node name="interface" type="Control"]
 
@@ -20,15 +20,23 @@ script/script = ExtResource( 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
-[node name="textBox" parent="." instance=ExtResource( 3 )]
+[node name="caixaDeIdeias" parent="." instance=ExtResource( 3 )]
+
+[node name="textBox" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+
+[node name="areaFace" parent="textBox"]
+
+editor/display_folded = true
+
+[node name="Conteudo" parent="textBox"]
 
 editor/display_folded = true
 
 [node name="Sprite" parent="textBox/Conteudo/areaIconeMenssagem"]
 
-frame = 9
-
-[node name="caixaDeIdeias" parent="." instance=ExtResource( 4 )]
+frame = 0
 
 
 [editable path="textBox"]

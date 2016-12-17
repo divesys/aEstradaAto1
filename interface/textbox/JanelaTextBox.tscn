@@ -166,7 +166,7 @@ margin/bottom = 230.0
 transform/pos = Vector2( 20, 20 )
 frames = SubResource( 1 )
 animation = "escrevendo"
-frame = 7
+frame = 4
 playing = true
 
 [node name="interacao" parent="." instance=ExtResource( 35 )]

@@ -10,6 +10,7 @@ func vibraCaixaIdeias(boolValor):
 func getVibrarCaixaIdeias():
 	
 	return vibrarCaixaIdeias
+	
 func abreCaixaIdeias():
 	
 	#estadoCaixaIdeias = "abrindo" #quando existir animação de abrir

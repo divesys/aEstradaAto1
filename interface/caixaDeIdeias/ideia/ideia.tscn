@@ -1,25 +1,26 @@
-[gd_scene load_steps=23 format=1]
+[gd_scene load_steps=24 format=1]
 
 [ext_resource path="res://recursos de base/ideia.png" type="Texture" id=1]
 [ext_resource path="res://interface/caixaDeIdeias/ideia/reageIdeia.gd" type="Script" id=2]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/fonteIdeia.fnt" type="BitmapFont" id=3]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/geraIdeia.gd" type="Script" id=4]
-[ext_resource path="res://interface/HUD/particulas/estralaMaisOuMenos.png" type="Texture" id=5]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaEnganar.smp" type="Sample" id=6]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaLiberar.smp" type="Sample" id=7]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaLiberarB.smp" type="Sample" id=8]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaLiberarC.smp" type="Sample" id=9]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaLiberarPre.smp" type="Sample" id=10]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaManter.smp" type="Sample" id=11]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaManterB.smp" type="Sample" id=12]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaManterC.smp" type="Sample" id=13]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaManterD.smp" type="Sample" id=14]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMantera.smp" type="Sample" id=15]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMultiplicar.smp" type="Sample" id=16]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMultiplicarA.smp" type="Sample" id=17]
-[ext_resource path="res://interface/interacao.tscn" type="PackedScene" id=18]
+[ext_resource path="res://interface/interacao.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/fonteIdeia.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/geraIdeia.gd" type="Script" id=5]
+[ext_resource path="res://interface/HUD/particulas/estralaMaisOuMenos.png" type="Texture" id=6]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaEnganar.smp" type="Sample" id=7]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaLiberar.smp" type="Sample" id=8]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaLiberarB.smp" type="Sample" id=9]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaLiberarC.smp" type="Sample" id=10]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaLiberarPre.smp" type="Sample" id=11]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaManter.smp" type="Sample" id=12]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaManterB.smp" type="Sample" id=13]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaManterC.smp" type="Sample" id=14]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaManterD.smp" type="Sample" id=15]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMantera.smp" type="Sample" id=16]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMultiplicar.smp" type="Sample" id=17]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMultiplicarA.smp" type="Sample" id=18]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/reacaoDeterminada.gd" type="Script" id=19]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 resource/name = "engana"
 length = 1.4
@@ -36,7 +37,7 @@ tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ "snd_ideiaEnganar" ] }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 resource/name = "libera"
 length = 1.8
@@ -63,9 +64,8 @@ tracks/3/interp = 1
 tracks/3/imported = false
 tracks/3/keys = { "times":FloatArray( 0, 1.3 ), "transitions":FloatArray( 1, 1 ), "update":2, "values":[ "snd_ideiaLiberarPre", "snd_ideiaLiberarB" ] }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=3]
 
-resource/name = "recusa"
 length = 1.0
 loop = false
 step = 0.01
@@ -87,24 +87,31 @@ tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "updat
 
 [sub_resource type="SampleLibrary" id=4]
 
-samples/snd_ideiaEnganar = { "db":5.0, "pitch":1.0, "sample":ExtResource( 6 ) }
-samples/snd_ideiaLiberar = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
-samples/snd_ideiaLiberarB = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
-samples/snd_ideiaLiberarC = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
-samples/snd_ideiaLiberarPre = { "db":0.0, "pitch":1.0, "sample":ExtResource( 10 ) }
-samples/snd_ideiaManter = { "db":0.0, "pitch":1.0, "sample":ExtResource( 11 ) }
-samples/snd_ideiaManterB = { "db":0.0, "pitch":1.0, "sample":ExtResource( 12 ) }
-samples/snd_ideiaManterC = { "db":0.0, "pitch":1.0, "sample":ExtResource( 13 ) }
-samples/snd_ideiaManterD = { "db":0.0, "pitch":1.0, "sample":ExtResource( 14 ) }
-samples/snd_ideiaMantera = { "db":0.0, "pitch":1.0, "sample":ExtResource( 15 ) }
-samples/snd_ideiaMultiplicar = { "db":0.0, "pitch":1.0, "sample":ExtResource( 16 ) }
-samples/snd_ideiaMultiplicarA = { "db":0.0, "pitch":1.0, "sample":ExtResource( 17 ) }
+samples/snd_ideiaEnganar = { "db":5.0, "pitch":1.0, "sample":ExtResource( 7 ) }
+samples/snd_ideiaLiberar = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
+samples/snd_ideiaLiberarB = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
+samples/snd_ideiaLiberarC = { "db":0.0, "pitch":1.0, "sample":ExtResource( 10 ) }
+samples/snd_ideiaLiberarPre = { "db":0.0, "pitch":1.0, "sample":ExtResource( 11 ) }
+samples/snd_ideiaManter = { "db":0.0, "pitch":1.0, "sample":ExtResource( 12 ) }
+samples/snd_ideiaManterB = { "db":0.0, "pitch":1.0, "sample":ExtResource( 13 ) }
+samples/snd_ideiaManterC = { "db":0.0, "pitch":1.0, "sample":ExtResource( 14 ) }
+samples/snd_ideiaManterD = { "db":0.0, "pitch":1.0, "sample":ExtResource( 15 ) }
+samples/snd_ideiaMantera = { "db":0.0, "pitch":1.0, "sample":ExtResource( 16 ) }
+samples/snd_ideiaMultiplicar = { "db":0.0, "pitch":1.0, "sample":ExtResource( 17 ) }
+samples/snd_ideiaMultiplicarA = { "db":0.0, "pitch":1.0, "sample":ExtResource( 18 ) }
 
 [node name="ideia" type="Sprite"]
 
 transform/pos = Vector2( 610.919, 433.205 )
 texture = ExtResource( 1 )
 script/script = ExtResource( 2 )
+
+[node name="interacao" parent="." instance=ExtResource( 3 )]
+
+margin/left = -75.0
+margin/top = -75.0
+margin/right = 75.0
+margin/bottom = 75.0
 
 [node name="texto" type="Label" parent="."]
 
@@ -116,23 +123,23 @@ margin/left = -73.0
 margin/top = -15.0
 margin/right = 92.0
 margin/bottom = 19.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script/script = ExtResource( 4 )
+script/script = ExtResource( 5 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/engana = SubResource( 2 )
-anims/libera = SubResource( 3 )
-anims/recusa = SubResource( 1 )
+anims/engana = SubResource( 1 )
+anims/libera = SubResource( 2 )
+anims/recusa = SubResource( 3 )
 playback/active = true
 playback/speed = 1.5
 blend_times = [  ]
@@ -147,7 +154,7 @@ config/time_scale = 2.5
 config/preprocess = 1.0
 config/emitting = false
 config/explosiveness = 0.2
-config/texture = ExtResource( 5 )
+config/texture = ExtResource( 6 )
 params/direction = 0.0
 params/spread = 360.0
 params/linear_velocity = 30.0
@@ -184,11 +191,20 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
-[node name="interacao" parent="." instance=ExtResource( 18 )]
+[node name="reacaoDeterminada" type="Control" parent="."]
 
-margin/left = -75.0
-margin/top = -75.0
-margin/right = 75.0
-margin/bottom = 75.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 19 )
+
+[connection signal="finished" from="anim" to="reacaoDeterminada" method="_on_anim_finished"]
+
+[connection signal="finished" from="anim" to="." method="_on_anim_finished"]
 
 

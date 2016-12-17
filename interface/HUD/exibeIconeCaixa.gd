@@ -19,7 +19,7 @@ func _process(delta):
 		
 		if(exibiuIcone == false):
 			
-			anim.play("vibraCaixa") #inicia a animação de virbrar
+			anim.play("vibraCaixa") #inicia a animação de vibrar
 			show() #mostra a caixa
 			exibiuIcone = true
 		
@@ -30,3 +30,4 @@ func _process(delta):
 			controlaCaixaIdeias.vibraCaixaIdeias(false)
 			controlaCaixaIdeias.abreCaixaIdeias()
 			exibiuIcone = false
+			controleFluxoHistoria.acrescentaIndiceParte()

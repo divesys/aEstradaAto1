@@ -16,7 +16,7 @@ func _ready():
 func _process(delta):
 	
 	#move o fundo ao apertar moveDireita >
-	if(controleFluxoHistoria.getEventoEspecial("andarAutomatico") == false):
+	if(controleFluxoHistoria.getEventoEspecial("andarAutomatico") == false and controleFluxoHistoria.getEventoEspecial("andarHabilitado")  == true):
 			
 		if(Input.is_action_pressed("moveDireita")):
 			

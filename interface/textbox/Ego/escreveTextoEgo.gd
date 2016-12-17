@@ -45,7 +45,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 		elif(controleFluxoHistoria.getIndiceParte() == 13):
 			
 			#muda a emoção
-			origemTextbox.mudaEmocaoTexto("confiante")
+			origemTextbox.mudaEmocaoTexto("feliz")
 			
 			#impede qualquer outra interação além do texto
 			#controleFluxoHistoria.setExclusivoTexto(true)
@@ -53,5 +53,67 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO2"),velocidadePadrao)
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO3"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 19):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("triste")
+			
+			#escreve o texto
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO4"),velocidadePadrao)
+			#controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO5"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.setExclusivoTexto(false)
+		
+		elif(controleFluxoHistoria.getIndiceParte() == 21):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("feliz")
+			
+			#escreve o texto
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO5"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+		
+		elif(controleFluxoHistoria.getIndiceParte() == 25):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("pensativo")
+			
+			#escreve o texto
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO6"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 29):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("triste")
+			
+			#escreve o texto
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO7"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 33):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("feliz")
+			
+			#escreve o texto
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO8"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 37):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("raiva")
+			
+			#escreve o texto
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO9"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
