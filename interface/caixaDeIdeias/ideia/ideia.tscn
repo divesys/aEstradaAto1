@@ -100,7 +100,7 @@ samples/snd_ideiaMantera = { "db":0.0, "pitch":1.0, "sample":ExtResource( 16 ) }
 samples/snd_ideiaMultiplicar = { "db":0.0, "pitch":1.0, "sample":ExtResource( 17 ) }
 samples/snd_ideiaMultiplicarA = { "db":0.0, "pitch":1.0, "sample":ExtResource( 18 ) }
 
-[node name="ideia" type="Sprite"]
+[node name="ideia" type="Sprite" groups=[ "ideias" ]]
 
 transform/pos = Vector2( 610.919, 433.205 )
 texture = ExtResource( 1 )
@@ -108,10 +108,17 @@ script/script = ExtResource( 2 )
 
 [node name="interacao" parent="." instance=ExtResource( 3 )]
 
-margin/left = -75.0
-margin/top = -75.0
-margin/right = 75.0
-margin/bottom = 75.0
+margin/left = -55.0
+margin/top = -52.0
+margin/right = 54.0
+margin/bottom = 54.0
+
+[node name="interacao1" parent="." instance=ExtResource( 3 )]
+
+margin/left = -55.0
+margin/top = -52.0
+margin/right = 54.0
+margin/bottom = 54.0
 
 [node name="texto" type="Label" parent="."]
 

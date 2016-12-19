@@ -51,7 +51,7 @@ func _process(delta):
 		
 	clicando = interacaoMouse.getClicando()
 	
-	print(reagindo)
+	#print(reagindo)
 	
 	if((reagindo == false and clicando == true) and self.is_visible() == true):
 		

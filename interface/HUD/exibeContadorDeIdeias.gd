@@ -34,3 +34,5 @@ func _process(delta):
 		if(!anim.is_playing()):
 			
 			controleFluxoHistoria.acrescentaIndiceParte() 
+			
+	labelValor.set_text(str(globais.getTotalIdeias()))

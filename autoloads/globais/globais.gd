@@ -1,5 +1,7 @@
  # variveis globais com getters e se for preciso, setters
 
+extends Node2D
+
 #conta o numero de passos
 var passosPrologo = 0 setget getPassosPrologo, setPassosPrologo #numero de passos no prologo
 var passosSupostos = 0 setget getPassosSupostos, setPassosSupostos#numero de passos apos o prologo
@@ -11,6 +13,14 @@ var energiaRealizacaoReal = 0 setget getEnergiaRealizacaoReal, setEnergiaRealiza
 
 #conta o total de ideias
 var totalIdeias = 0 setget getTotalIdeias #conta o numero total de ideias na caixa, não têm set pois calcula o número de instancias do tipo ideia
+
+func _ready():
+	
+	set_process(true)
+	
+func _process(delta):
+	
+	totalIdeias = get_tree().get_nodes_in_group("ideias").size()
 
 #funções get e set e afins>
 
