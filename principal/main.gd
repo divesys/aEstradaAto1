@@ -19,6 +19,14 @@ func _ready():
 	#inicia a primeira parte
 	controleFluxoHistoria.mudarParte("prologo")
 	
+	#cria uma semente aleatoria
+	randomize()
+	
+	#gera o número inicial de passos e de ideias
+	globais.setPassosPrologo(round(rand_range(10,50))) #inicializa um número aleatorio de passos
+	caixaDeIdeias.get_node("areaDeIdeias").adicionaNIdeias(3) #adiciona 3 ideias, que não serão visiveis nesse momento
+	contaCliquesIdeias.iniciaCliquesN(3) #força a ter exatamente 3 cliques
+	
 	#cria um timer para atraso entre eventos
 	atrasaFluxoHistoria.set_one_shot(true)
 	atrasaFluxoHistoria.set_timer_process_mode(0)

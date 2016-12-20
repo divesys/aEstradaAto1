@@ -9,7 +9,7 @@ onready var interacaoMouse = origemTextBox.get_node("interacao")
 
 #variaveis relacionadas a aceleração
 var velocidadeNormal = 0
-var velocidadeAcelerada = 0.01
+var velocidadeAcelerada = 0 #0.01
 var acelerou = false #determina se o úsuario está acelerando o texto na menssagem atual, serve para impedir que ele mude de menssagem enquanto acelera
 
 #variaveis de texto

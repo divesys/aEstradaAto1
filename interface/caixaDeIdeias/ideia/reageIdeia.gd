@@ -14,6 +14,7 @@ onready var reagindo = false
 onready var animacao = get_node("anim")
 onready var particulas = get_node("Particles2D")
 onready var clicando = false
+onready var reduziu = false
 
 var atrasa = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
 var iniciouTimer = false
@@ -35,6 +36,13 @@ func _ready():
 	
 func _process(delta):
 	
+	#print(reduziu)
+	
+	if(controlaCaixaIdeias.getEstado() != "aberta"):
+		
+		#print("estou aqui")
+		reduziu == false
+	
 	if(controleFluxoHistoria.getParte() != "prologo"):
 	
 		#determina se a reação devera ser resorteada
@@ -51,9 +59,10 @@ func _process(delta):
 		
 	clicando = interacaoMouse.getClicando()
 	
-	#print(reagindo)
+	#print(clicando)
 	
-	if((reagindo == false and clicando == true) and self.is_visible() == true):
+	if((reagindo == false and clicando == true) and self.is_visible()):
+		
 		
 		if(reacao == "recusa"):
 			
@@ -67,11 +76,21 @@ func _process(delta):
 			
 			animacao.play("libera")
 			
+		#reduz o número de cliques restantes
+		if(reduziu == false):
+			
+			reduziu = true
+			contaCliquesIdeias.resetaReduziu()
+			contaCliquesIdeias.reduzClique()
+			
+		
+			
 			
 	if(animacao.is_playing() == false):
 		
-		reagindo = false
-		
+		if(reacao != "libera"):
+			
+			reagindo = false
 		
 	elif(animacao.is_playing() == true):
 		
@@ -106,15 +125,33 @@ func getReagindo():
 
 func _on_anim_finished():
 	
-	if(reacao == "libera" and particulas.get_emit_timeout() == false):
+	#reagindo = true
+	
+	if(reacao != "libera"):
+		
+		#reagindo = false
+		globais.reduzIdeiaReagindo()
+	
+	elif(reacao == "libera" and particulas.get_emit_timeout() == false):
 		
 		if(iniciouTimer == false):
 			
 			atrasa.set_wait_time(particulas.get_lifetime())
 			atrasa.start()
 			iniciouTimer == true
+
+func _on_anim_animation_started( name ):
 	
+	globais.adicionaIdeiaReagindo()
+
+			
 func atrasaAutoDestroi():
 	
-	self.queue_free()
-	iniciouTimer = false
+	if(reacao == "libera"):
+		
+		reagindo = false
+		globais.reduzIdeiaReagindo()
+		self.queue_free()
+		iniciouTimer = false
+
+

@@ -12,7 +12,10 @@ var energiaRealizacaoSuposta = 0 setget getEnergiaRealizacaoSuposta, setEnergiaR
 var energiaRealizacaoReal = 0 setget getEnergiaRealizacaoReal, setEnergiaRealizacaoReal#valor guardado para o ato 3 que representa a energia de realizacao antes de zerar
 
 #conta o total de ideias
-var totalIdeias = 0 setget getTotalIdeias #conta o numero total de ideias na caixa, não têm set pois calcula o número de instancias do tipo ideia
+var totalIdeias = 0 setget ,getTotalIdeias #conta o numero total de ideias na caixa, não têm set pois calcula o número de instancias do tipo ideia
+
+#verifica o número de ideias reagindo ao mesmo tempo
+var totalIdeiasReagindo = 0 setget  ,getTotalIdeiaReagindo
 
 func _ready():
 	
@@ -106,3 +109,19 @@ func adicionaEnergiaRealizacaoReal(intEnergia):
 func getTotalIdeias():
 	
 	return totalIdeias
+	
+#ideias reagindo
+
+func adicionaIdeiaReagindo():
+	
+	totalIdeiasReagindo += 1
+	#print(totalIdeiasReagindo)
+	
+func reduzIdeiaReagindo():
+	
+	totalIdeiasReagindo -= 1
+	#print(totalIdeiasReagindo)
+	
+func getTotalIdeiaReagindo():
+	
+	return totalIdeiasReagindo
