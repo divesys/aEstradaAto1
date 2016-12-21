@@ -39,6 +39,7 @@ func pararEscrever(): #para de escrever
 	arrayVelocidades.clear()
 	escrevendo = false
 	indiceAtualMenssagem = 0
+	controleFluxoHistoria.setExclusivoTexto(false) #libera novamente a interação
 	if(adicionouIndiceHistoria == false):
 	
 		adicionouIndiceHistoria = true

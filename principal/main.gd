@@ -15,6 +15,7 @@ func _ready():
 	#cria eventos especiais
 	controleFluxoHistoria.criaEventoEspecial("andarAutomatico" , true) #evento que determina se o ego devera se manter andando
 	controleFluxoHistoria.criaEventoEspecial("andarHabilitado" , false) #evento que determina se o Ego pode andar ou não
+	controleFluxoHistoria.criaEventoEspecial("ideiasSimultaneas", false) #evento que determina se o jogador podera clicar em duas ideias ao mesmo tempo
 	
 	#inicia a primeira parte
 	controleFluxoHistoria.mudarParte("prologo")
@@ -48,8 +49,8 @@ func _process(delta):
 		#ativa a caixa de ideias
 		controlaCaixaIdeias.vibraCaixaIdeias(true)
 		
-		#impede qualquer outra interação além do texto
-		controleFluxoHistoria.setExclusivoTexto(true)
+#		#impede qualquer outra interação além do texto
+#		controleFluxoHistoria.setExclusivoTexto(true)
 		
 		#encerra o andar automatico
 		controleFluxoHistoria.alteraEventoEspecial("andarAutomatico",false)
@@ -72,7 +73,7 @@ func _process(delta):
 		
 	elif(indiceParteAtual == 15):
 		
-		controleFluxoHistoria.setExclusivoTexto(false)
+#		controleFluxoHistoria.setExclusivoTexto(false)
 		controleFluxoHistoria.acrescentaIndiceParte()
 		
 #		if(controlaCaixaIdeias.getEstado() == "aberta"):
@@ -84,7 +85,7 @@ func _process(delta):
 			
 	elif(indiceParteAtual == 18):
 		
-		controleFluxoHistoria.setExclusivoTexto(true)
+#		controleFluxoHistoria.setExclusivoTexto(true)
 		controleFluxoHistoria.acrescentaIndiceParte()
 	
 	elif(indiceParteAtual == 23):

@@ -8,6 +8,7 @@ onready var taxaMinCliques = 0.2
 onready var totalCliques = 0
 onready var cliquesRestantes = 0
 var reduziu = false
+var ideiasReagindo = 0
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -16,6 +17,9 @@ func _ready():
 
 
 func _process(delta):
+	
+	ideiasReagindo = globais.getTotalIdeiaReagindo()
+	#print(ideiasReagindo)
 	
 	#garante que não ocorre cliques negativos
 	if(cliquesRestantes < 0):
@@ -58,7 +62,6 @@ func reduzClique():
 	
 	#print(reduziu)
 	#print("me chamou")
-	
 	#verifica se a caixa está aberta e ainda existem cliques restantes
 	if(controlaCaixaIdeias.getEstado() == "aberta" and cliquesRestantes > 0 and reduziu == false):
 		

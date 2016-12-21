@@ -53,6 +53,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO2"),velocidadePadrao)
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO3"),velocidadePadrao)
+			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
@@ -64,9 +65,9 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO4"),velocidadePadrao)
 			#controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO5"),velocidadePadrao)
+			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
-			controleFluxoHistoria.setExclusivoTexto(false)
 		
 		elif(controleFluxoHistoria.getIndiceParte() == 21):
 			
@@ -75,6 +76,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO5"),velocidadePadrao)
+			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 		
@@ -85,6 +87,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO6"),velocidadePadrao)
+			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
@@ -95,6 +98,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO7"),velocidadePadrao)
+			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
@@ -105,6 +109,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO8"),velocidadePadrao)
+			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
@@ -115,5 +120,6 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO9"),velocidadePadrao)
+			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()

@@ -82,6 +82,7 @@ func getEventoEspecial(stringNomeEvento):
 func setExclusivoTexto(boolValor):
 	
 	exclusivoTexto = boolValor
+	#print(exclusivoTexto)
 	
 func getExclusivoTexto():
 	

@@ -37,6 +37,8 @@ func _ready():
 func _process(delta):
 	
 	#print(reduziu)
+	#print(controleFluxoHistoria.getExclusivoTexto())
+	
 	
 	if(controlaCaixaIdeias.getEstado() != "aberta"):
 		
@@ -61,31 +63,51 @@ func _process(delta):
 	
 	#print(clicando)
 	
-	if((reagindo == false and clicando == true) and self.is_visible()):
+	#print(globais.getTotalIdeiaReagindo())
+	
+	#verifica os eventos
+	if(controleFluxoHistoria.getExclusivoTexto() == false):
 		
+		#print("não é exclusivo texto")
 		
-		if(reacao == "recusa"):
+		if((controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == true or (controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == false and globais.getTotalIdeiaReagindo() == 0))):
+		
+#			print("ideias simultaneas é " + str(controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas")))
+#			if(controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == false):
+#				
+#				print("total de ideias simultaneas é " + str(globais.getTotalIdeiaReagindo()))
+		
+			if((reagindo == false and clicando == true) and self.is_visible()):
+				
+				
+				if(reacao == "recusa"):
+					
+					animacao.play("recusa")
+					
+				elif(reacao == "engana"):
+					
+					animacao.play("engana")
+					
+				elif(reacao == "libera" and particulas.is_emitting() == false):
+					
+					animacao.play("libera")
+					
+				#reduz o número de cliques restantes
+				#verifica os eventos
 			
-			animacao.play("recusa")
-			
-		elif(reacao == "engana"):
-			
-			animacao.play("engana")
-			
-		elif(reacao == "libera" and particulas.is_emitting() == false):
-			
-			animacao.play("libera")
-			
-		#reduz o número de cliques restantes
-		if(reduziu == false):
-			
-			reduziu = true
-			contaCliquesIdeias.resetaReduziu()
-			contaCliquesIdeias.reduzClique()
+				if(reduziu == false):
+					
+					reduziu = true
+					contaCliquesIdeias.resetaReduziu()
+					contaCliquesIdeias.reduzClique()
 			
 		
 			
-			
+	
+	#else:
+		
+		#print("é exclusivo texto")
+	
 	if(animacao.is_playing() == false):
 		
 		if(reacao != "libera"):
