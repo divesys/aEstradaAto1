@@ -2,7 +2,7 @@
 
 [ext_resource path="res://recursos de base/ideia.png" type="Texture" id=1]
 [ext_resource path="res://interface/caixaDeIdeias/ideia/reageIdeia.gd" type="Script" id=2]
-[ext_resource path="res://interface/interacao.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/reacaoDeterminada.gd" type="Script" id=3]
 [ext_resource path="res://interface/caixaDeIdeias/ideia/fonteIdeia.fnt" type="BitmapFont" id=4]
 [ext_resource path="res://interface/caixaDeIdeias/ideia/geraIdeia.gd" type="Script" id=5]
 [ext_resource path="res://interface/HUD/particulas/estralaMaisOuMenos.png" type="Texture" id=6]
@@ -18,7 +18,7 @@
 [ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMantera.smp" type="Sample" id=16]
 [ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMultiplicar.smp" type="Sample" id=17]
 [ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMultiplicarA.smp" type="Sample" id=18]
-[ext_resource path="res://interface/caixaDeIdeias/ideia/reacaoDeterminada.gd" type="Script" id=19]
+[ext_resource path="res://interface/interacao.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Animation" id=1]
 
@@ -106,12 +106,17 @@ transform/pos = Vector2( 610.919, 433.205 )
 texture = ExtResource( 1 )
 script/script = ExtResource( 2 )
 
-[node name="interacao" parent="." instance=ExtResource( 3 )]
+[node name="reacaoDeterminada" type="Control" parent="."]
 
-margin/left = -55.0
-margin/top = -52.0
-margin/right = 54.0
-margin/bottom = 54.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -32.0
+margin/top = -39.0
+margin/right = 34.0
+margin/bottom = 32.0
+script/script = ExtResource( 3 )
 
 [node name="texto" type="Label" parent="."]
 
@@ -191,22 +196,22 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
-[node name="reacaoDeterminada" type="Control" parent="."]
+[node name="interacao" parent="." instance=ExtResource( 19 )]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-script/script = ExtResource( 19 )
+visibility/self_opacity = 1.0
+margin/left = -55.0
+margin/top = -52.0
+margin/right = 54.0
+margin/bottom = 54.0
 
 [connection signal="animation_started" from="anim" to="." method="_on_anim_animation_started"]
 
 [connection signal="finished" from="anim" to="reacaoDeterminada" method="_on_anim_finished"]
 
 [connection signal="finished" from="anim" to="." method="_on_anim_finished"]
+
+[connection signal="button_down" from="interacao" to="reacaoDeterminada" method="_on_interacao_button_down"]
+
+[connection signal="button_down" from="interacao" to="." method="_on_interacao_button_down"]
 
 

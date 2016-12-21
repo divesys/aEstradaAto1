@@ -26,13 +26,11 @@ func _ready():
 
 func _process(delta):
 	
-	#eventos ao clicar na ideia
+	pass
 	
-	clicando = interacaoMouse.getClicando()
-		
-	if(clicando == true):
-		
-		if(controleFluxoHistoria.getParte() == "prologo" and alterouReacao == false):
+func decideReacaoDeterminada():
+	
+	if(controleFluxoHistoria.getParte() == "prologo" and alterouReacao == false):
 			
 			if(controleFluxoHistoria.getIndiceParte() == 24):
 				
@@ -40,8 +38,12 @@ func _process(delta):
 			
 			if(controleFluxoHistoria.getIndiceParte() == 27):
 				
+#				print("funciona")
+				
 				ideia.decideReacao("recusa")
-					
+				
+#				print(ideia.getReacao())
+				
 				controleFluxoHistoria.acrescentaIndiceParte()
 				
 			elif(controleFluxoHistoria.getIndiceParte() == 31):
@@ -51,6 +53,8 @@ func _process(delta):
 				controleFluxoHistoria.acrescentaIndiceParte()
 				
 			elif(controleFluxoHistoria.getIndiceParte() == 35):
+				
+#				print("foi")
 				
 				ideia.decideReacao("engana")
 				
@@ -80,3 +84,39 @@ func atrasaAcresentaIndice():
 	
 	controleFluxoHistoria.acrescentaIndiceParte()
 	iniciouTimer = false
+
+func _on_interacao_button_down():
+
+	pass
+			
+# #	print("apertou")
+#	
+#	if(controleFluxoHistoria.getParte() == "prologo" and alterouReacao == false):
+#			
+#			if(controleFluxoHistoria.getIndiceParte() == 24):
+#				
+#				controleFluxoHistoria.pularIndiceParte(27)
+#			
+#			if(controleFluxoHistoria.getIndiceParte() == 27):
+#				
+# #				print("funciona")
+#				
+#				ideia.decideReacao("recusa")
+#				
+# #				print(ideia.getReacao())
+#				
+#				controleFluxoHistoria.acrescentaIndiceParte()
+#				
+#			elif(controleFluxoHistoria.getIndiceParte() == 31):
+#				
+#				ideia.decideReacao("libera")
+#				
+#				controleFluxoHistoria.acrescentaIndiceParte()
+#				
+#			elif(controleFluxoHistoria.getIndiceParte() == 35):
+#				
+#				ideia.decideReacao("engana")
+#				
+#				controleFluxoHistoria.acrescentaIndiceParte()
+#				
+#			alterouReacao = true

@@ -23,7 +23,9 @@ func _process(delta):
 			show() #mostra a caixa
 			exibiuIcone = true
 		
-		if((Input.is_action_pressed("abrirCaixa") or clicando == true) and controleFluxoHistoria.getExclusivoTexto() == false):
+#		print(controleFluxoHistoria.getExclusivoTexto())
+		
+		if((Input.is_action_pressed("abrirCaixa") or clicando == true) and controleFluxoHistoria.getExclusivoTexto() == false and controleFluxoHistoria.getEventoEspecial("travaCaixaDeIdeias") == false):
 			
 			hide()
 			anim.stop(true)

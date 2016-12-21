@@ -56,6 +56,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias", false)
 			
 		elif(controleFluxoHistoria.getIndiceParte() == 19):
 			

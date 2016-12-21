@@ -7,5 +7,9 @@ extends Control
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	pass
 	controleFluxoHistoria.criaEventoEspecial("ideiasSimultaneas", true) #evento que determina se o jogador podera clicar em duas ideias ao mesmo tempo
-	controleFluxoHistoria.setExclusivoTexto(true)
+#	controleFluxoHistoria.setExclusivoTexto(true)
+#	controleFluxoHistoria.mudarParte("prologo")
+#	controleFluxoHistoria.pularIndiceParte(27)
+#	print(controleFluxoHistoria.getIndiceParte())

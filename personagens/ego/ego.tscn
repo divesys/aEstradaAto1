@@ -4,8 +4,8 @@
 [ext_resource path="res://personagens/ego/spr_egoMoveDireita_1.tex" type="Texture" id=2]
 [ext_resource path="res://personagens/ego/spr_egoMoveDireita_2.tex" type="Texture" id=3]
 [ext_resource path="res://personagens/ego/spr_egoMoveDireita_3.tex" type="Texture" id=4]
-[ext_resource path="res://personagens/ego/moveEgo.gd" type="Script" id=5]
-[ext_resource path="res://personagens/ego/reposicionaEgo.gd" type="Script" id=6]
+[ext_resource path="res://personagens/ego/reposicionaEgo.gd" type="Script" id=5]
+[ext_resource path="res://personagens/ego/moveEgo.gd" type="Script" id=6]
 [ext_resource path="res://personagens/ego/contadorDePassos.gd" type="Script" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -19,16 +19,16 @@ animation = "egoParado"
 playing = true
 centered = false
 
-[node name="moveEgo" type="Node2D" parent="."]
-
-script/script = ExtResource( 5 )
-
 [node name="reposicionaEgo" type="Node2D" parent="."]
 
-script/script = ExtResource( 6 )
+script/script = ExtResource( 5 )
 ancoraVertical = "inferior"
 formaMedida = "relativo"
 valorPosicao = Vector2( 0, 0.09 )
+
+[node name="moveEgo" type="Node2D" parent="."]
+
+script/script = ExtResource( 6 )
 
 [node name="contadorDePassos" type="Node2D" parent="."]
 

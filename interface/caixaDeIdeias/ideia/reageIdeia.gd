@@ -13,7 +13,7 @@ onready var resorteou = false
 onready var reagindo = false
 onready var animacao = get_node("anim")
 onready var particulas = get_node("Particles2D")
-onready var clicando = false
+#onready var clicando = false
 onready var reduziu = false
 
 var atrasa = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
@@ -23,6 +23,7 @@ func _ready():
 	
 	if(controleFluxoHistoria.getParte() != "prologo"):
 		
+#		print("meh")
 		sorteaReacao()
 		
 	set_process(true)
@@ -38,15 +39,19 @@ func _process(delta):
 	
 	#print(reduziu)
 	#print(controleFluxoHistoria.getExclusivoTexto())
-	
+#	print(reacao)
 	
 	if(controlaCaixaIdeias.getEstado() != "aberta"):
 		
 		#print("estou aqui")
 		reduziu == false
 	
+#	print(controleFluxoHistoria.getParte())
+	
 	if(controleFluxoHistoria.getParte() != "prologo"):
 	
+#		print("foda-se vc")
+		
 		#determina se a reação devera ser resorteada
 		if(resorteou == false and controlaCaixaIdeias.getEstado() == "aberta"):
 			
@@ -56,57 +61,6 @@ func _process(delta):
 		elif(controlaCaixaIdeias.getEstado() == "fechada"):
 			
 			resorteou = false
-		
-	#executa a reacao
-		
-	clicando = interacaoMouse.getClicando()
-	
-	#print(clicando)
-	
-	#print(globais.getTotalIdeiaReagindo())
-	
-	#verifica os eventos
-	if(controleFluxoHistoria.getExclusivoTexto() == false):
-		
-		#print("não é exclusivo texto")
-		
-		if((controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == true or (controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == false and globais.getTotalIdeiaReagindo() == 0))):
-		
-#			print("ideias simultaneas é " + str(controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas")))
-#			if(controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == false):
-#				
-#				print("total de ideias simultaneas é " + str(globais.getTotalIdeiaReagindo()))
-		
-			if((reagindo == false and clicando == true) and self.is_visible()):
-				
-				
-				if(reacao == "recusa"):
-					
-					animacao.play("recusa")
-					
-				elif(reacao == "engana"):
-					
-					animacao.play("engana")
-					
-				elif(reacao == "libera" and particulas.is_emitting() == false):
-					
-					animacao.play("libera")
-					
-				#reduz o número de cliques restantes
-				#verifica os eventos
-			
-				if(reduziu == false):
-					
-					reduziu = true
-					contaCliquesIdeias.resetaReduziu()
-					contaCliquesIdeias.reduzClique()
-			
-		
-			
-	
-	#else:
-		
-		#print("é exclusivo texto")
 	
 	if(animacao.is_playing() == false):
 		
@@ -119,6 +73,8 @@ func _process(delta):
 		reagindo = true
 		
 func sorteaReacao():
+	
+#	print("ops")
 	
 	#escolhe um número de 0 a 100
 	randomize()
@@ -140,6 +96,10 @@ func sorteaReacao():
 func decideReacao(stringReacao):
 	
 	reacao = stringReacao
+	
+func getReacao():
+	
+	return reacao
 	
 func getReagindo():
 	
@@ -177,3 +137,48 @@ func atrasaAutoDestroi():
 		iniciouTimer = false
 
 
+
+
+func _on_interacao_button_down():
+
+	#executa a reação das ideias
+	#verifica os eventos
+	if(controleFluxoHistoria.getExclusivoTexto() == false):
+		
+		#print("não é exclusivo texto")
+		
+		if((controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == true or (controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == false and globais.getTotalIdeiaReagindo() == 0))):
+		
+#			print("ideias simultaneas é " + str(controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas")))
+#			if(controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == false):
+#				
+#				print("total de ideias simultaneas é " + str(globais.getTotalIdeiaReagindo()))
+		
+			if((reagindo == false) and self.is_visible()):
+				
+				get_node("reacaoDeterminada").decideReacaoDeterminada()
+				
+#				print(reacao)
+				
+				if(reacao == "recusa"):
+					
+					animacao.play("recusa")
+					
+				elif(reacao == "engana"):
+					
+					animacao.play("engana")
+					
+				elif(reacao == "libera" and particulas.is_emitting() == false):
+					
+					animacao.play("libera")
+					
+				#reduz o número de cliques restantes
+				#verifica os eventos
+			
+				if(reduziu == false):
+					
+					reduziu = true
+					contaCliquesIdeias.resetaReduziu()
+					contaCliquesIdeias.reduzClique()
+	
+	pass
