@@ -31,7 +31,7 @@ func _ready():
 #	#cria um timer para atraso entre eventos
 	atrasa.set_one_shot(true)
 	atrasa.set_timer_process_mode(0)
-	atrasa.set_wait_time(0.5)
+	atrasa.set_wait_time(0.1)
 	add_child(atrasa)
 	atrasa.connect("timeout", self, "atrasaAutoDestroi")
 	

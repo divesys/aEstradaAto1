@@ -27,6 +27,7 @@ func _process(delta):
 	if(controlaCaixaIdeias.getEstado() == "abrindo" or controlaCaixaIdeias.getEstado() == "aberta"):
 		
 		show()
+		controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",false)
 		
 		if((adicionouIdeia == false) and controleFluxoHistoria.getParte() != "prologo"):
 			
@@ -59,6 +60,7 @@ func _process(delta):
 			
 func atrasaFechar():
 
+	controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",false)
 	controlaCaixaIdeias.setEstado("fechada")
 	print(controlaCaixaIdeias.getEstado())
 #	hide()

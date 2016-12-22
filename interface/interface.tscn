@@ -28,13 +28,9 @@ script/script = ExtResource( 1 )
 
 editor/display_folded = true
 
-[node name="Conteudo" parent="textBox"]
-
-editor/display_folded = true
-
 [node name="Sprite" parent="textBox/Conteudo/areaIconeMenssagem"]
 
-frame = 14
+frame = 10
 
 
 [editable path="textBox"]

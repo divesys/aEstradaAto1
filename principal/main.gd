@@ -7,8 +7,17 @@ var parteAtual = ""
 var indiceParteAtual = 0
 var atrasaFluxoHistoria = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
 var iniciouTimer = false
-onready var caixaDeIdeias =get_node("interface/caixaDeIdeias")
 
+#variaveis de nó
+onready var caixaDeIdeias =get_node("interface/caixaDeIdeias")
+onready var enxurradaIdeia  = caixaDeIdeias.get_node("areaDeIdeias")
+
+#variaveis de passos
+
+#prologo
+var passosPrologoAnterior = 0 #o número de passos capturado num dado instante que é usado para ser comparado com um instante posterior
+var determinouPassosPrologoAnterior = false #verifica se foi detertminado o passosPrologoAnterior
+var passosPrologoAtual = 0 #o número atual de passos 
 
 func _ready():
 
@@ -26,7 +35,7 @@ func _ready():
 	
 	#gera o número inicial de passos e de ideias
 	globais.setPassosPrologo(round(rand_range(10,50))) #inicializa um número aleatorio de passos
-	caixaDeIdeias.get_node("areaDeIdeias").adicionaNIdeias(3) #adiciona 3 ideias, que não serão visiveis nesse momento
+	enxurradaIdeia.adicionaNIdeias(3) #adiciona 3 ideias, que não serão visiveis nesse momento
 	contaCliquesIdeias.iniciaCliquesN(3) #força a ter exatamente 3 cliques
 	
 	#cria um timer para atraso entre eventos
@@ -42,6 +51,8 @@ func _ready():
 func _process(delta):
 	
 #	print(controleFluxoHistoria.getExclusivoTexto())
+	
+	passosPrologoAtual = globais.getPassosPrologo()
 	
 	#verifica qual é a parte atual
 	parteAtual = controleFluxoHistoria.getParte()
@@ -80,6 +91,7 @@ func _process(delta):
 	elif(indiceParteAtual == 15):
 		
 #		controleFluxoHistoria.setExclusivoTexto(false)
+		controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias", false) #libera a caixa de ideias
 		controleFluxoHistoria.acrescentaIndiceParte()
 		
 #		if(controlaCaixaIdeias.getEstado() == "aberta"):
@@ -96,9 +108,48 @@ func _process(delta):
 	
 	elif(indiceParteAtual == 23):
 		
-		atrasaFluxoHistoria.set_wait_time(3)
+		atrasaFluxoHistoria.set_wait_time(5)
+		
+		if(iniciouTimer == false):
+		
+			atrasaFluxoHistoria.start()
+			iniciouTimer = true
+			
 		controleFluxoHistoria.acrescentaIndiceParte()
-	
+		
+	elif(indiceParteAtual == 39):
+		
+		controleFluxoHistoria.alteraEventoEspecial("andarHabilitado" , true)
+		controleFluxoHistoria.acrescentaIndiceParte()
+		
+	elif(indiceParteAtual == 42):
+		
+		if(determinouPassosPrologoAnterior == false):
+			
+			passosPrologoAnterior = globais.getPassosPrologo() #captura o número de passos nesse exato instante
+			determinouPassosPrologoAnterior = true
+			
+		if(passosPrologoAtual == (passosPrologoAnterior + 8)): #verifica se ego andou 8 passos apos o jogador ler a menssagem anterior
+			
+			#impede a caixa de ideias de abrir
+			controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias",true)
+		
+			#ativa a caixa de ideias
+			controlaCaixaIdeias.vibraCaixaIdeias(true)
+			
+			determinouPassosPrologoAnterior = false
+			
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+	elif(indiceParteAtual == 45):
+		
+		controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias", false) #libera a caixa de ideias
+		controleFluxoHistoria.acrescentaIndiceParte()
+		
+	elif(indiceParteAtual == 51):
+		
+		enxurradaIdeia.adicionaNIdeias(5)
+		controleFluxoHistoria.acrescentaIndiceParte()
 	
 func atrasaAcresentaIndice():
 	

@@ -90,27 +90,27 @@ func _process(delta):
 			
 			if(getEmocaoTexto() == "pensativo"):
 				
-				face.set_texture(preload("res://personagens/Ego/rostoEgoPensativo.png"))
+				face.set_texture(preload("res://personagens/ego/rostoEgoPensativo.png"))
 				
 			elif(getEmocaoTexto() == "confiante"):
 				
-				face.set_texture(preload("res://personagens/Ego/rostoEgoConfiante.png"))
+				face.set_texture(preload("res://personagens/ego/rostoEgoConfiante.png"))
 				
 			elif(getEmocaoTexto() == "feliz"):
 				
-				face.set_texture(preload("res://personagens/Ego/rostoEgoFeliz.png"))
+				face.set_texture(preload("res://personagens/ego/rostoEgoFeliz.png"))
 				
 			elif(getEmocaoTexto() == "triste"):
 				
-				face.set_texture(preload("res://personagens/Ego/rostoEgoTriste.png"))
+				face.set_texture(preload("res://personagens/ego/rostoEgoTriste.png"))
 				
 			elif(getEmocaoTexto() == "exausto"):
 				
-				face.set_texture(preload("res://personagens/Ego/rostoEgoExausto.png"))
+				face.set_texture(preload("res://personagens/ego/rostoEgoExausto.png"))
 				
 			elif(getEmocaoTexto() == "raiva"):
 				
-				face.set_texture(preload("res://personagens/Ego/rostoEgoRaiva.png"))
+				face.set_texture(preload("res://personagens/ego/rostoEgoRaiva.png"))
 	
 	#origem <<
 	

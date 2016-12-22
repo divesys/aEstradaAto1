@@ -56,7 +56,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
-			controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias", false)
+			#controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias", false)
 			
 		elif(controleFluxoHistoria.getIndiceParte() == 19):
 			
@@ -120,7 +120,55 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			origemTextbox.mudaEmocaoTexto("raiva")
 			
 			#escreve o texto
-			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO9"),velocidadePadrao)
 			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO9"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 40):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("pensativo")
+			
+			#escreve o texto
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO10"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 43):
+			
+			#escreve o texto
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO11"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 47):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("feliz")
+			
+			#escreve o texto
+			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO12"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 49):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("pensativo")
+			
+			#escreve o texto
+			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO13"),velocidadePadrao)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO14"),velocidadePadrao)
+			controlaTextbox.comercarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte()
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 53):
+			
+			#escreve o texto
+			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO15"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()

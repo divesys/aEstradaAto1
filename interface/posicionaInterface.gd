@@ -19,7 +19,7 @@ var posTextboxNarrador = {} #margens do textbox
 #textbox <
 
 func _ready():
-
+	
 	#variaveis que determinam a área utilizavel da tela
 	var alturaPadrao = encontraResolucao.getAlturaPadrao() #captura a altura padrao
 	var larguraArea = encontraResolucao.getLarguraPadrao()
