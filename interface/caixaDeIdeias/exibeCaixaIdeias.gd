@@ -24,6 +24,9 @@ func _process(delta):
 	#print(controlaCaixaIdeias.getEstado())
 	#print(atrasa.get_time_left())
 	
+	globais.setPosCaixaIdeias(self.get_pos())
+	globais.setTamanhoCaixaIdeias(get_node("fundo").get_texture().get_size())
+	
 	if(controlaCaixaIdeias.getEstado() == "abrindo" or controlaCaixaIdeias.getEstado() == "aberta"):
 		
 		show()

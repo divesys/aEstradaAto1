@@ -17,6 +17,10 @@ var totalIdeias = 0 setget ,getTotalIdeias #conta o numero total de ideias na ca
 #verifica o número de ideias reagindo ao mesmo tempo
 var totalIdeiasReagindo = 0 setget  ,getTotalIdeiaReagindo
 
+#posições e medidas importantes
+var posCaixaIdeias = Vector2(0,0) setget getPosCaixaIdeias, setPosCaixaIdeias
+var tamanhoCaixaIdeias = Vector2(0,0) setget getTamanhoCaixaIdeias, setTamanhoCaixaIdeias
+
 func _ready():
 	
 	set_process(true)
@@ -125,3 +129,19 @@ func reduzIdeiaReagindo():
 func getTotalIdeiaReagindo():
 	
 	return totalIdeiasReagindo
+	
+func setPosCaixaIdeias(vector2Pos):
+	
+	posCaixaIdeias = vector2Pos
+	
+func getPosCaixaIdeias():
+	
+	return posCaixaIdeias
+	
+func setTamanhoCaixaIdeias(vector2tamanho):
+	
+	tamanhoCaixaIdeias = vector2tamanho
+	
+func getTamanhoCaixaIdeias():
+	
+	return tamanhoCaixaIdeias
