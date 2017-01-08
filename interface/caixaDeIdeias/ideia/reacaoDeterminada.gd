@@ -16,7 +16,7 @@ func _ready():
 	#cria um timer para atraso entre eventos
 	atrasaFluxoHistoria.set_one_shot(true)
 	atrasaFluxoHistoria.set_timer_process_mode(0)
-	atrasaFluxoHistoria.set_wait_time(0.5)
+	atrasaFluxoHistoria.set_wait_time(0)
 	add_child(atrasaFluxoHistoria)
 	atrasaFluxoHistoria.connect("timeout", self, "atrasaAcresentaIndice")
 	
@@ -30,7 +30,12 @@ func _process(delta):
 	
 func decideReacaoDeterminada():
 	
+	print("chamou")
+	print(controleFluxoHistoria.getIndiceParte())
+
+	
 	if(controleFluxoHistoria.getParte() == "prologo" and alterouReacao == false):
+			
 			
 			if(controleFluxoHistoria.getIndiceParte() == 24):
 				
@@ -47,6 +52,8 @@ func decideReacaoDeterminada():
 				controleFluxoHistoria.acrescentaIndiceParte()
 				
 			elif(controleFluxoHistoria.getIndiceParte() == 31):
+				
+#				print("foi")
 				
 				ideia.decideReacao("libera")
 				
@@ -68,7 +75,7 @@ func _on_anim_finished():
 		
 		if(iniciouTimer == false):
 			
-			atrasaFluxoHistoria.set_wait_time(0.5)
+			atrasaFluxoHistoria.set_wait_time(0)
 			atrasaFluxoHistoria.start()
 			iniciouTimer = true
 			
@@ -82,6 +89,7 @@ func _on_anim_finished():
 		
 func atrasaAcresentaIndice():
 	
+#	print(controleFluxoHistoria.getIndiceParte())
 	controleFluxoHistoria.acrescentaIndiceParte()
 	iniciouTimer = false
 

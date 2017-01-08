@@ -153,7 +153,8 @@ func _on_interacao_button_down():
 #			if(controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == false):
 #				
 #				print("total de ideias simultaneas é " + str(globais.getTotalIdeiaReagindo()))
-		
+			
+			
 			if((reagindo == false) and self.is_visible()):
 				
 				get_node("reacaoDeterminada").decideReacaoDeterminada()
@@ -164,21 +165,39 @@ func _on_interacao_button_down():
 					
 					animacao.play("recusa")
 					
+					if(reduziu == false):
+					
+						reduziu = true
+						contaCliquesIdeias.resetaReduziu()
+						contaCliquesIdeias.reduzClique()
+					
 				elif(reacao == "engana"):
 					
 					animacao.play("engana")
+					
+					if(reduziu == false):
+					
+						reduziu = true
+						contaCliquesIdeias.resetaReduziu()
+						contaCliquesIdeias.reduzClique()
 					
 				elif(reacao == "libera" and particulas.is_emitting() == false):
 					
 					animacao.play("libera")
 					
+					if(reduziu == false):
+					
+						reduziu = true
+						contaCliquesIdeias.resetaReduziu()
+						contaCliquesIdeias.reduzClique()
+					
 				#reduz o número de cliques restantes
 				#verifica os eventos
 			
-				if(reduziu == false):
-					
-					reduziu = true
-					contaCliquesIdeias.resetaReduziu()
-					contaCliquesIdeias.reduzClique()
+#				if(reduziu == false):
+#					
+#					reduziu = true
+#					contaCliquesIdeias.resetaReduziu()
+#					contaCliquesIdeias.reduzClique()
 	
 	pass
