@@ -81,7 +81,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 		
-		elif(controleFluxoHistoria.getIndiceParte() == 25):
+		elif(controleFluxoHistoria.getIndiceParte() == 26):
 			
 			#muda a emoção
 			origemTextbox.mudaEmocaoTexto("pensativo")
@@ -100,14 +100,14 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO7"),velocidadePadrao)
 			controleFluxoHistoria.setExclusivoTexto(true)
-			print("vai falar")
-			print(controleFluxoHistoria.getIndiceParte())
+#			print("vai falar")
+#			print(controleFluxoHistoria.getIndiceParte())
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
-			print("falando")
-			print(controleFluxoHistoria.getIndiceParte())
+#			print("falando")
+#			print(controleFluxoHistoria.getIndiceParte())
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 33):
+		elif(controleFluxoHistoria.getIndiceParte() == 32):
 			
 			#muda a emoção
 			origemTextbox.mudaEmocaoTexto("feliz")
@@ -118,7 +118,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte()
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 37):
+		elif(controleFluxoHistoria.getIndiceParte() == 35):
 			
 			#muda a emoção
 			origemTextbox.mudaEmocaoTexto("raiva")

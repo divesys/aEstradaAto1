@@ -1,4 +1,4 @@
- #determina quando o icone devera aparecer 6
+ #determina quando o icone devera aparecer
 
 extends Control
 

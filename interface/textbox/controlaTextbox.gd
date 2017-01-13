@@ -42,8 +42,8 @@ func pararEscrever(): #para de escrever
 	controleFluxoHistoria.setExclusivoTexto(false) #libera novamente a interação
 	if(adicionouIndiceHistoria == false):
 	
-		print("parou de escrever")
-		print(controleFluxoHistoria.getIndiceParte())
+#		print("parou de escrever")
+#		print(controleFluxoHistoria.getIndiceParte())
 		adicionouIndiceHistoria = true
 		controleFluxoHistoria.acrescentaIndiceParte() #adiciona um ao indice da parte ao encerrar a exibição das menssagens
 

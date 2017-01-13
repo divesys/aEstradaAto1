@@ -21,10 +21,15 @@ func zerarIndiceHistoria(): #zera o indice da historia
 	
 	indiceHistoria = 0
 	
-func acrescentaIndiceParte(): #anda um passo com o indice da parte
+func acrescentaIndiceParte(strNome): #anda um passo com o indice da parte
 	
 	indiceParte += 1
 	acrescentaIndiceHistoria()
+
+#func acrescentaIndiceParte(strNome): #anda um passo com o indice da parte
+#	
+#	indiceParte += 1
+#	acrescentaIndiceHistoria()	
 	
 func pularIndiceParte(intIndice): #pula diretamente para um determinado indice
 

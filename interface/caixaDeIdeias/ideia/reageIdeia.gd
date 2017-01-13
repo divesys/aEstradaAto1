@@ -167,6 +167,7 @@ func _on_interacao_button_down():
 					
 					if(reduziu == false):
 					
+						globais.setEnergiaRealizacaoSuposta(globais.getEnergiaRealizacaoSuposta() + 1)
 						reduziu = true
 						contaCliquesIdeias.resetaReduziu()
 						contaCliquesIdeias.reduzClique()

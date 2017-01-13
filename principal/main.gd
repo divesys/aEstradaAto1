@@ -106,7 +106,7 @@ func _process(delta):
 #		controleFluxoHistoria.setExclusivoTexto(true)
 		controleFluxoHistoria.acrescentaIndiceParte()
 	
-	elif(indiceParteAtual == 23):
+	elif(indiceParteAtual == 24):
 		
 		atrasaFluxoHistoria.set_wait_time(5)
 		
