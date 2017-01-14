@@ -49,9 +49,9 @@ func decideReacaoDeterminada():
 				ideia.decideReacao("recusa")
 				alterouReacao = true
 				
-				print(ideia.getReacao())
+#				print(ideia.getReacao())
 				
-				controleFluxoHistoria.acrescentaIndiceParte()
+				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 				
 			elif(controleFluxoHistoria.getIndiceParte() == 31):
 				
@@ -60,19 +60,19 @@ func decideReacaoDeterminada():
 				ideia.decideReacao("libera")
 				alterouReacao = true
 				
-				print(ideia.getReacao())
+#				print(ideia.getReacao())
 				
-				controleFluxoHistoria.acrescentaIndiceParte()
+				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 				
 			elif(controleFluxoHistoria.getIndiceParte() == 34):
 				
 #				print("foi")
 				
 				ideia.decideReacao("engana")
-				print(ideia.getReacao())
+#				print(ideia.getReacao())
 				alterouReacao = true
 				
-				controleFluxoHistoria.acrescentaIndiceParte()
+				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 				
 			
 
@@ -100,7 +100,7 @@ func _on_anim_finished():
 #	
 #	pass
 #	print(controleFluxoHistoria.getIndiceParte())
-#	controleFluxoHistoria.acrescentaIndiceParte()
+#	controleFluxoHistoria.acrescentaIndiceParte(get_name())
 #	iniciouTimer = false
 
 func _on_interacao_button_down():
@@ -123,18 +123,18 @@ func _on_interacao_button_down():
 #				
 # #				print(ideia.getReacao())
 #				
-#				controleFluxoHistoria.acrescentaIndiceParte()
+#				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 #				
 #			elif(controleFluxoHistoria.getIndiceParte() == 31):
 #				
 #				ideia.decideReacao("libera")
 #				
-#				controleFluxoHistoria.acrescentaIndiceParte()
+#				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 #				
 #			elif(controleFluxoHistoria.getIndiceParte() == 35):
 #				
 #				ideia.decideReacao("engana")
 #				
-#				controleFluxoHistoria.acrescentaIndiceParte()
+#				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 #				
 #			alterouReacao = true

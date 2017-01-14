@@ -30,7 +30,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 		#configuração inicial
 		if(indiceAtual == 0):
 			
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
 		#escreve o texto
 		
@@ -47,17 +47,17 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO2"),velocidadePadrao)
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO3"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
 			
 		elif(indiceAtual == 4):
 			
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO4"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
 		elif(indiceAtual == 7):
 			
 			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO5"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())

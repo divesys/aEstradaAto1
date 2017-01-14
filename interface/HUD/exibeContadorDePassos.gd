@@ -33,4 +33,4 @@ func _process(delta):
 			
 		if(!anim.is_playing()):
 			
-			controleFluxoHistoria.acrescentaIndiceParte() 
+			controleFluxoHistoria.acrescentaIndiceParte(get_name()) 

@@ -32,4 +32,4 @@ func _process(delta):
 			controlaCaixaIdeias.vibraCaixaIdeias(false)
 			controlaCaixaIdeias.abreCaixaIdeias()
 			exibiuIcone = false
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())

@@ -174,6 +174,8 @@ func _on_interacao_button_down():
 					
 				elif(reacao == "engana"):
 					
+#					print("foi" + str(controleFluxoHistoria.getIndiceParte()))
+					
 					animacao.play("engana")
 					
 					if(reduziu == false):

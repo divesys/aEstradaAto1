@@ -23,6 +23,9 @@ func zerarIndiceHistoria(): #zera o indice da historia
 	
 func acrescentaIndiceParte(strNome): #anda um passo com o indice da parte
 	
+	print(strNome)
+	print(getIndiceParte())
+	
 	indiceParte += 1
 	acrescentaIndiceHistoria()
 

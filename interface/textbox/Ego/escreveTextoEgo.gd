@@ -40,7 +40,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO1"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
 		elif(controleFluxoHistoria.getIndiceParte() == 13):
 			
@@ -55,7 +55,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO3"),velocidadePadrao)
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			#controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias", false)
 			
 		elif(controleFluxoHistoria.getIndiceParte() == 19):
@@ -68,7 +68,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			#controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO5"),velocidadePadrao)
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
 		elif(controleFluxoHistoria.getIndiceParte() == 21):
 			
@@ -79,7 +79,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO5"),velocidadePadrao)
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
 		elif(controleFluxoHistoria.getIndiceParte() == 26):
 			
@@ -90,7 +90,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO6"),velocidadePadrao)
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
 		elif(controleFluxoHistoria.getIndiceParte() == 29):
 			
@@ -103,7 +103,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 #			print("vai falar")
 #			print(controleFluxoHistoria.getIndiceParte())
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 #			print("falando")
 #			print(controleFluxoHistoria.getIndiceParte())
 			
@@ -116,7 +116,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO8"),velocidadePadrao)
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
 		elif(controleFluxoHistoria.getIndiceParte() == 35):
 			
@@ -127,9 +127,9 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO9"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 40):
+		elif(controleFluxoHistoria.getIndiceParte() == 38):
 			
 			#muda a emoção
 			origemTextbox.mudaEmocaoTexto("pensativo")
@@ -137,16 +137,16 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO10"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 43):
+		elif(controleFluxoHistoria.getIndiceParte() == 41):
 			
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO11"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 47):
+		elif(controleFluxoHistoria.getIndiceParte() == 45):
 			
 			#muda a emoção
 			origemTextbox.mudaEmocaoTexto("feliz")
@@ -155,9 +155,9 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO12"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 49):
+		elif(controleFluxoHistoria.getIndiceParte() == 47):
 			
 			#muda a emoção
 			origemTextbox.mudaEmocaoTexto("pensativo")
@@ -166,8 +166,8 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO13"),velocidadePadrao)
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO14"),velocidadePadrao)
-			controlaTextbox.comercarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
 		elif(controleFluxoHistoria.getIndiceParte() == 53):
 			
@@ -175,4 +175,4 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controleFluxoHistoria.setExclusivoTexto(true)
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO15"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())

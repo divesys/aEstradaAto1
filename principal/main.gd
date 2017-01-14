@@ -73,7 +73,7 @@ func _process(delta):
 		controleFluxoHistoria.alteraEventoEspecial("andarAutomatico",false)
 		
 		#prossegue com o fluxo da historia
-		controleFluxoHistoria.acrescentaIndiceParte()
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
 	elif(indiceParteAtual == 12): #espera um tempo x e prossegue com o fluxo da historia
 	
@@ -92,7 +92,7 @@ func _process(delta):
 		
 #		controleFluxoHistoria.setExclusivoTexto(false)
 		controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias", false) #libera a caixa de ideias
-		controleFluxoHistoria.acrescentaIndiceParte()
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
 #		if(controlaCaixaIdeias.getEstado() == "aberta"):
 #		
@@ -104,7 +104,7 @@ func _process(delta):
 	elif(indiceParteAtual == 18):
 		
 #		controleFluxoHistoria.setExclusivoTexto(true)
-		controleFluxoHistoria.acrescentaIndiceParte()
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 	
 	elif(indiceParteAtual == 24):
 		
@@ -115,14 +115,14 @@ func _process(delta):
 			atrasaFluxoHistoria.start()
 			iniciouTimer = true
 			
-		controleFluxoHistoria.acrescentaIndiceParte()
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
-	elif(indiceParteAtual == 39):
+	elif(indiceParteAtual == 37):
 		
 		controleFluxoHistoria.alteraEventoEspecial("andarHabilitado" , true)
-		controleFluxoHistoria.acrescentaIndiceParte()
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
-	elif(indiceParteAtual == 42):
+	elif(indiceParteAtual == 40):
 		
 		if(determinouPassosPrologoAnterior == false):
 			
@@ -137,22 +137,28 @@ func _process(delta):
 			#ativa a caixa de ideias
 			controlaCaixaIdeias.vibraCaixaIdeias(true)
 			
+			#impede de andar
+			controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",false)
+			
 			determinouPassosPrologoAnterior = false
 			
-			controleFluxoHistoria.acrescentaIndiceParte()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
-	elif(indiceParteAtual == 45):
+	elif(indiceParteAtual == 43):
 		
 		controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias", false) #libera a caixa de ideias
-		controleFluxoHistoria.acrescentaIndiceParte()
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
-	elif(indiceParteAtual == 51):
+	elif(indiceParteAtual == 49):
 		
 		enxurradaIdeia.adicionaNIdeias(5)
-		controleFluxoHistoria.acrescentaIndiceParte()
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 	
 func atrasaAcresentaIndice():
 	
 	#print("oxe")
-	controleFluxoHistoria.acrescentaIndiceParte()
+	if(indiceParteAtual == 12 or indiceParteAtual == 25):
+		
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+		
 	iniciouTimer = false

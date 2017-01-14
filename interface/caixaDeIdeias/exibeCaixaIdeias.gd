@@ -42,7 +42,7 @@ func _process(delta):
 			if(controleFluxoHistoria.getIndiceParte() == 17):
 				
 #				areaDeIdeias.adicionaNIdeias(3)
-				controleFluxoHistoria.acrescentaIndiceParte()
+				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
 	elif(controlaCaixaIdeias.getEstado() == "fechando"):
 		
@@ -65,7 +65,7 @@ func atrasaFechar():
 
 	controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",false)
 	controlaCaixaIdeias.setEstado("fechada")
-	print(controlaCaixaIdeias.getEstado())
+#	print(controlaCaixaIdeias.getEstado())
 #	hide()
 #	adicionouIdeia = false
 	
