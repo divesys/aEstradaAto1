@@ -55,6 +55,10 @@ func adicionaNIdeias(intNumeroIdeias):
 		
 		#posiciona a ideia
 		noIdeia.set_pos(Vector2(xIdeia,yIdeia))
+		
+		print("agora o total de ideias é " + str(globais.totalIdeias))
+		
+	
 
 func adicionaIdeias():
 	

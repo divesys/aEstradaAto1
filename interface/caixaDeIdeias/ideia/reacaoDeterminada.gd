@@ -34,6 +34,7 @@ func decideReacaoDeterminada():
 #	print("chamou")
 #	print(controleFluxoHistoria.getIndiceParte())
 
+	#50 ou 54
 	
 	if(controleFluxoHistoria.getParte() == "prologo" and alterouReacao == false):
 			

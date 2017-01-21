@@ -35,7 +35,7 @@ func _ready():
 	
 	#gera o número inicial de passos e de ideias
 	globais.setPassosPrologo(round(rand_range(10,50))) #inicializa um número aleatorio de passos
-	enxurradaIdeia.adicionaNIdeias(3) #adiciona 3 ideias, que não serão visiveis nesse momento
+	enxurradaIdeia.adicionaNIdeias(3) #adiciona 1 ideia
 	contaCliquesIdeias.iniciaCliquesN(3) #força a ter exatamente 3 cliques
 	
 	#cria um timer para atraso entre eventos
@@ -149,15 +149,27 @@ func _process(delta):
 		controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias", false) #libera a caixa de ideias
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
-	elif(indiceParteAtual == 49):
+	elif(indiceParteAtual == 45):
 		
-		enxurradaIdeia.adicionaNIdeias(5)
+		enxurradaIdeia.adicionaNIdeias(2) #adiciona 1 ideia
+		contaCliquesIdeias.iniciaCliquesN(3) #força a ter exatamente 3 cliques
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+		
+	elif(indiceParteAtual == 50):
+		
+		atrasaFluxoHistoria.set_wait_time(5)
+		
+		if(iniciouTimer == false):
+		
+			atrasaFluxoHistoria.start()
+			iniciouTimer = true
+			
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 	
 func atrasaAcresentaIndice():
 	
 	#print("oxe")
-	if(indiceParteAtual == 12 or indiceParteAtual == 25):
+	if(indiceParteAtual == 12 or indiceParteAtual == 25 or indiceParteAtual == 51):
 		
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		

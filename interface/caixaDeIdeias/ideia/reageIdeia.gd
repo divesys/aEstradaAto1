@@ -41,16 +41,17 @@ func _process(delta):
 	#print(controleFluxoHistoria.getExclusivoTexto())
 #	print(reacao)
 	
+	if(controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() == 51):
+		
+		controleFluxoHistoria.pularIndiceParte(54)
+	
 	if(controlaCaixaIdeias.getEstado() != "aberta"):
 		
-		#print("estou aqui")
 		reduziu == false
 	
 #	print(controleFluxoHistoria.getParte())
 	
-	if(controleFluxoHistoria.getParte() != "prologo"):
-	
-#		print("foda-se vc")
+	if(controleFluxoHistoria.getParte() != "prologo" or (controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() >= 54)):
 		
 		#determina se a reação devera ser resorteada
 		if(resorteou == false and controlaCaixaIdeias.getEstado() == "aberta"):
@@ -92,6 +93,8 @@ func sorteaReacao():
 	elif(decideReacao > (chanceRecusa + chanceEngana) and decideReacao <= 100):
 		
 		reacao = "libera"
+		
+	print(reacao)
 		
 func decideReacao(stringReacao):
 	
@@ -157,7 +160,13 @@ func _on_interacao_button_down():
 			
 			if((reagindo == false) and self.is_visible()):
 				
-				get_node("reacaoDeterminada").decideReacaoDeterminada()
+				if(controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() < 54):
+					
+					get_node("reacaoDeterminada").decideReacaoDeterminada()
+					
+				else:
+					
+					sorteaReacao()
 				
 #				print(reacao)
 				
@@ -167,7 +176,6 @@ func _on_interacao_button_down():
 					
 					if(reduziu == false):
 					
-						globais.setEnergiaRealizacaoSuposta(globais.getEnergiaRealizacaoSuposta() + 1)
 						reduziu = true
 						contaCliquesIdeias.resetaReduziu()
 						contaCliquesIdeias.reduzClique()
@@ -190,6 +198,7 @@ func _on_interacao_button_down():
 					
 					if(reduziu == false):
 					
+						globais.setEnergiaRealizacaoSuposta(globais.getEnergiaRealizacaoSuposta() + 1)
 						reduziu = true
 						contaCliquesIdeias.resetaReduziu()
 						contaCliquesIdeias.reduzClique()

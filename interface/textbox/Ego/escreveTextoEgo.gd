@@ -146,8 +146,8 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 45):
-			
+		elif(controleFluxoHistoria.getIndiceParte() == 46):
+				
 			#muda a emoção
 			origemTextbox.mudaEmocaoTexto("feliz")
 			
@@ -157,7 +157,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 47):
+		elif(controleFluxoHistoria.getIndiceParte() == 48):
 			
 			#muda a emoção
 			origemTextbox.mudaEmocaoTexto("pensativo")
@@ -169,7 +169,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 53):
+		elif(controleFluxoHistoria.getIndiceParte() == 52):
 			
 			#escreve o texto
 			controleFluxoHistoria.setExclusivoTexto(true)

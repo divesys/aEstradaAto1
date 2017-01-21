@@ -10,18 +10,29 @@ onready var textBox = origemTextbox #uma variavel de nome alternativo, apenas pa
 var origemTextoAtual = "" #determina a origem atual do texto
 var origemTextoAnterior = "" #determina a ultima origem do texto
 
+#variaveis
 var estadoAnteriorCaixaIdeias = ""
 var estadoAtualCaixaIdeias = ""
-
-#variaveis vazias
-	#textbox >
-	
-	#textbox narrador
 var posTextbox = {} #margens do textbox
+var posInicialTextbox = {}
 
 #textbox <
 
 func _ready():
+	
+	#pega o valor inicial da textbox
+	posInicialTextbox = { #margens iniciais do textbox
+
+	"anchorLeft" : textBox.get_anchor(MARGIN_LEFT)
+	,"marginLeft" : textBox.get_margin(MARGIN_LEFT)
+	,"anchorRight" : textBox.get_anchor(MARGIN_RIGHT)
+	,"marginRight" : textBox.get_margin(MARGIN_RIGHT)
+	,"anchorTop" : textBox.get_anchor(MARGIN_TOP)
+	,"marginTop" : textBox.get_margin(MARGIN_TOP)
+	,"anchorBottom" : textBox.get_anchor(MARGIN_BOTTOM)
+	,"marginBottom" : textBox.get_margin(MARGIN_BOTTOM)
+	
+	}
 	
 	centralizaTextBox()
 	estadoAnteriorCaixaIdeias = controlaCaixaIdeias.getEstado()
@@ -42,8 +53,17 @@ func _process(delta):
 		
 			controlaCaixaIdeias.getEstado()
 			centralizaTextBox()
-		
+
+func resetaPosTextBox():
+	
+	textBox.set_anchor_and_margin(MARGIN_LEFT,posInicialTextbox["anchorLeft"],posInicialTextbox["marginLeft"])
+	textBox.set_anchor_and_margin(MARGIN_RIGHT,posInicialTextbox["anchorRight"],posInicialTextbox["marginRight"])
+	textBox.set_anchor_and_margin(MARGIN_TOP,posInicialTextbox["anchorTop"],posInicialTextbox["marginTop"])
+	textBox.set_anchor_and_margin(MARGIN_BOTTOM,posInicialTextbox["anchorBottom"],posInicialTextbox["marginBottom"])
+
 func centralizaTextBox():
+	
+	resetaPosTextBox()
 	
 	#variaveis que determinam a área utilizavel da tela
 	var alturaPadrao = encontraResolucao.getAlturaPadrao() #captura a altura padrao

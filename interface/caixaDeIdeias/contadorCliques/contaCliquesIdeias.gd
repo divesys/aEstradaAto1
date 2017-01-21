@@ -54,6 +54,8 @@ func iniciaCliquesN(intCliques):
 	
 	totalCliques = intCliques
 	cliquesRestantes = totalCliques
+	print("restam " + str(cliquesRestantes) + " cliques")
+	
 	
 	#reseta a alavanca reduziu
 	#resetaReduziu()
