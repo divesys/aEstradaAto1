@@ -77,3 +77,7 @@ func getCliquesRestantes():
 func resetaReduziu():
 	
 	reduziu = false
+	
+func getReduziu():
+	
+	return reduziu

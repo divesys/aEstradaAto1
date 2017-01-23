@@ -20,11 +20,11 @@ var atrasa = Timer.new() #um timer para atrasar o prosseguimento do fluxo da his
 var iniciouTimer = false
 
 func _ready():
-	
-	if(controleFluxoHistoria.getParte() != "prologo"):
-		
+
+#	if(controleFluxoHistoria.getParte() != "prologo"):
+#		
 #		print("meh")
-		sorteaReacao()
+#		sorteaReacao()
 		
 	set_process(true)
 	
@@ -47,20 +47,15 @@ func _process(delta):
 	
 	if(controlaCaixaIdeias.getEstado() != "aberta"):
 		
-		reduziu == false
+		reduziu = false
 	
 #	print(controleFluxoHistoria.getParte())
 	
 	if(controleFluxoHistoria.getParte() != "prologo" or (controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() >= 54)):
-		
-		#determina se a reação devera ser resorteada
-		if(resorteou == false and controlaCaixaIdeias.getEstado() == "aberta"):
 			
-			sorteaReacao()
-			resorteou = true
+		if(controlaCaixaIdeias.getEstado() != "aberta"):
 			
-		elif(controlaCaixaIdeias.getEstado() == "fechada"):
-			
+#			print(controlaCaixaIdeias.getEstado())
 			resorteou = false
 	
 	if(animacao.is_playing() == false):
@@ -94,7 +89,7 @@ func sorteaReacao():
 		
 		reacao = "libera"
 		
-	print(reacao)
+#	print(reacao)
 		
 func decideReacao(stringReacao):
 	
@@ -143,7 +138,8 @@ func atrasaAutoDestroi():
 
 
 func _on_interacao_button_down():
-
+	
+#	print(reduziu)
 	#executa a reação das ideias
 	#verifica os eventos
 	if(controleFluxoHistoria.getExclusivoTexto() == false):
@@ -164,15 +160,19 @@ func _on_interacao_button_down():
 					
 					get_node("reacaoDeterminada").decideReacaoDeterminada()
 					
-				else:
+				elif(resorteou == false):
 					
+#					print(resorteou)
 					sorteaReacao()
+					resorteou = true
 				
 #				print(reacao)
 				
 				if(reacao == "recusa"):
 					
 					animacao.play("recusa")
+					
+#					print(reduziu)
 					
 					if(reduziu == false):
 					
@@ -186,15 +186,19 @@ func _on_interacao_button_down():
 					
 					animacao.play("engana")
 					
+#					print(reduziu)
+					
 					if(reduziu == false):
 					
 						reduziu = true
 						contaCliquesIdeias.resetaReduziu()
 						contaCliquesIdeias.reduzClique()
 					
-				elif(reacao == "libera" and particulas.is_emitting() == false):
+				elif(reacao == "libera" and particulas.is_emitting() == false): #
 					
 					animacao.play("libera")
+					
+#					print(reduziu)
 					
 					if(reduziu == false):
 					
