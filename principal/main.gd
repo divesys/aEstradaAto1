@@ -51,6 +51,7 @@ func _ready():
 func _process(delta):
 	
 #	print(controleFluxoHistoria.getExclusivoTexto())
+#	print(controleFluxoHistoria.getEventoEspecial("andarHabilitado"))
 	
 	passosPrologoAtual = globais.getPassosPrologo()
 	
@@ -121,6 +122,7 @@ func _process(delta):
 		
 		controleFluxoHistoria.alteraEventoEspecial("andarHabilitado" , true)
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+		print("andar habilitado agora é " + str(controleFluxoHistoria.getEventoEspecial("andarHabilitado")))
 		
 	elif(indiceParteAtual == 40):
 		

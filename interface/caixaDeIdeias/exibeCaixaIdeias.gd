@@ -5,16 +5,18 @@ extends Control
 onready var adicionouIdeia = false #determina se as ideias foram adicionadas
 onready var areaDeIdeias = get_node("areaDeIdeias")
 
-var atrasa = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
-var iniciouTimer = false
+onready var atrasa = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
+onready var iniciouTimer = false
 
 func _ready():
 
 	set_process(true)
 	
+	iniciouTimer = false
+	
 	#cria um timer para atraso entre eventos
 	atrasa.set_one_shot(true)
-	atrasa.set_timer_process_mode(0)
+#	atrasa.set_timer_process_mode(0)
 	atrasa.set_wait_time(0.5)
 	add_child(atrasa)
 	atrasa.connect("timeout", self, "atrasaFechar")
@@ -46,13 +48,15 @@ func _process(delta):
 		
 	elif(controlaCaixaIdeias.getEstado() == "fechando"):
 		
-		#print(globais.getTotalIdeiaReagindo())
+		print(globais.getTotalIdeiaReagindo())
 		
-		if(globais.getTotalIdeiaReagindo() == 0): #se não tiver nenhuma ideia em processo de reação
+		if(globais.getTotalIdeiaReagindo() <= 0): #se não tiver nenhuma ideia em processo de reação
+			
+#			print(iniciouTimer)
 			
 			if(iniciouTimer == false): #atrasa um pouco para não fechar bruscamente
 			
-				#print("timer")
+#				print("timer")
 				atrasa.start()
 				iniciouTimer = true
 
@@ -63,8 +67,9 @@ func _process(delta):
 			
 func atrasaFechar():
 
-	controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",false)
+	controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",true)
 	controlaCaixaIdeias.setEstado("fechada")
+	iniciouTimer = false
 #	print(controlaCaixaIdeias.getEstado())
 #	hide()
 #	adicionouIdeia = false

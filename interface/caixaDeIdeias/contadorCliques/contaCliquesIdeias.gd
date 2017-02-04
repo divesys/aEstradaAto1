@@ -26,7 +26,7 @@ func _process(delta):
 		
 		cliquesRestantes = 0
 		
-	elif(cliquesRestantes == 0 and controlaCaixaIdeias.getEstado() == "aberta" and totalCliques > 0):
+	elif(cliquesRestantes <= 0 and controlaCaixaIdeias.getEstado() == "aberta" and totalCliques > 0):
 		
 		controlaCaixaIdeias.fechaCaixaIdeias()
 		totalCliques = 0

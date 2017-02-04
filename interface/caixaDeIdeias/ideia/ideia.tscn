@@ -206,12 +206,12 @@ margin/bottom = 54.0
 
 [connection signal="animation_started" from="anim" to="." method="_on_anim_animation_started"]
 
-[connection signal="finished" from="anim" to="reacaoDeterminada" method="_on_anim_finished"]
-
 [connection signal="finished" from="anim" to="." method="_on_anim_finished"]
 
-[connection signal="button_down" from="interacao" to="reacaoDeterminada" method="_on_interacao_button_down"]
+[connection signal="finished" from="anim" to="reacaoDeterminada" method="_on_anim_finished"]
 
 [connection signal="button_down" from="interacao" to="." method="_on_interacao_button_down"]
+
+[connection signal="button_down" from="interacao" to="reacaoDeterminada" method="_on_interacao_button_down"]
 
 
