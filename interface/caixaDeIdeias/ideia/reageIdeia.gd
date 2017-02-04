@@ -146,70 +146,62 @@ func _on_interacao_button_down():
 		
 		#print("não é exclusivo texto")
 		
-		if((controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == true or (controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == false and globais.getTotalIdeiaReagindo() == 0))):
-		
-#			print("ideias simultaneas é " + str(controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas")))
-#			if(controleFluxoHistoria.getEventoEspecial("ideiasSimultaneas") == false):
-#				
-#				print("total de ideias simultaneas é " + str(globais.getTotalIdeiaReagindo()))
+		if((reagindo == false) and self.is_visible()):
 			
-			
-			if((reagindo == false) and self.is_visible()):
+			if(controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() < 54):
 				
-				if(controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() < 54):
-					
-					get_node("reacaoDeterminada").decideReacaoDeterminada()
-					
-				elif(resorteou == false):
-					
+				get_node("reacaoDeterminada").decideReacaoDeterminada()
+				
+			elif(resorteou == false):
+				
 #					print(resorteou)
-					sorteaReacao()
-					resorteou = true
-				
-#				print(reacao)
-				
-				if(reacao == "recusa"):
-					
-					animacao.play("recusa")
-					
-#					print(reduziu)
-					
-					if(reduziu == false):
-					
-						reduziu = true
-						contaCliquesIdeias.resetaReduziu()
-						contaCliquesIdeias.reduzClique()
-					
-				elif(reacao == "engana"):
-					
-#					print("foi" + str(controleFluxoHistoria.getIndiceParte()))
-					
-					animacao.play("engana")
-					
-#					print(reduziu)
-					
-					if(reduziu == false):
-					
-						reduziu = true
-						contaCliquesIdeias.resetaReduziu()
-						contaCliquesIdeias.reduzClique()
-					
-				elif(reacao == "libera" and particulas.is_emitting() == false): #
-					
-					animacao.play("libera")
-					
-#					print(reduziu)
-					
-					if(reduziu == false):
-					
-						globais.setEnergiaRealizacaoSuposta(globais.getEnergiaRealizacaoSuposta() + 1)
-						reduziu = true
-						contaCliquesIdeias.resetaReduziu()
-						contaCliquesIdeias.reduzClique()
-					
-				#reduz o número de cliques restantes
-				#verifica os eventos
+				sorteaReacao()
+				resorteou = true
 			
+#				print(reacao)
+			
+			if(reacao == "recusa"):
+				
+				animacao.play("recusa")
+				
+#					print(reduziu)
+				
+				if(reduziu == false):
+				
+					reduziu = true
+					contaCliquesIdeias.resetaReduziu()
+					contaCliquesIdeias.reduzClique()
+				
+			elif(reacao == "engana"):
+				
+#					print("foi" + str(controleFluxoHistoria.getIndiceParte()))
+				
+				animacao.play("engana")
+				
+#					print(reduziu)
+				
+				if(reduziu == false):
+				
+					reduziu = true
+					contaCliquesIdeias.resetaReduziu()
+					contaCliquesIdeias.reduzClique()
+				
+			elif(reacao == "libera" and particulas.is_emitting() == false): #
+				
+				animacao.play("libera")
+				
+#					print(reduziu)
+				
+				if(reduziu == false):
+				
+					globais.setEnergiaRealizacaoSuposta(globais.getEnergiaRealizacaoSuposta() + 1)
+					reduziu = true
+					contaCliquesIdeias.resetaReduziu()
+					contaCliquesIdeias.reduzClique()
+				
+			#reduz o número de cliques restantes
+			#verifica os eventos
+		
 #				if(reduziu == false):
 #					
 #					reduziu = true

@@ -204,6 +204,8 @@ margin/top = -52.0
 margin/right = 54.0
 margin/bottom = 54.0
 
+[node name="multiplicaIdeia" type="Node2D" parent="."]
+
 [connection signal="animation_started" from="anim" to="." method="_on_anim_animation_started"]
 
 [connection signal="finished" from="anim" to="." method="_on_anim_finished"]

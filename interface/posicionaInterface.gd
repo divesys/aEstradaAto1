@@ -44,7 +44,7 @@ func _process(delta):
 	
 	if(estadoAnteriorCaixaIdeias != estadoAtualCaixaIdeias):
 		
-		if(controlaCaixaIdeias.getEstado() == "aberta"):
+		if(controlaCaixaIdeias.getEstado() != "fechada"):
 			
 			estadoAnteriorCaixaIdeias = controlaCaixaIdeias.getEstado()
 			textBoxDireita()
