@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=1]
+[gd_scene load_steps=25 format=1]
 
 [ext_resource path="res://recursos de base/ideia.png" type="Texture" id=1]
 [ext_resource path="res://interface/caixaDeIdeias/ideia/reageIdeia.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMultiplicar.smp" type="Sample" id=17]
 [ext_resource path="res://interface/caixaDeIdeias/ideia/sons/snd_ideiaMultiplicarA.smp" type="Sample" id=18]
 [ext_resource path="res://interface/interacao.tscn" type="PackedScene" id=19]
+[ext_resource path="res://interface/caixaDeIdeias/ideia/multiplicaIdeia.gd" type="Script" id=20]
 
 [sub_resource type="Animation" id=1]
 
@@ -198,6 +199,7 @@ default/chorus_send = 0.0
 
 [node name="interacao" parent="." instance=ExtResource( 19 )]
 
+visibility/opacity = 0.0
 visibility/self_opacity = 1.0
 margin/left = -55.0
 margin/top = -52.0
@@ -205,6 +207,8 @@ margin/right = 54.0
 margin/bottom = 54.0
 
 [node name="multiplicaIdeia" type="Node2D" parent="."]
+
+script/script = ExtResource( 20 )
 
 [connection signal="animation_started" from="anim" to="." method="_on_anim_animation_started"]
 

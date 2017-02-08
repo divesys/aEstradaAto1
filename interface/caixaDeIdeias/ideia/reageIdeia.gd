@@ -19,6 +19,8 @@ onready var reduziu = false
 var atrasa = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
 var iniciouTimer = false
 
+onready var multiplicaIdeia = get_node("multiplicaIdeia")
+
 func _ready():
 
 #	if(controleFluxoHistoria.getParte() != "prologo"):
@@ -147,6 +149,8 @@ func _on_interacao_button_down():
 		#print("não é exclusivo texto")
 		
 		if((reagindo == false) and self.is_visible()):
+			
+			multiplicaIdeia.determinaMultiplicar() #tenta multiplicar uma ideia
 			
 			if(controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() < 54):
 				

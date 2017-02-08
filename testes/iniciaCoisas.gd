@@ -9,7 +9,9 @@ func _ready():
 	# Initialization here
 	pass
 	controleFluxoHistoria.criaEventoEspecial("ideiasSimultaneas", true) #evento que determina se o jogador podera clicar em duas ideias ao mesmo tempo
-#	controleFluxoHistoria.setExclusivoTexto(true)
+	controleFluxoHistoria.criaEventoEspecial("andarHabilitado", false)
+	#controleFluxoHistoria.setExclusivoTexto(true)
 #	controleFluxoHistoria.mudarParte("prologo")
 #	controleFluxoHistoria.pularIndiceParte(27)
 #	print(controleFluxoHistoria.getIndiceParte())
+	controlaCaixaIdeias.abreCaixaIdeias()

@@ -32,7 +32,7 @@ editor/display_folded = true
 
 [node name="Sprite" parent="textBox/Conteudo/areaIconeMenssagem"]
 
-frame = 8
+frame = 6
 
 
 [editable path="textBox"]
