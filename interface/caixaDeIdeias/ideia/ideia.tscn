@@ -210,6 +210,31 @@ margin/bottom = 54.0
 
 script/script = ExtResource( 20 )
 
+[node name="particulaMultiplicar" type="Particles2D" parent="multiplicaIdeia"]
+
+config/amount = 100
+config/lifetime = 1.0
+config/preprocess = 1.0
+config/emit_timeout = 1.0
+config/emitting = false
+config/texture = ExtResource( 6 )
+params/direction = 0.0
+params/spread = 360.0
+params/linear_velocity = 40.0
+params/spin_velocity = 0.2
+params/orbit_velocity = 3.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = -75.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.6
+params/final_size = 0.6
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+
 [connection signal="animation_started" from="anim" to="." method="_on_anim_animation_started"]
 
 [connection signal="finished" from="anim" to="." method="_on_anim_finished"]

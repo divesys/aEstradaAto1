@@ -56,7 +56,40 @@ func adicionaNIdeias(intNumeroIdeias):
 		#posiciona a ideia
 		noIdeia.set_pos(Vector2(xIdeia,yIdeia))
 		
-		print("agora o total de ideias é " + str(globais.totalIdeias))
+		#print("agora o total de ideias é " + str(globais.totalIdeias))
+		
+		
+func multiplicaNIdeias(intNumeroIdeias,corR,corG,corB):
+	
+	for i in range(1,intNumeroIdeias + 1):
+		
+		#cria o nó da ideia
+		noIdeia = cenaIdeia.instance()
+		add_child(noIdeia)
+		
+		#pega o tamanho da ídeia
+		larguraIdeia = noIdeia.get_texture().get_width()
+		alturaIdeia = noIdeia.get_texture().get_height()
+		
+		#determina as coordenas
+		randomize()
+		xIdeia = rand_range(larguraIdeia/2,larguraArea - (larguraIdeia/2))
+		yIdeia = rand_range(alturaIdeia/2,alturaArea - (alturaIdeia/2))
+		
+		#posiciona a ideia
+		noIdeia.set_pos(Vector2(xIdeia,yIdeia))
+		
+		var particula = noIdeia.get_node("multiplicaIdeia/particulaMultiplicar") #captura o nó da particula
+		
+		#aplica as cores
+		particula.set_color(Color(corR,corG,corB))
+		
+		particula.set_emitting(true) #emite a particula
+		
+		#particula.
+		
+		
+		#print("agora o total de ideias é " + str(globais.totalIdeias))
 		
 	
 
