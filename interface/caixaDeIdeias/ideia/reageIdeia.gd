@@ -150,6 +150,7 @@ func _on_interacao_button_down():
 		
 		if((reagindo == false) and self.is_visible()):
 			
+			
 			multiplicaIdeia.determinaMultiplicar() #tenta multiplicar uma ideia
 			
 			if(controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() < 54):
@@ -158,11 +159,16 @@ func _on_interacao_button_down():
 				
 			elif(resorteou == false):
 				
-#					print(resorteou)
+#				print(resorteou)
 				sorteaReacao()
 				resorteou = true
 			
 #				print(reacao)
+
+				#parte especifica do tutorial para ativar a multiplicação no segundo clique
+				if(controleFluxoHistoria.getIndiceParte() == 54):
+				
+					controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
 			if(reacao == "recusa"):
 				
