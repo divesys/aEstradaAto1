@@ -26,6 +26,7 @@ func _ready():
 	controleFluxoHistoria.criaEventoEspecial("andarHabilitado" , false) #evento que determina se o Ego pode andar ou não
 	controleFluxoHistoria.criaEventoEspecial("ideiasSimultaneas", false) #evento que determina se o jogador podera clicar em duas ideias ao mesmo tempo
 	controleFluxoHistoria.criaEventoEspecial("travaCaixaDeIdeias", false) #evento que impede a caixa de ideias de ser aberta
+	controleFluxoHistoria.criaEventoEspecial("exclusivoSonho", false) #evento que impede de interagir com as outras ideias na existencia de um sonho
 	
 	#inicia a primeira parte
 	controleFluxoHistoria.mudarParte("prologo")
@@ -122,7 +123,7 @@ func _process(delta):
 		
 		controleFluxoHistoria.alteraEventoEspecial("andarHabilitado" , true)
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
-		print("andar habilitado agora é " + str(controleFluxoHistoria.getEventoEspecial("andarHabilitado")))
+		#print("andar habilitado agora é " + str(controleFluxoHistoria.getEventoEspecial("andarHabilitado")))
 		
 	elif(indiceParteAtual == 40):
 		
@@ -167,11 +168,62 @@ func _process(delta):
 			iniciouTimer = true
 			
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+		
+	elif(indiceParteAtual == 59):
+		
+		if(determinouPassosPrologoAnterior == false):
+			
+			passosPrologoAnterior = globais.getPassosPrologo() #captura o número de passos nesse exato instante
+			determinouPassosPrologoAnterior = true
+			
+		if(passosPrologoAtual == (passosPrologoAnterior + 8)): #verifica se ego andou 8 passos apos fechar a caixa de ideias
+			
+			determinouPassosPrologoAnterior = false
+			
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+	elif(indiceParteAtual == 62):
+		
+		if(determinouPassosPrologoAnterior == false):
+			
+			passosPrologoAnterior = globais.getPassosPrologo() #captura o número de passos nesse exato instante
+			determinouPassosPrologoAnterior = true
+			
+		if(passosPrologoAtual == (passosPrologoAnterior + 8)): #verifica se ego andou 8 passos apos o jogador ler a menssagem anterior
+			
+			#impede a caixa de ideias de abrir
+			controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias",true)
+		
+			#ativa a caixa de ideias
+			controlaCaixaIdeias.vibraCaixaIdeias(true)
+			
+			#impede de andar
+			controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",false)
+			
+			determinouPassosPrologoAnterior = false
+			
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+	elif(indiceParteAtual == 65):
+		
+		atrasaFluxoHistoria.set_wait_time(2)
+		
+		if(iniciouTimer == false):
+		
+			atrasaFluxoHistoria.start()
+			iniciouTimer = true
+			
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+		
+	elif(indiceParteAtual == 67):
+		
+		enxurradaIdeia.adicionaSonho() #adiciona o sonho
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 	
 func atrasaAcresentaIndice():
 	
 	#print("oxe")
-	if(indiceParteAtual == 12 or indiceParteAtual == 25 or indiceParteAtual == 51):
+	if(indiceParteAtual == 12 or indiceParteAtual == 25 or indiceParteAtual == 51 or indiceParteAtual == 66):
 		
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		

@@ -3,6 +3,7 @@
 extends Container
 
 onready var cenaIdeia = load("res://interface/caixaDeIdeias/ideia/ideia.tscn")
+onready var cenaSonho = load("res://interface/caixaDeIdeias/ideia/sonho/ideiaSonho.tscn")
 onready var noIdeia = ""
 onready var maximoIdeias = 3 #numero maximo de ideias que podem ser geradas
 onready var larguraIdeia = 0
@@ -116,3 +117,21 @@ func adicionaIdeias():
 		
 		#posiciona a ideia
 		noIdeia.set_pos(Vector2(xIdeia,yIdeia))
+		
+func adicionaSonho(): #adiciona o sonho
+
+	#cria o nó do sonho
+	noIdeia = cenaSonho.instance()
+	add_child(noIdeia)
+	
+	#pega o tamanho do sonho
+	larguraIdeia = noIdeia.get_texture().get_width()
+	alturaIdeia = noIdeia.get_texture().get_height()
+	
+	#determina as coordenas
+	randomize()
+	xIdeia = rand_range(larguraIdeia/2,larguraArea - (larguraIdeia/2))
+	yIdeia = rand_range(alturaIdeia/2,alturaArea - (alturaIdeia/2))
+	
+	#posiciona o sonho
+	noIdeia.set_pos(Vector2(xIdeia,yIdeia))

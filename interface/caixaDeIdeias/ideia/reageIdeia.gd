@@ -144,6 +144,11 @@ func _on_interacao_button_down():
 #	print(reduziu)
 	#executa a reação das ideias
 	#verifica os eventos
+	if(controleFluxoHistoria.getEventoEspecial("exclusivoSonho") == true):
+		
+		
+		pass
+	
 	if(controleFluxoHistoria.getExclusivoTexto() == false):
 		
 		#print("não é exclusivo texto")

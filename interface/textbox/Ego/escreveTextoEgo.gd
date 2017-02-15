@@ -187,3 +187,47 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO16"),velocidadePadrao)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 60):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("triste")
+			
+			#escreve o texto
+			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO17"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 63):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("feliz")
+			
+			#escreve o texto
+			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO18"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 68):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("pensativo")
+			
+			#escreve o texto
+			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO19"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+func textoNaoSonho():
+	
+	#muda a emoção
+	origemTextbox.mudaEmocaoTexto("pensativo")
+	
+	#escreve o texto
+	controleFluxoHistoria.setExclusivoTexto(true)
+	controlaTextbox.adicionaMenssagem(tr("EGO_NAOSONHO"),velocidadePadrao)
+	controlaTextbox.comecarEscrever()
+	controleFluxoHistoria.acrescentaIndiceParte(get_name())

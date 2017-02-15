@@ -148,6 +148,3 @@ func _process(delta):
 				
 				#print("fodasse")
 				pararEscrever()
-	
-	
-	

@@ -15,6 +15,10 @@ func getVibrarCaixaIdeias():
 	
 func abreCaixaIdeias():
 	
+	if(controleFluxoHistoria.getIndiceParte() == 65): #sinaliza que a caixa de ideias foi aberta
+		
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+	
 	#estadoCaixaIdeias = "abrindo" #quando existir animação de abrir
 	estadoCaixaIdeias = "aberta"
 	if(controleFluxoHistoria.getParte() != "prologo"):
@@ -25,6 +29,10 @@ func abreCaixaIdeias():
 			iniciouCliques = true
 	
 func fechaCaixaIdeias():
+	
+	if(controleFluxoHistoria.getIndiceParte() == 58): #sinaliza que a caixa de ideias foi fechada
+		
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 	
 	#estadoCaixaIdeias = "fechando" #quando existir animação de fechar
 	estadoCaixaIdeias = "fechando"
