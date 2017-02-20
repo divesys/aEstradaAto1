@@ -70,7 +70,6 @@ stretch_mode = 0
 
 [node name="areaSimbolo" type="Container" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -166,7 +165,7 @@ margin/bottom = 230.0
 transform/pos = Vector2( 20, 20 )
 frames = SubResource( 1 )
 animation = "escrevendo"
-frame = 9
+frame = 11
 playing = true
 
 [node name="interacao" parent="." instance=ExtResource( 35 )]

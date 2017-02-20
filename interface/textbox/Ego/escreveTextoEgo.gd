@@ -25,7 +25,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 	parteAtual = controleFluxoHistoria.getParte()
 	indiceAtual = controleFluxoHistoria.getIndiceParte()
 	
-	if(parteAtual == "prologo"):
+	if(parteAtual == "prologo"): #textos do prologo
 			
 		#escreve o texto
 		
@@ -210,7 +210,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
-		elif(controleFluxoHistoria.getIndiceParte() == 68):
+		elif(controleFluxoHistoria.getIndiceParte() == 67):
 			
 			#muda a emoção
 			origemTextbox.mudaEmocaoTexto("pensativo")
@@ -221,7 +221,31 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
+		elif(controleFluxoHistoria.getIndiceParte() == 72):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("feliz")
+			
+			#escreve o texto
+			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO20"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 75):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("raiva")
+			
+			#escreve o texto
+			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO21"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
 func textoNaoSonho():
+	
+	var comecouEscrever = false
 	
 	#muda a emoção
 	origemTextbox.mudaEmocaoTexto("pensativo")
@@ -229,5 +253,9 @@ func textoNaoSonho():
 	#escreve o texto
 	controleFluxoHistoria.setExclusivoTexto(true)
 	controlaTextbox.adicionaMenssagem(tr("EGO_NAOSONHO"),velocidadePadrao)
-	controlaTextbox.comecarEscrever()
-	controleFluxoHistoria.acrescentaIndiceParte(get_name())
+	
+	if(comecouEscrever == false):
+		
+		controlaTextbox.comecarEscreverSemIndice()
+		comecouEscrever == true
+#	controleFluxoHistoria.acrescentaIndiceParte(get_name())

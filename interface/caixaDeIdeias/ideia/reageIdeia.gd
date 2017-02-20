@@ -21,8 +21,11 @@ var iniciouTimer = false
 
 onready var multiplicaIdeia = get_node("multiplicaIdeia")
 
+onready var egoTexto = get_node("/root/aEstrada/interface/textBox/Conteudo/egoTexto")
+
 func _ready():
 
+#	print(egoTexto.get_name())
 #	if(controleFluxoHistoria.getParte() != "prologo"):
 #		
 #		print("meh")
@@ -146,10 +149,12 @@ func _on_interacao_button_down():
 	#verifica os eventos
 	if(controleFluxoHistoria.getEventoEspecial("exclusivoSonho") == true):
 		
-		
-		pass
+		if(globais.getExibiuTextoNaoSonho() == false):
+			
+			egoTexto.textoNaoSonho() #imprime um texto notificando
+			globais.setExibiuTextoNaoSonho(true)
 	
-	if(controleFluxoHistoria.getExclusivoTexto() == false):
+	elif(controleFluxoHistoria.getExclusivoTexto() == false):
 		
 		#print("não é exclusivo texto")
 		

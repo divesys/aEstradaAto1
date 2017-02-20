@@ -21,6 +21,9 @@ var totalIdeiasReagindo = 0 setget  ,getTotalIdeiaReagindo
 var posCaixaIdeias = Vector2(0,0) setget getPosCaixaIdeias, setPosCaixaIdeias
 var tamanhoCaixaIdeias = Vector2(0,0) setget getTamanhoCaixaIdeias, setTamanhoCaixaIdeias
 
+#alavanca de textos de loop (fazer o que =/)
+var exibiuTextoNaoSonho = false setget getExibiuTextoNaoSonho, setExibiuTextoNaoSonho
+
 func _ready():
 	
 	set_process(true)
@@ -145,3 +148,11 @@ func setTamanhoCaixaIdeias(vector2tamanho):
 func getTamanhoCaixaIdeias():
 	
 	return tamanhoCaixaIdeias
+	
+func setExibiuTextoNaoSonho(boolEstado):
+	
+	exibiuTextoNaoSonho = boolEstado
+	
+func getExibiuTextoNaoSonho():
+	
+	return exibiuTextoNaoSonho

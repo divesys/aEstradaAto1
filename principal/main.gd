@@ -53,6 +53,7 @@ func _process(delta):
 	
 #	print(controleFluxoHistoria.getExclusivoTexto())
 #	print(controleFluxoHistoria.getEventoEspecial("andarHabilitado"))
+	#print(controlaCaixaIdeias.getEstado())
 	
 	passosPrologoAtual = globais.getPassosPrologo()
 	
@@ -206,16 +207,24 @@ func _process(delta):
 			
 	elif(indiceParteAtual == 65):
 		
-		atrasaFluxoHistoria.set_wait_time(2)
+		#libera a caixa de ideias para abrir
+		controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias",false)
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+	
+	elif(indiceParteAtual == 69):
+		
+		controleFluxoHistoria.alteraEventoEspecial("exclusivoSonho",true) #ativa o modo exlusivo sonho
+		
+		atrasaFluxoHistoria.set_wait_time(2) #ajusta o tempo de espera
 		
 		if(iniciouTimer == false):
 		
-			atrasaFluxoHistoria.start()
+			atrasaFluxoHistoria.start() #espera o tempo determinado
 			iniciouTimer = true
 			
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
-	elif(indiceParteAtual == 67):
+	elif(indiceParteAtual == 71):
 		
 		enxurradaIdeia.adicionaSonho() #adiciona o sonho
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
@@ -223,7 +232,7 @@ func _process(delta):
 func atrasaAcresentaIndice():
 	
 	#print("oxe")
-	if(indiceParteAtual == 12 or indiceParteAtual == 25 or indiceParteAtual == 51 or indiceParteAtual == 66):
+	if(indiceParteAtual == 12 or indiceParteAtual == 25 or indiceParteAtual == 51 or indiceParteAtual == 70):
 		
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		

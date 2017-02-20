@@ -15,13 +15,13 @@ func getVibrarCaixaIdeias():
 	
 func abreCaixaIdeias():
 	
-	if(controleFluxoHistoria.getIndiceParte() == 65): #sinaliza que a caixa de ideias foi aberta
-		
-		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+#	if(controleFluxoHistoria.getIndiceParte() == 66): #sinaliza que a caixa de ideias foi aberta
+#		
+#		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 	
 	#estadoCaixaIdeias = "abrindo" #quando existir animação de abrir
 	estadoCaixaIdeias = "aberta"
-	if(controleFluxoHistoria.getParte() != "prologo"):
+	if(controleFluxoHistoria.getParte() != "prologo" or (controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() > 62)):
 		
 		if(iniciouCliques == false):
 			
