@@ -38,3 +38,5 @@ func _ready():
 		elif(ancoraVertical == "inferior"):
 			
 			parent.set_pos(Vector2((valorPosicao.x),(posicaoAreaUtil.y + alturaUtilizada) - ((valorPosicao.y)+larguraEgo)))
+			
+	globais.setPosicaoEgo(parent.get_pos())

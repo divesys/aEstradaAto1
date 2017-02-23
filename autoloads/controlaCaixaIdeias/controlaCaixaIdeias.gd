@@ -30,9 +30,11 @@ func abreCaixaIdeias():
 	
 func fechaCaixaIdeias():
 	
-	if(controleFluxoHistoria.getIndiceParte() == 58): #sinaliza que a caixa de ideias foi fechada
+	if(controleFluxoHistoria.getParte() == "prologo"):
 		
-		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+		if(controleFluxoHistoria.getIndiceParte() == 58 or controleFluxoHistoria.getIndiceParte() == 77): #sinaliza que a caixa de ideias foi fechada
+		
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 	
 	#estadoCaixaIdeias = "fechando" #quando existir animação de fechar
 	estadoCaixaIdeias = "fechando"

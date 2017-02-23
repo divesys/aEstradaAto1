@@ -11,6 +11,8 @@ var iniciouTimer = false
 #variaveis de nó
 onready var caixaDeIdeias =get_node("interface/caixaDeIdeias")
 onready var enxurradaIdeia  = caixaDeIdeias.get_node("areaDeIdeias")
+onready var posicaoFinalSonho = get_node("posicaoSonho")
+
 
 #variaveis de passos
 
@@ -46,6 +48,9 @@ func _ready():
 	add_child(atrasaFluxoHistoria)
 	atrasaFluxoHistoria.connect("timeout", self, "atrasaAcresentaIndice")
 	
+	#cria a posição do sonho
+	
+	
 	#inicializa o processo
 	set_process(true)
 	
@@ -54,6 +59,8 @@ func _process(delta):
 #	print(controleFluxoHistoria.getExclusivoTexto())
 #	print(controleFluxoHistoria.getEventoEspecial("andarHabilitado"))
 	#print(controlaCaixaIdeias.getEstado())
+	
+	posicaoFinalSonho.determinaPosicaoFinalSonho() #temporario
 	
 	passosPrologoAtual = globais.getPassosPrologo()
 	
@@ -228,6 +235,15 @@ func _process(delta):
 		
 		enxurradaIdeia.adicionaSonho() #adiciona o sonho
 		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+		
+	elif(indiceParteAtual == 77): #força o fechamento da caixa de ideias
+		
+		controlaCaixaIdeias.fechaCaixaIdeias()
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+		
+	elif(indiceParteAtual == 79): #determina o destino do objeto sonho
+	
+		posicaoFinalSonho.determinaPosicaoFinalSonho()
 	
 func atrasaAcresentaIndice():
 	

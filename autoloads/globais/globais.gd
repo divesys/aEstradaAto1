@@ -18,11 +18,14 @@ var totalIdeias = 0 setget ,getTotalIdeias #conta o numero total de ideias na ca
 var totalIdeiasReagindo = 0 setget  ,getTotalIdeiaReagindo
 
 #posições e medidas importantes
-var posCaixaIdeias = Vector2(0,0) setget getPosCaixaIdeias, setPosCaixaIdeias
-var tamanhoCaixaIdeias = Vector2(0,0) setget getTamanhoCaixaIdeias, setTamanhoCaixaIdeias
+var posCaixaIdeias = Vector2(0,0) setget setPosCaixaIdeias, getPosCaixaIdeias
+var tamanhoCaixaIdeias = Vector2(0,0) setget setTamanhoCaixaIdeias, getTamanhoCaixaIdeias
 
 #alavanca de textos de loop (fazer o que =/)
-var exibiuTextoNaoSonho = false setget getExibiuTextoNaoSonho, setExibiuTextoNaoSonho
+var exibiuTextoNaoSonho = false setget setExibiuTextoNaoSonho, getExibiuTextoNaoSonho
+
+# outra global não elegante, mas estou preferindo a praticidade nesse momento, quem sabe no ato 2
+var posicaoEgo = Vector2(0,0) setget setPosicaoEgo, getPosicaoEgo
 
 func _ready():
 	
@@ -156,3 +159,11 @@ func setExibiuTextoNaoSonho(boolEstado):
 func getExibiuTextoNaoSonho():
 	
 	return exibiuTextoNaoSonho
+	
+func setPosicaoEgo(vector2Posicao):
+	
+	posicaoEgo = vector2Posicao
+	
+func getPosicaoEgo():
+	
+	return posicaoEgo
