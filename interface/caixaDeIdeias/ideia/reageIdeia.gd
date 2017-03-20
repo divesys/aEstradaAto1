@@ -25,10 +25,10 @@ onready var egoTexto = get_node("/root/aEstrada/interface/textBox/Conteudo/egoTe
 
 func _ready():
 
-#	print(egoTexto.get_name())
+#	#print(egoTexto.get_name())
 #	if(controleFluxoHistoria.getParte() != "prologo"):
 #		
-#		print("meh")
+#		#print("meh")
 #		sorteaReacao()
 		
 	set_process(true)
@@ -44,7 +44,7 @@ func _process(delta):
 	
 	#print(reduziu)
 	#print(controleFluxoHistoria.getExclusivoTexto())
-#	print(reacao)
+#	#print(reacao)
 	
 	if(controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() == 51):
 		
@@ -54,13 +54,13 @@ func _process(delta):
 		
 		reduziu = false
 	
-#	print(controleFluxoHistoria.getParte())
+#	#print(controleFluxoHistoria.getParte())
 	
 	if(controleFluxoHistoria.getParte() != "prologo" or (controleFluxoHistoria.getParte() == "prologo" and controleFluxoHistoria.getIndiceParte() >= 54)):
 			
 		if(controlaCaixaIdeias.getEstado() != "aberta"):
 			
-#			print(controlaCaixaIdeias.getEstado())
+#			#print(controlaCaixaIdeias.getEstado())
 			resorteou = false
 	
 	if(animacao.is_playing() == false):
@@ -75,7 +75,7 @@ func _process(delta):
 		
 func sorteaReacao():
 	
-#	print("ops")
+#	#print("ops")
 	
 	#escolhe um número de 0 a 100
 	randomize()
@@ -94,7 +94,7 @@ func sorteaReacao():
 		
 		reacao = "libera"
 		
-#	print(reacao)
+#	#print(reacao)
 		
 func decideReacao(stringReacao):
 	
@@ -144,7 +144,7 @@ func atrasaAutoDestroi():
 
 func _on_interacao_button_down():
 	
-#	print(reduziu)
+#	#print(reduziu)
 	#executa a reação das ideias
 	#verifica os eventos
 	if(controleFluxoHistoria.getEventoEspecial("exclusivoSonho") == true):
@@ -169,11 +169,11 @@ func _on_interacao_button_down():
 				
 			elif(resorteou == false):
 				
-#				print(resorteou)
+#				#print(resorteou)
 				sorteaReacao()
 				resorteou = true
 			
-#				print(reacao)
+#				#print(reacao)
 
 				#parte especifica do tutorial para ativar a multiplicação no segundo clique
 				if(controleFluxoHistoria.getIndiceParte() == 54):
@@ -184,7 +184,7 @@ func _on_interacao_button_down():
 				
 				animacao.play("recusa")
 				
-#					print(reduziu)
+#					#print(reduziu)
 				
 				if(reduziu == false):
 				
@@ -194,11 +194,11 @@ func _on_interacao_button_down():
 				
 			elif(reacao == "engana"):
 				
-#					print("foi" + str(controleFluxoHistoria.getIndiceParte()))
+#					#print("foi" + str(controleFluxoHistoria.getIndiceParte()))
 				
 				animacao.play("engana")
 				
-#					print(reduziu)
+#					#print(reduziu)
 				
 				if(reduziu == false):
 				
@@ -210,7 +210,7 @@ func _on_interacao_button_down():
 				
 				animacao.play("libera")
 				
-#					print(reduziu)
+#					#print(reduziu)
 				
 				if(reduziu == false):
 				

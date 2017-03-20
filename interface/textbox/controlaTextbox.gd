@@ -55,8 +55,8 @@ func pararEscrever(): #para de escrever
 	
 	if(adicionouIndiceHistoria == false and adicionarIndice == true):
 	
-#		print("parou de escrever")
-#		print(controleFluxoHistoria.getIndiceParte())
+#		#print("parou de escrever")
+#		#print(controleFluxoHistoria.getIndiceParte())
 		adicionouIndiceHistoria = true
 		controleFluxoHistoria.acrescentaIndiceParte(get_name()) #adiciona um ao indice da parte ao encerrar a exibição das menssagens
 

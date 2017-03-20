@@ -48,15 +48,15 @@ func _process(delta):
 		
 	elif(controlaCaixaIdeias.getEstado() == "fechando"):
 		
-		print(globais.getTotalIdeiaReagindo())
+		#print(globais.getTotalIdeiaReagindo())
 		
 		if(globais.getTotalIdeiaReagindo() <= 0): #se não tiver nenhuma ideia em processo de reação
 			
-#			print(iniciouTimer)
+#			#print(iniciouTimer)
 			
 			if(iniciouTimer == false): #atrasa um pouco para não fechar bruscamente
 			
-#				print("timer")
+#				#print("timer")
 				atrasa.start()
 				iniciouTimer = true
 
@@ -70,7 +70,7 @@ func atrasaFechar():
 	controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",true)
 	controlaCaixaIdeias.setEstado("fechada")
 	iniciouTimer = false
-#	print(controlaCaixaIdeias.getEstado())
+#	#print(controlaCaixaIdeias.getEstado())
 #	hide()
 #	adicionouIdeia = false
 	

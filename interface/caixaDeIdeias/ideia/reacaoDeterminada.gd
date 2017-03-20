@@ -31,8 +31,8 @@ func _ready():
 	
 func decideReacaoDeterminada():
 	
-#	print("chamou")
-#	print(controleFluxoHistoria.getIndiceParte())
+#	#print("chamou")
+#	#print(controleFluxoHistoria.getIndiceParte())
 
 	#50 ou 54
 	
@@ -45,32 +45,32 @@ func decideReacaoDeterminada():
 			
 			if(controleFluxoHistoria.getIndiceParte() == 28):
 				
-#				print("funciona")
+#				#print("funciona")
 				
 				ideia.decideReacao("recusa")
 				alterouReacao = true
 				
-#				print(ideia.getReacao())
+#				#print(ideia.getReacao())
 				
 				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 				
 			elif(controleFluxoHistoria.getIndiceParte() == 31):
 				
-#				print("foi")
+#				#print("foi")
 				
 				ideia.decideReacao("libera")
 				alterouReacao = true
 				
-#				print(ideia.getReacao())
+#				#print(ideia.getReacao())
 				
 				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 				
 			elif(controleFluxoHistoria.getIndiceParte() == 34):
 				
-#				print("foi")
+#				#print("foi")
 				
 				ideia.decideReacao("engana")
-#				print(ideia.getReacao())
+#				#print(ideia.getReacao())
 				alterouReacao = true
 				
 				controleFluxoHistoria.acrescentaIndiceParte(get_name())
@@ -100,7 +100,7 @@ func _on_anim_finished():
 #func atrasaAcresentaIndice():
 #	
 #	pass
-#	print(controleFluxoHistoria.getIndiceParte())
+#	#print(controleFluxoHistoria.getIndiceParte())
 #	controleFluxoHistoria.acrescentaIndiceParte(get_name())
 #	iniciouTimer = false
 
@@ -108,7 +108,7 @@ func _on_interacao_button_down():
 
 	pass
 			
-# #	print("apertou")
+# #	#print("apertou")
 #	
 #	if(controleFluxoHistoria.getParte() == "prologo" and alterouReacao == false):
 #			
@@ -118,11 +118,11 @@ func _on_interacao_button_down():
 #			
 #			if(controleFluxoHistoria.getIndiceParte() == 27):
 #				
-# #				print("funciona")
+# #				#print("funciona")
 #				
 #				ideia.decideReacao("recusa")
 #				
-# #				print(ideia.getReacao())
+# #				#print(ideia.getReacao())
 #				
 #				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 #				

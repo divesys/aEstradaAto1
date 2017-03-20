@@ -23,7 +23,7 @@ func _process(delta):
 			show() #mostra a caixa
 			exibiuIcone = true
 		
-#		print(controleFluxoHistoria.getExclusivoTexto())
+#		#print(controleFluxoHistoria.getExclusivoTexto())
 		
 		if((Input.is_action_pressed("abrirCaixa") or clicando == true) and controleFluxoHistoria.getExclusivoTexto() == false and controleFluxoHistoria.getEventoEspecial("travaCaixaDeIdeias") == false):
 			

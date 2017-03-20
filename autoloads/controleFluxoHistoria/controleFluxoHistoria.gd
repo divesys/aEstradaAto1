@@ -23,8 +23,8 @@ func zerarIndiceHistoria(): #zera o indice da historia
 	
 func acrescentaIndiceParte(strNome): #anda um passo com o indice da parte
 	
-	print(strNome)
-	print(getIndiceParte())
+	#print(strNome)
+	#print(getIndiceParte())
 	
 	indiceParte += 1
 	acrescentaIndiceHistoria()
@@ -38,7 +38,7 @@ func pularIndiceParte(intIndice): #pula diretamente para um determinado indice
 
 	if(indiceParte > intIndice):
 		
-		print("você não pode retornar na sequencia dos indices")
+		#print("você não pode retornar na sequencia dos indices")
 		quit()
 		
 	else:

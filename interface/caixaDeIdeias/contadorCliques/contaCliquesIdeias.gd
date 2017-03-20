@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	
 	ideiasReagindo = globais.getTotalIdeiaReagindo()
-	print(ideiasReagindo)
+	#print(ideiasReagindo)
 	
 	#garante que não ocorre cliques negativos
 	if(cliquesRestantes < 0):
@@ -54,7 +54,7 @@ func iniciaCliquesN(intCliques):
 	
 	totalCliques = intCliques
 	cliquesRestantes = totalCliques
-	print("restam " + str(cliquesRestantes) + " cliques")
+	#print("restam " + str(cliquesRestantes) + " cliques")
 	
 	
 	#reseta a alavanca reduziu

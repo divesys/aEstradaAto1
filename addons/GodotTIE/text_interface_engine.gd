@@ -108,7 +108,7 @@ func clear_skipped_lines(): # Deletes only the 'hidden' lines, if LOG_SKIPPED_LI
 		_clear_skipped_lines()
 
 func add_newline(): # Add a new line to the label text
-	_label_print("\n")
+	_label_#print("\n")
 
 func get_text(): # Get current text on Label
 	return _label.get_text()
@@ -156,7 +156,7 @@ func _ready():
 	
 	# Setting size of the frame
 	_max_lines = floor(get_size().y/_label.get_line_height())
-	print(get_size())
+	#print(get_size())
 	_label.set_size(Vector2(get_size().x,get_size().y))
 	_label.set_autowrap(true)
 	
@@ -179,14 +179,14 @@ func _fixed_process(delta):
 		if (o["buff_type"] == BUFF_DEBUG): # ---- It's a debug! ----
 			if(o["debug_label"] == false):
 				if(o["debug_arg"] == null):
-					print(self.call(o["debug_function"]))
+					#print(self.call(o["debug_function"]))
 				else:
-					print(self.call(o["debug_function"],o["debug_arg"]))
+					#print(self.call(o["debug_function"],o["debug_arg"]))
 			else:
 				if(o["debug_arg"] == null):
-					print(_label.call(o["debug_function"]))
+					#print(_label.call(o["debug_function"]))
 				else:
-					print(_label.call(o["debug_function"],o["debug_arg"]))
+					#print(_label.call(o["debug_function"],o["debug_arg"]))
 			_buffer.pop_front()
 		elif (o["buff_type"] == BUFF_TEXT): # ---- It's a text! ----
 			# -- Print Text --
@@ -194,20 +194,20 @@ func _fixed_process(delta):
 			if(o["buff_tag"] != "" and _buff_beginning == true):
 				emit_signal("tag_buff", o["buff_tag"])
 			
-			if (_turbo): # In case of turbo, print everything on this buff
+			if (_turbo): # In case of turbo, #print everything on this buff
 				o["buff_vel"] = 0
 			
-			if(o["buff_vel"] == 0): # If the velocity is 0, than just print everything
+			if(o["buff_vel"] == 0): # If the velocity is 0, than just #print everything
 				while(o["buff_text"] != ""): # Not optimal (not really printing everything at the same time); but is the only way to work with line break
 					if(AUTO_SKIP_WORDS and (o["buff_text"][0] == " " or _buff_beginning)):
 						_skip_word()
-					_label_print(o["buff_text"][0])
+					_label_#print(o["buff_text"][0])
 					_buff_beginning = false
 					o["buff_text"] = o["buff_text"].right(1)
 					if(_max_lines_reached == true):
 						break
 					
-			else: # Else, print each character according to velocity
+			else: # Else, #print each character according to velocity
 				_output_delay_limit = o["buff_vel"]
 				if(_buff_beginning):
 					_output_delay = _output_delay_limit + delta
@@ -216,7 +216,7 @@ func _fixed_process(delta):
 				if(_output_delay > _output_delay_limit):
 					if(AUTO_SKIP_WORDS and (o["buff_text"][0] == " " or _buff_beginning)):
 						_skip_word()
-					_label_print(o["buff_text"][0])
+					_label_#print(o["buff_text"][0])
 					_buff_beginning = false
 					_output_delay -= _output_delay_limit
 					o["buff_text"] = o["buff_text"].right(1)
@@ -293,7 +293,7 @@ func _input(event):
 			
 			elif(event.unicode >= 32 and event.unicode <= 126): # Add character
 				if(INPUT_CHARACTERS_LIMIT < 0 or input.length() < INPUT_CHARACTERS_LIMIT):
-					_label_print(_ARRAY_CHARS[event.unicode-32])
+					_label_#print(_ARRAY_CHARS[event.unicode-32])
 
 # Private
 func _clear_skipped_lines():
@@ -317,7 +317,7 @@ func _blink_input(reset = false):
 		_blink_input_visible = false
 	else:
 		_blink_input_visible = true
-		_label_print("_")
+		_label_#print("_")
 
 func _delete_last_character(scrollup = false):
 	var n = _label.get_line_count()
@@ -360,7 +360,7 @@ func _skip_word():
 		else:
 			_buffer[0]["buff_text"] = _buffer[0]["buff_text"].insert(0,"\n")
 
-func _label_print(t): # Add text to the label
+func _label_#print(t): # Add text to the label
 	var n = _label.get_line_count()
 	_label.set_text(_label.get_text() + t)
 	if(_label.get_line_count() > n): # If number of lines increased

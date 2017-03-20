@@ -13,5 +13,5 @@ func _ready():
 	#controleFluxoHistoria.setExclusivoTexto(true)
 #	controleFluxoHistoria.mudarParte("prologo")
 #	controleFluxoHistoria.pularIndiceParte(27)
-#	print(controleFluxoHistoria.getIndiceParte())
+#	#print(controleFluxoHistoria.getIndiceParte())
 	controlaCaixaIdeias.abreCaixaIdeias()

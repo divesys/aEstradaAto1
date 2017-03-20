@@ -5,7 +5,7 @@
 [ext_resource path="res://personagens/ego/ego.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/interface.tscn" type="PackedScene" id=4]
 [ext_resource path="res://debug.gd" type="Script" id=5]
-[ext_resource path="res://interface/posicaoSonho.tscn" type="PackedScene" id=6]
+[ext_resource path="res://principal/sonho.tscn" type="PackedScene" id=6]
 
 [node name="aEstrada" type="Node2D"]
 
@@ -35,6 +35,9 @@ lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 5 )
 
-[node name="posicaoSonho" parent="." instance=ExtResource( 6 )]
+[node name="sonho" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 41.6097, 880.486 )
+transform/scale = Vector2( 0.05, 0.05 )
 
 

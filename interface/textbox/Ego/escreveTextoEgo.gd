@@ -100,12 +100,12 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			#escreve o texto
 			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO7"),velocidadePadrao)
 			controleFluxoHistoria.setExclusivoTexto(true)
-#			print("vai falar")
-#			print(controleFluxoHistoria.getIndiceParte())
+#			#print("vai falar")
+#			#print(controleFluxoHistoria.getIndiceParte())
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
-#			print("falando")
-#			print(controleFluxoHistoria.getIndiceParte())
+#			#print("falando")
+#			#print(controleFluxoHistoria.getIndiceParte())
 			
 		elif(controleFluxoHistoria.getIndiceParte() == 32):
 			
