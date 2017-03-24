@@ -38,7 +38,7 @@ func pularIndiceParte(intIndice): #pula diretamente para um determinado indice
 
 	if(indiceParte > intIndice):
 		
-		#print("você não pode retornar na sequencia dos indices")
+		print("você não pode retornar na sequencia dos indices")
 		quit()
 		
 	else:

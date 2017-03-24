@@ -8,6 +8,14 @@ onready var origemTextbox = get_parent().get_parent() #pega o nó textbox
 export var velocidadePadrao = 0.05 #velocidade padrão dessa fonte de texto
 var parteAtual = ""
 var indiceAtual = 0
+
+#parte = "estradaPrincipal"
+var indiceTextoEstradaPrincipal = 0
+var indiceTextoEstradaPrincipalAnterior = -1
+var intervaloPassosEstradaPrincipal = 8.0 #determina o valor do intervalo de passos
+var emocaoAtualEstradaPrincipal = "" #determina qual será a emoção de certo texto
+var menssagemAtualEstradaPrincipal = "" #determina qual será a menssagem
+var totalTextoEstradaPrincipal = 22 #determina o número máximo de textos na estrada principal
 #var parteAnterior = "" #garante que o evento não fique em loop
 #var indiceAnterior = 0 #garante que o evento não fique em loop
 #var configurou = false #garante que o evento não fique em loop
@@ -243,6 +251,82 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
+		elif(controleFluxoHistoria.getIndiceParte() == 80):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("pensativo")
+			
+			#escreve o texto
+			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO22"),velocidadePadrao)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO23"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 82):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("confiante")
+			
+			#escreve o texto
+			controleFluxoHistoria.setExclusivoTexto(true)
+			controlaTextbox.adicionaMenssagem(tr("EGO_PROLOGO24"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+	elif(controleFluxoHistoria.getParte() == "estradaPrincipal" and indiceTextoEstradaPrincipal <= totalTextoEstradaPrincipal): #texto normal da estrada
+		
+		#aqui vai ocorrer um encadeado de ifs baseado nos passos do Ego
+		#sempre num intervalo de 8 passos
+		#como o texto está automático, é mais simples somente mudar as emoção
+		indiceTextoEstradaPrincipal = (globais.getPassosSupostos())/intervaloPassosEstradaPrincipal #determina o indice atual de passos
+		
+		#print(indiceTextoEstradaPrincipal)
+		
+		#muda as emoções dependendo do índice  na estrada principal
+		if(controleFluxoHistoria.getIndiceParte() == 0):
+			
+			emocaoAtualEstradaPrincipal = "pensativo"
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 1):
+			
+			emocaoAtualEstradaPrincipal = "feliz"
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 2):
+			
+			emocaoAtualEstradaPrincipal = "confiante"
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 5):
+			
+			emocaoAtualEstradaPrincipal = "triste"
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 12):
+			
+			emocaoAtualEstradaPrincipal = "raiva"
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 17):
+			
+			emocaoAtualEstradaPrincipal = "triste"
+			
+		origemTextbox.mudaEmocaoTexto(emocaoAtualEstradaPrincipal)
+		
+		if(fmod(globais.getPassosSupostos(),intervaloPassosEstradaPrincipal) == 0 and indiceTextoEstradaPrincipal > 0 and indiceTextoEstradaPrincipal != indiceTextoEstradaPrincipalAnterior): #desse modo a cada n passos escreverá um texto
+			
+			#determina a menssagem num processo automatizado
+			menssagemAtualEstradaPrincipal = tr("EGO_ESTRADA_PRINCIPAL" + str(indiceTextoEstradaPrincipal)) #determina menssagem, automático
+			
+			#adiciona a menssagem
+			controlaTextbox.adicionaMenssagemEmocao(menssagemAtualEstradaPrincipal,velocidadePadrao,"ego","pensamento",emocaoAtualEstradaPrincipal,"nenhuma")
+			
+			if(controlaTextbox.getEscrevendo() == false):
+				
+				controlaTextbox.comecarEscrever()
+				indiceTextoEstradaPrincipalAnterior = indiceTextoEstradaPrincipal
+				
+			else:
+				
+				indiceTextoEstradaPrincipalAnterior = indiceTextoEstradaPrincipal
+		
 func textoNaoSonho():
 	
 	var comecouEscrever = false

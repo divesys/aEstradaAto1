@@ -15,8 +15,9 @@ var acelerou = false #determina se o úsuario está acelerando o texto na menssa
 #variaveis de texto
 onready var arrayMenssagens = [] #guarda as menssagens em sequencia
 onready var arrayVelocidades = [] #guarda a velocidade de cada menssagem
+#onready var arrayStack = [] #guarda um outros blocos de menssagem em fila
 onready var indiceAtualMenssagem = 0 #o indice atual da menssagem, usado para o looping de remoção e para imprimir
-export var escrevendo = false #indica se a textBox está ativamente escrevendo algum texto
+export var escrevendo = false setget ,getEscrevendo #indica se a textBox está ativamente escrevendo algum texto
 
 #variavel de controle de indice da historia
 onready var adicionouIndiceHistoria = false
@@ -24,6 +25,10 @@ onready var adicionarIndice = true #determina se deve adicionar o indice
 
 #variavel de interação
 var clicando = false
+
+func getEscrevendo():
+	
+	return escrevendo
 
 func comecarEscrever(): #comeca a escrever
 	
@@ -151,13 +156,17 @@ func _process(delta):
 			#tie.clear_buffer()
 			#print(arrayMenssagens.size())
 			#print(indiceAtualMenssagem + 1)
-			if(arrayMenssagens.size() >= (indiceAtualMenssagem + 1)):
+			if(arrayMenssagens.size() >= (indiceAtualMenssagem + 1)): #caso tenha mais menssagens
 				
 				#print("entrei")
+				if(controleFluxoHistoria.getParte() != "prologo"):
+			
+					controleFluxoHistoria.acrescentaIndiceParte(get_name()) #adiciona um ao indice da parte ao encerrar a menssagen
+				
 				imprimeMenssagem(indiceAtualMenssagem)
 				indiceAtualMenssagem += 1
 				
-			else:
+			else: #não tem mais menssagens
 				
 				#print("fodasse")
 				pararEscrever()
