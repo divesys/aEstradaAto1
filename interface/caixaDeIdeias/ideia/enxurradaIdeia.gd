@@ -12,6 +12,7 @@ onready var larguraArea = self.get_size().x
 onready var alturaArea = self.get_size().y
 onready var xIdeia = 0
 onready var yIdeia = 0
+var idSonho = 0
 
 func _ready():
 	
@@ -123,6 +124,7 @@ func adicionaSonho(): #adiciona o sonho
 	#cria o nó do sonho
 	noIdeia = cenaSonho.instance()
 	add_child(noIdeia)
+	idSonho = get_node(noIdeia.get_path())
 	
 	#pega o tamanho do sonho
 	larguraIdeia = noIdeia.get_texture().get_width()
@@ -135,3 +137,7 @@ func adicionaSonho(): #adiciona o sonho
 	
 	#posiciona o sonho
 	noIdeia.set_pos(Vector2(xIdeia,yIdeia))
+	
+func destroiSonho(): #destroi o sonho na caixa
+
+	idSonho.queue_free()

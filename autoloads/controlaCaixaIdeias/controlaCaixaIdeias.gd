@@ -1,6 +1,7 @@
  #controla a caixa de ideias
 
 var iniciouCliques = false
+var ideiasAnterior = 0 #número de ideias após adicionar ideias
 
 onready var vibrarCaixaIdeias = false setget vibraCaixaIdeias, getVibrarCaixaIdeias #determina se a caixa de ideias deve vibrar, isso inicia o processo para abrir
 onready var estadoCaixaIdeias = "fechada"

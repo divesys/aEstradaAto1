@@ -26,28 +26,63 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:visibility/opacity")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0.6, 1.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
+tracks/0/keys = {
+"times": FloatArray( 0.6, 1.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("valor:visibility/opacity")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0.6, 1.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
+tracks/1/keys = {
+"times": FloatArray( 0.6, 1.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 tracks/2/type = "value"
 tracks/2/path = NodePath("brilhoSurgir:config/emitting")
 tracks/2/interp = 1
 tracks/2/imported = false
-tracks/2/keys = { "times":FloatArray( 0, 1.2 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ true, false ] }
+tracks/2/keys = {
+"times": FloatArray( 0, 1.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 tracks/3/type = "value"
 tracks/3/path = NodePath("audio:play/play")
 tracks/3/interp = 1
 tracks/3/imported = false
-tracks/3/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":2, "values":[ "aparecer" ] }
+tracks/3/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 2,
+"values": [ "aparecer" ]
+}
 
 [sub_resource type="SampleLibrary" id=2]
 
-samples/aparecer = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
-samples/snd_ideiaLiberarC = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
-samples/snd_ideiaLiberarPre = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
+samples/aparecer = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 6 )
+}
+samples/snd_ideiaLiberarC = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 7 )
+}
+samples/snd_ideiaLiberarPre = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 8 )
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -59,7 +94,12 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:transform/rot")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.25, 0.5, 0.75, 1 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "update":0, "values":[ 0.0, 45.0, 0.0, -25.0, 0.0 ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 45.0, 0.0, -25.0, 0.0 ]
+}
 
 [node name="HUD" type="Control"]
 
@@ -86,14 +126,14 @@ script/script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="contadorDePassos"]
 
-visibility/opacity = 0.5
+visibility/opacity = 0.0
 z/z = 2
 texture = ExtResource( 2 )
 centered = false
 
 [node name="valor" type="Label" parent="contadorDePassos"]
 
-visibility/opacity = 0.5
+visibility/opacity = 0.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -103,7 +143,8 @@ margin/top = 5.0
 margin/right = 110.0
 margin/bottom = 43.0
 custom_fonts/font = ExtResource( 3 )
-text = "0\n"
+text = "0
+"
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
@@ -113,7 +154,7 @@ script/script = ExtResource( 4 )
 [node name="brilhoSurgir" parent="contadorDePassos" instance=ExtResource( 5 )]
 
 config/preprocess = 0.5
-config/emitting = false
+config/process_mode = 1
 
 [node name="anim" type="AnimationPlayer" parent="contadorDePassos"]
 
@@ -130,7 +171,7 @@ autoplay = ""
 
 config/polyphony = 1
 config/samples = SubResource( 2 )
-default/volume_db = 0.0
+default/volume_db = -20.0
 default/pitch_scale = 1.0
 default/pan = 0.0
 default/depth = 0.0
@@ -180,6 +221,7 @@ max_lines_visible = -1
 [node name="brilhoSurgir" parent="contadorIdeias" instance=ExtResource( 5 )]
 
 config/emitting = false
+config/process_mode = 1
 
 [node name="anim" type="AnimationPlayer" parent="contadorIdeias"]
 
@@ -196,7 +238,7 @@ autoplay = ""
 
 config/polyphony = 1
 config/samples = SubResource( 2 )
-default/volume_db = 0.0
+default/volume_db = -20.0
 default/pitch_scale = 1.0
 default/pan = 0.0
 default/depth = 0.0
@@ -246,6 +288,7 @@ max_lines_visible = -1
 [node name="brilhoSurgir" parent="contadorEnergiaRealizacao" instance=ExtResource( 5 )]
 
 config/emitting = false
+config/process_mode = 1
 
 [node name="anim" type="AnimationPlayer" parent="contadorEnergiaRealizacao"]
 
@@ -262,7 +305,7 @@ autoplay = ""
 
 config/polyphony = 1
 config/samples = SubResource( 2 )
-default/volume_db = 0.0
+default/volume_db = -20.0
 default/pitch_scale = 1.0
 default/pan = 0.0
 default/depth = 0.0

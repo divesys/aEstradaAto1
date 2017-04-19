@@ -13,6 +13,7 @@ var indiceAnterior = -1
 
 func _ready():
 
+	set_volume(0.1) #só para não me incomodar, depois colocar 1
 	set_stream(egoConfiante)
 	play(0)
 	set_process(true)

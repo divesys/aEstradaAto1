@@ -31,12 +31,22 @@ tracks/0/type = "value"
 tracks/0/path = NodePath(".:visibility/opacity")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 1.2, 1.4 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 1.0, 0.5, 1.0 ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 1.2, 1.4 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.5, 1.0 ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("som:play/play")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ "snd_ideiaEnganar" ] }
+tracks/1/keys = {
+"times": FloatArray( 0, 1.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ "snd_ideiaEnganar", "" ]
+}
 
 [sub_resource type="Animation" id=2]
 
@@ -48,22 +58,42 @@ tracks/0/type = "value"
 tracks/0/path = NodePath(".:visibility/self_opacity")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 1.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 1.3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("texto:visibility/self_opacity")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 1.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+tracks/1/keys = {
+"times": FloatArray( 0, 1.3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
 tracks/2/type = "value"
 tracks/2/path = NodePath("Particles2D:config/emitting")
 tracks/2/interp = 1
 tracks/2/imported = false
-tracks/2/keys = { "times":FloatArray( 0, 1.4, 1.8 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ false, true, false ] }
+tracks/2/keys = {
+"times": FloatArray( 0, 1.4, 1.8 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
 tracks/3/type = "value"
 tracks/3/path = NodePath("som:play/play")
 tracks/3/interp = 1
 tracks/3/imported = false
-tracks/3/keys = { "times":FloatArray( 0, 1.3 ), "transitions":FloatArray( 1, 1 ), "update":2, "values":[ "snd_ideiaLiberarPre", "snd_ideiaLiberarB" ] }
+tracks/3/keys = {
+"times": FloatArray( 0, 1.3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 2,
+"values": [ "snd_ideiaLiberarPre", "snd_ideiaLiberarB" ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -74,38 +104,114 @@ tracks/0/type = "value"
 tracks/0/path = NodePath(".:offset")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.25, 0.5, 0.75, 1 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( -25, 0 ), Vector2( 0, 0 ), Vector2( 25, 0 ), Vector2( 0, 0 ) ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -25, 0 ), Vector2( 0, 0 ), Vector2( 25, 0 ), Vector2( 0, 0 ) ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("texto:rect/pos")
 tracks/1/interp = 1
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 0.25, 0.5, 0.75, 1 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( -78, -15 ), Vector2( -103, -15 ), Vector2( -78, -15 ), Vector2( -53, -15 ), Vector2( -73, -15 ) ] }
+tracks/1/keys = {
+"times": FloatArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -78, -15 ), Vector2( -103, -15 ), Vector2( -78, -15 ), Vector2( -53, -15 ), Vector2( -73, -15 ) ]
+}
 tracks/2/type = "value"
 tracks/2/path = NodePath("som:play/play")
 tracks/2/interp = 1
 tracks/2/imported = false
-tracks/2/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":2, "values":[ "snd_ideiaManterD" ] }
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 2,
+"values": [ "snd_ideiaManterD" ]
+}
 
 [sub_resource type="SampleLibrary" id=4]
 
-samples/snd_ideiaEnganar = { "db":5.0, "pitch":1.0, "sample":ExtResource( 7 ) }
-samples/snd_ideiaLiberar = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
-samples/snd_ideiaLiberarB = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
-samples/snd_ideiaLiberarC = { "db":0.0, "pitch":1.0, "sample":ExtResource( 10 ) }
-samples/snd_ideiaLiberarPre = { "db":0.0, "pitch":1.0, "sample":ExtResource( 11 ) }
-samples/snd_ideiaManter = { "db":0.0, "pitch":1.0, "sample":ExtResource( 12 ) }
-samples/snd_ideiaManterB = { "db":0.0, "pitch":1.0, "sample":ExtResource( 13 ) }
-samples/snd_ideiaManterC = { "db":0.0, "pitch":1.0, "sample":ExtResource( 14 ) }
-samples/snd_ideiaManterD = { "db":0.0, "pitch":1.0, "sample":ExtResource( 15 ) }
-samples/snd_ideiaMantera = { "db":0.0, "pitch":1.0, "sample":ExtResource( 16 ) }
-samples/snd_ideiaMultiplicar = { "db":0.0, "pitch":1.0, "sample":ExtResource( 17 ) }
-samples/snd_ideiaMultiplicarA = { "db":0.0, "pitch":1.0, "sample":ExtResource( 18 ) }
+samples/snd_ideiaEnganar = {
+"db": 5.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 7 )
+}
+samples/snd_ideiaLiberar = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 8 )
+}
+samples/snd_ideiaLiberarB = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 9 )
+}
+samples/snd_ideiaLiberarC = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 10 )
+}
+samples/snd_ideiaLiberarPre = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 11 )
+}
+samples/snd_ideiaManter = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 12 )
+}
+samples/snd_ideiaManterB = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 13 )
+}
+samples/snd_ideiaManterC = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 14 )
+}
+samples/snd_ideiaManterD = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 15 )
+}
+samples/snd_ideiaMantera = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 16 )
+}
+samples/snd_ideiaMultiplicar = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 17 )
+}
+samples/snd_ideiaMultiplicarA = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 18 )
+}
 
-[node name="ideia" type="Sprite" groups=[ "ideias" ]]
+[node name="ideia" type="Sprite" groups=[
+"ideias",
+]]
 
 transform/pos = Vector2( 610.919, 433.205 )
 texture = ExtResource( 1 )
-offset = Vector2( -22, 0 )
 script/script = ExtResource( 2 )
 
 [node name="reacaoDeterminada" type="Control" parent="."]
@@ -126,9 +232,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -100.0
+margin/left = -73.0
 margin/top = -15.0
-margin/right = 70.0
+margin/right = 97.0
 margin/bottom = 19.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -160,6 +266,7 @@ config/lifetime = 3.2
 config/time_scale = 2.5
 config/preprocess = 1.0
 config/emitting = false
+config/process_mode = 1
 config/explosiveness = 0.2
 config/texture = ExtResource( 6 )
 params/direction = 0.0
@@ -185,7 +292,7 @@ color/color = Color( 0.804688, 0.726645, 0.091156, 1 )
 
 config/polyphony = 1
 config/samples = SubResource( 4 )
-default/volume_db = 0.0
+default/volume_db = -20.0
 default/pitch_scale = 1.0
 default/pan = -0.01
 default/depth = 0.0
@@ -218,6 +325,7 @@ config/lifetime = 1.0
 config/preprocess = 1.0
 config/emit_timeout = 1.0
 config/emitting = false
+config/process_mode = 1
 config/texture = ExtResource( 6 )
 params/direction = 0.0
 params/spread = 360.0

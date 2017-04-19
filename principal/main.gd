@@ -13,9 +13,6 @@ onready var caixaDeIdeias =get_node("interface/caixaDeIdeias")
 onready var enxurradaIdeia  = caixaDeIdeias.get_node("areaDeIdeias")
 onready var sonho = get_node("sonho")
 
-
-#variaveis de passos
-
 #prologo
 var passosPrologoAnterior = 0 #o número de passos capturado num dado instante que é usado para ser comparado com um instante posterior
 var determinouPassosPrologoAnterior = false #verifica se foi detertminado o passosPrologoAnterior
@@ -241,7 +238,9 @@ func _process(delta):
 		elif(indiceParteAtual == 77): #força o fechamento da caixa de ideias
 			
 			controlaCaixaIdeias.fechaCaixaIdeias()
+			enxurradaIdeia.destroiSonho()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			controleFluxoHistoria.alteraEventoEspecial("exclusivoSonho",false)
 			
 		elif(indiceParteAtual == 79): #determina o destino do objeto sonho
 		

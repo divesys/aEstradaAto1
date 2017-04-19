@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://principal/main.gd" type="Script" id=1]
 [ext_resource path="res://fundo/fundo.tscn" type="PackedScene" id=2]
@@ -7,9 +7,6 @@
 [ext_resource path="res://debug.gd" type="Script" id=5]
 [ext_resource path="res://principal/sonho.tscn" type="PackedScene" id=6]
 [ext_resource path="res://principal/musica/controlaMusica.tscn" type="PackedScene" id=7]
-
-[sub_resource type="AudioStreamOGGVorbis" id=1]
-
 
 [node name="aEstrada" type="Node2D"]
 
@@ -45,7 +42,5 @@ transform/pos = Vector2( 41.6097, 880.486 )
 transform/scale = Vector2( 0.05, 0.05 )
 
 [node name="StreamPlayer" parent="." instance=ExtResource( 7 )]
-
-stream/stream = SubResource( 1 )
 
 
