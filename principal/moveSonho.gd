@@ -31,7 +31,7 @@ func _ready():
 
 func moveSonho():
 	
-	print("entrou em moveSonho()")
+	#print("entrou em moveSonho()")
 	
 	var anim = get_node("anim") #captura a animação
 	
