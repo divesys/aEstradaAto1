@@ -2,6 +2,8 @@
 
 extends Control
 
+var egoPrimeiraDistracao = false setget ,getEgoPrimeiraDistracao #determina se o ego já termino de falar sobre a primeira distracao
+
 onready var tie = get_parent().get_node("text_interface_engine")
 onready var controlaTextbox = get_parent().get_node("controlaTextbox")
 onready var origemTextbox = get_parent().get_parent() #pega o nó textbox
@@ -331,15 +333,41 @@ func textoNaoSonho():
 	
 	var comecouEscrever = false
 	
-	#muda a emoção
-	origemTextbox.mudaEmocaoTexto("pensativo")
 	
-	#escreve o texto
-	controleFluxoHistoria.setExclusivoTexto(true)
-	controlaTextbox.adicionaMenssagem(tr("EGO_NAOSONHO"),velocidadePadrao)
 	
 	if(comecouEscrever == false):
 		
-		controlaTextbox.comecarEscreverSemIndice()
+		#muda a emoção
+		origemTextbox.mudaEmocaoTexto("pensativo")
+		
+		#escreve o texto
+		controleFluxoHistoria.setExclusivoTexto(true)
+		controlaTextbox.adicionaMenssagem(tr("EGO_NAOSONHO"),velocidadePadrao)
+		
+		controlaTextbox.comecarEscreverSemIndice("naoSonho")
 		comecouEscrever == true
 #	controleFluxoHistoria.acrescentaIndiceParte(get_name())
+
+func primeiraDistracao():
+	
+	var comecouEscrever = false
+	
+	if(comecouEscrever == false):
+		
+	
+		#muda a emoção
+		origemTextbox.mudaEmocaoTexto("pensativo")
+		
+		#escreve o texto
+		controleFluxoHistoria.setExclusivoTexto(true)
+		controlaTextbox.adicionaMenssagem(tr("EGO_PRIMEIRA_DISTRACAO1"),velocidadePadrao)
+		controlaTextbox.adicionaMenssagem(tr("EGO_PRIMEIRA_DISTRACAO2"),velocidadePadrao)
+		controlaTextbox.adicionaMenssagem(tr("EGO_PRIMEIRA_DISTRACAO3"),velocidadePadrao)
+		
+		controlaTextbox.comecarEscreverSemIndice("primeiraDistracao")
+		comecouEscrever == true
+#	controleFluxoHistoria.acrescentaIndiceParte(get_name())
+
+func getEgoPrimeiraDistracao():
+	
+	return egoPrimeiraDistracao

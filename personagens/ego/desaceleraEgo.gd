@@ -2,10 +2,12 @@
 
 extends Node2D
 
+onready var ego = get_parent().get_sprite_frames()
+onready var botaoRefletir = get_parent().get_parent().get_node("interface/HUD/refletir")
+
 var limiteIdeiasSobrecarga = 30
 var extensaoSobrecarga = 8
 var limiteIdeiasExaustao = limiteIdeiasSobrecarga + extensaoSobrecarga
-onready var ego = get_parent().get_sprite_frames()
 var velocidadeEgo = 0 #velocidade original da animação do ego
 var mudouParte = false
 
@@ -25,11 +27,12 @@ func _fixed_process(delta):
 	
 		if(totalIdeias >= limiteIdeiasExaustao):
 		
-			controleFluxoHistoria.mudarParte("exaustao")
+			controleFluxoHistoria.mudarParte("reflexao")
 			print(controleFluxoHistoria.getParte())
 		
 		elif(totalIdeias >= limiteIdeiasSobrecarga):
 			
+			botaoRefletir.exibeBotaoRefletir()
 			ego.set_animation_speed("egoAndandoDireita",velocidadeEgo - ((velocidadeEgo/extensaoSobrecarga)*(totalIdeias - limiteIdeiasSobrecarga)))
 			print("velocidade = " + str(ego.get_animation_speed("egoAndandoDireita")))
 	

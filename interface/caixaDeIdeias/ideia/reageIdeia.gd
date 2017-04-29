@@ -19,6 +19,8 @@ onready var reduziu = false
 var atrasa = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
 var iniciouTimer = false
 
+var chamouTextoNaoSonho = false
+
 onready var multiplicaIdeia = get_node("multiplicaIdeia")
 
 onready var egoTexto = get_node("/root/aEstrada/interface/textBox/Conteudo/egoTexto")
@@ -149,10 +151,10 @@ func _on_interacao_button_down():
 	#verifica os eventos
 	if(controleFluxoHistoria.getEventoEspecial("exclusivoSonho") == true):
 		
-		if(globais.getExibiuTextoNaoSonho() == false):
+		if(chamouTextoNaoSonho == false):
 			
 			egoTexto.textoNaoSonho() #imprime um texto notificando
-			globais.setExibiuTextoNaoSonho(true)
+#			chamouTextoNaoSonho = true
 	
 	elif(controleFluxoHistoria.getExclusivoTexto() == false):
 		

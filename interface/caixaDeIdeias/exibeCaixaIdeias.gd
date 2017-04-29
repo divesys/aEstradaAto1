@@ -2,6 +2,8 @@
 
 extends Control
 
+
+
 onready var adicionouIdeia = false #determina se as ideias foram adicionadas
 onready var areaDeIdeias = get_node("areaDeIdeias")
 
@@ -9,7 +11,7 @@ onready var atrasa = Timer.new() #um timer para atrasar o prosseguimento do flux
 onready var iniciouTimer = false
 
 func _ready():
-
+	
 	set_process(true)
 	
 	iniciouTimer = false

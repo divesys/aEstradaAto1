@@ -12,14 +12,23 @@ var iniciouTimer = false
 onready var caixaDeIdeias =get_node("interface/caixaDeIdeias")
 onready var enxurradaIdeia  = caixaDeIdeias.get_node("areaDeIdeias")
 onready var sonho = get_node("sonho")
+onready var sistemaDistracao = get_node("interface/sistemaDistracao")
+onready var textoEgo = get_node("interface/textBox/Conteudo/egoTexto")
 
 #prologo
 var passosPrologoAnterior = 0 #o número de passos capturado num dado instante que é usado para ser comparado com um instante posterior
 var determinouPassosPrologoAnterior = false #verifica se foi detertminado o passosPrologoAnterior
 var passosPrologoAtual = 0 #o número atual de passos 
 
+#alavancas
+var chamouNaoSonho = false
+var chamouPrimeiraDistracao = false
+var chamouTextoDistracao = false
+
 func _ready():
 
+	
+	
 	#cria eventos especiais
 	controleFluxoHistoria.criaEventoEspecial("andarAutomatico" , true) #evento que determina se o ego devera se manter andando
 	controleFluxoHistoria.criaEventoEspecial("andarHabilitado" , false) #evento que determina se o Ego pode andar ou não
@@ -191,25 +200,42 @@ func _process(delta):
 				
 		elif(indiceParteAtual == 62):
 			
-			if(determinouPassosPrologoAnterior == false):
+			#gera a primeira distracao
+			if(sistemaDistracao.getPrimeiraDistracao() == false):
 				
-				passosPrologoAnterior = globais.getPassosPrologo() #captura o número de passos nesse exato instante
-				determinouPassosPrologoAnterior = true
+				if(chamouPrimeiraDistracao == false):
+					
+					sistemaDistracao.gerarPrimeiraDistracao()
+					chamouPrimeiraDistracao = true
 				
-			if(passosPrologoAtual == (passosPrologoAnterior + 8)): #verifica se ego andou 8 passos apos o jogador ler a menssagem anterior
+			elif(sistemaDistracao.getPrimeiraDistracao() == true):
 				
-				#impede a caixa de ideias de abrir
-				controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias",true)
+				if(chamouTextoDistracao == false):
+					
+					textoEgo.primeiraDistracao()
+					chamouTextoDistracao  = true
 			
-				#ativa a caixa de ideias
-				controlaCaixaIdeias.vibraCaixaIdeias(true)
+			if(globais.getExibiuTextoPrimeiraDistracao() == true):
 				
-				#impede de andar
-				controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",false)
+				if(determinouPassosPrologoAnterior == false):
+					
+					passosPrologoAnterior = globais.getPassosPrologo() #captura o número de passos nesse exato instante
+					determinouPassosPrologoAnterior = true
+					
+				if(passosPrologoAtual == (passosPrologoAnterior + 8)): #verifica se ego andou 8 passos apos o jogador ler a menssagem anterior
+					
+					#impede a caixa de ideias de abrir
+					controleFluxoHistoria.alteraEventoEspecial("travaCaixaDeIdeias",true)
 				
-				determinouPassosPrologoAnterior = false
-				
-				controleFluxoHistoria.acrescentaIndiceParte(get_name())
+					#ativa a caixa de ideias
+					controlaCaixaIdeias.vibraCaixaIdeias(true)
+					
+					#impede de andar
+					controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",false)
+					
+					determinouPassosPrologoAnterior = false
+					
+					controleFluxoHistoria.acrescentaIndiceParte(get_name())
 				
 		elif(indiceParteAtual == 65):
 			
@@ -218,6 +244,8 @@ func _process(delta):
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
 		elif(indiceParteAtual == 69):
+			
+			sistemaDistracao.setAtivarDistracoes(true) #ativa as distracoes
 			
 			controleFluxoHistoria.alteraEventoEspecial("exclusivoSonho",true) #ativa o modo exlusivo sonho
 			

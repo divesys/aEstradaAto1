@@ -23,6 +23,9 @@ export var escrevendo = false setget ,getEscrevendo #indica se a textBox está a
 onready var adicionouIndiceHistoria = false
 onready var adicionarIndice = true #determina se deve adicionar o indice
 
+#variavel de callers
+var caller = ""
+
 #variavel de interação
 var clicando = false
 
@@ -39,8 +42,9 @@ func comecarEscrever(): #comeca a escrever
 	imprimeMenssagem(indiceAtualMenssagem)
 	indiceAtualMenssagem += 1
 	
-func comecarEscreverSemIndice(): #comeca a escrever mas não adiciona indice
+func comecarEscreverSemIndice(strCaller): #comeca a escrever mas não adiciona indice
 
+	caller = strCaller
 	adicionarIndice = false #nãoa adiciona indice
 	escrevendo = true
 	adicionouIndiceHistoria = false
@@ -56,7 +60,14 @@ func pararEscrever(): #para de escrever
 	escrevendo = false
 	indiceAtualMenssagem = 0
 	controleFluxoHistoria.setExclusivoTexto(false) #libera novamente a interação
-	globais.setExibiuTextoNaoSonho(false) #libera o texto não sonho
+
+	if(caller == "naoSonho"):
+		
+		globais.setExibiuTextoNaoSonho(false) #libera o texto não sonho
+		
+	elif(caller == "primeiraDistracao"):
+		
+		globais.setExibiuTextoPrimeiraDistracao(true)
 	
 	if(adicionouIndiceHistoria == false and adicionarIndice == true):
 	

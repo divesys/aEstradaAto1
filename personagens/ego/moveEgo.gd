@@ -14,6 +14,10 @@ func _process(delta):
 			
 			get_parent().set_animation("egoAndandoDireita")
 			
+		else:
+			
+			get_parent().set_animation("egoParado")
+			
 	elif(controleFluxoHistoria.getEventoEspecial("andarAutomatico") == true):
 		
 		get_parent().set_animation("egoAndandoDireita")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://interface/posicionaInterface.gd" type="Script" id=1]
 [ext_resource path="res://interface/HUD/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://interface/caixaDeIdeias/caixaDeIdeias.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/textbox/JanelaTextBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/sistemaDIstracao/sistemaDistracao.tscn" type="PackedScene" id=5]
+[ext_resource path="res://recursos de base/quadradoBrancoTarja.png" type="Texture" id=6]
 
 [node name="interface" type="Control"]
 
@@ -29,9 +30,23 @@ editor/display_folded = true
 
 [node name="Sprite" parent="textBox/Conteudo/areaIconeMenssagem"]
 
-frame = 15
+frame = 13
 
 [node name="sistemaDistracao" parent="." instance=ExtResource( 5 )]
+
+[node name="tarjaSuperior" type="Sprite" parent="."]
+
+transform/pos = Vector2( 961.781, -107 )
+transform/scale = Vector2( -192.238, -21.5 )
+texture = ExtResource( 6 )
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="tarjaInferior" type="Sprite" parent="."]
+
+transform/pos = Vector2( 961.781, 911.85 )
+transform/scale = Vector2( -192.238, -42.0586 )
+texture = ExtResource( 6 )
+modulate = Color( 0, 0, 0, 1 )
 
 
 [editable path="textBox"]

@@ -60,5 +60,5 @@ func testaProbabilidade():
 				
 				areaDeIdeias.adicionaIdeias() #adiciona novas ideias
 			
-			controlaCaixaIdeias.abreCaixaIdeias() #abre a caixa de ideias
+			controlaCaixaIdeias.vibraCaixaIdeias(true) #abre a caixa de ideias
 			escolheu = false
