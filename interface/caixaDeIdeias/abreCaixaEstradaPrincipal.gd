@@ -12,6 +12,8 @@ var testaAbrir = 0 #numero utilizado para testar se a caixa vai abrir
 var ideiasAnterior = 0 #numero de ideias antes de adicionar uma ideia
 var escolheu = false #verifica se já escolheu o número
 var passosAnterior = -1 #o número de passos antes de testar novamente 
+var intervaloAbertura = 8 #o número de passos que o jogo deverá tentar antes de abrir a caixa novamente
+var contaPassosIntervalo = 8 #quantos passos andou desde a ultima vez que abriu a caixa
 
 func _ready():
 	
@@ -23,7 +25,23 @@ func _process(delta):
 	
 	if(passosAnterior < passosAtual):
 	
-		testaProbabilidade()
+		if(contaPassosIntervalo < 0):
+			
+			contaPassosIntervalo = 0
+	
+		elif(contaPassosIntervalo < intervaloAbertura):
+			
+			contaPassosIntervalo += 1
+			
+		elif(contaPassosIntervalo == 8):
+			
+			testaProbabilidade()
+			
+		elif(contaPassosIntervalo > 8):
+			
+			contaPassosIntervalo = 8
+			
+		
 	
 func determinaProbabilidade():
 	
@@ -62,3 +80,4 @@ func testaProbabilidade():
 			
 			controlaCaixaIdeias.vibraCaixaIdeias(true) #abre a caixa de ideias
 			escolheu = false
+			contaPassosIntervalo = 0

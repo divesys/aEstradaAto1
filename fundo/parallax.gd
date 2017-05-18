@@ -36,6 +36,13 @@ func _process(delta):
 	
 	#move o fundo ao apertar moveDireita <
 	
+func getVelocidadeMedia():
+	
+	return velocidadeMedia
+	
+func setVelocidadeMedia(floatVelocidade):
+	
+	velocidadeMedia = floatVelocidade
 	
 	
 	

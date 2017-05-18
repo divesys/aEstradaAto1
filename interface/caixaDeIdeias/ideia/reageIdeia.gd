@@ -4,9 +4,9 @@ extends Sprite
 
 
 onready var interacaoMouse = get_node("interacao")
-onready var chanceRecusa = 40
+onready var chanceRecusa = 50
 onready var chanceEngana = 30
-onready var chanceLibera = 20
+onready var chanceLibera = 10
 onready var decideReacao = 0
 onready var reacao = ""
 onready var resorteou = false

@@ -280,6 +280,12 @@ func _process(delta):
 			controleFluxoHistoria.mudarParte("estradaPrincipal") #o indice retorna pra zero aqui, a parte muda
 			globais.setPassosSupostos(globais.getPassosSupostos()) #muda o contador de passos do prologo para passos supostos
 	
+	elif(controleFluxoHistoria.getParte() == "exaustao"):
+		
+		if(controleFluxoHistoria.getParte() == 1):
+			
+			controleFluxoHistoria.mudarParte("reflexao")
+	
 func atrasaAcresentaIndice():
 	
 	#print("oxe")

@@ -1,8 +1,7 @@
  #exibe oue esconde a caixa de ideias
 
 extends Control
-
-
+ #script principal da caixa de ideias
 
 onready var adicionouIdeia = false #determina se as ideias foram adicionadas
 onready var areaDeIdeias = get_node("areaDeIdeias")
@@ -19,7 +18,7 @@ func _ready():
 	#cria um timer para atraso entre eventos
 	atrasa.set_one_shot(true)
 #	atrasa.set_timer_process_mode(0)
-	atrasa.set_wait_time(0.5)
+	atrasa.set_wait_time(1)
 	add_child(atrasa)
 	atrasa.connect("timeout", self, "atrasaFechar")
 	
@@ -50,18 +49,13 @@ func _process(delta):
 		
 	elif(controlaCaixaIdeias.getEstado() == "fechando"):
 		
-		#print(globais.getTotalIdeiaReagindo())
+		#retirei o recurso de esperar as ideias terminar de reagir pois gera bugs em excesso, até porque na verdade será vinculado a uma animação
 		
-		if(globais.getTotalIdeiaReagindo() <= 0): #se não tiver nenhuma ideia em processo de reação
+		if(iniciouTimer == false): #atrasa um pouco para não fechar bruscamente
 			
-#			#print(iniciouTimer)
-			
-			if(iniciouTimer == false): #atrasa um pouco para não fechar bruscamente
-			
-#				#print("timer")
 				atrasa.start()
 				iniciouTimer = true
-
+			
 	elif(controlaCaixaIdeias.getEstado() == "fechada"):
 		
 		hide()

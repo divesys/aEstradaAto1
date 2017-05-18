@@ -12,4 +12,4 @@ func _ready():
 
 func _process(delta):
 	
-	set_text(str(controleFluxoHistoria.getIndiceParte()))
+	set_text(str(controleFluxoHistoria.getParte()) + " - " + str(controleFluxoHistoria.getIndiceParte()))

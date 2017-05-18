@@ -328,6 +328,17 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			else:
 				
 				indiceTextoEstradaPrincipalAnterior = indiceTextoEstradaPrincipal
+	elif(controleFluxoHistoria.getParte() == ""):
+		
+		#muda a emoção
+		origemTextbox.mudaEmocaoTexto("triste")
+		
+		#escreve o texto
+		controleFluxoHistoria.setExclusivoTexto(true)
+		controlaTextbox.adicionaMenssagem(tr("EGO_EXAUSTAO1"),velocidadePadrao)
+		controlaTextbox.adicionaMenssagem(tr("EGO_EXAUSTAO2"),velocidadePadrao)
+		controlaTextbox.comecarEscrever()
+		controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
 func textoNaoSonho():
 	
