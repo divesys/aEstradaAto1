@@ -6,10 +6,20 @@ var ego = "" #nó do ego
 var frameAtual = 0 #determina qual frame de animação o ego está
 var executandoPasso = false #alavanca que impede que se adicione mais de um passo
 
+var atrasa = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
+var iniciouTimer = false
+
 func _ready():
 	
 	ego = get_parent()
 	set_process(true)
+	
+	#cria um timer para atraso entre eventos
+	atrasa.set_one_shot(true)
+	atrasa.set_timer_process_mode(0)
+	atrasa.set_wait_time(1)
+	add_child(atrasa)
+	atrasa.connect("timeout", self, "atrasaZeraPassos")
 	
 func _process(delta):
 	
@@ -23,12 +33,26 @@ func _process(delta):
 			
 			globais.acresentaPassoPrologo() #acresenta um passo aos passos do prologo
 			
-		else:
+		elif(controleFluxoHistoria.getParte() == "estradaPrincipal"):
 			
 			globais.acresentaPassoSuposto() #acresenta um passo aos passos supostos
 			
-		#print(globais.getPassosPrologo())
+		elif(controleFluxoHistoria.getParte() == "reflexao"):
+			
+			if(controleFluxoHistoria.getIndiceParte() == 2):
+				
+				globais.setPassosReais(globais.getPassosSupostos()) #grava o número de passo nesse momento e o define como real
+				controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
 	elif(frameAtual == 0 or frameAtual == 2):
 		
 		executandoPasso = false
+		
+func zeraPassos():
+	
+	if(controleFluxoHistoria.getParte() == "reflexao"):
+		
+		if(controleFluxoHistoria.getIndiceParte() == 3):
+			
+			globais.setPassosSupostos(0)
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())

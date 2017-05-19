@@ -328,17 +328,43 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 			else:
 				
 				indiceTextoEstradaPrincipalAnterior = indiceTextoEstradaPrincipal
-	elif(controleFluxoHistoria.getParte() == ""):
+	elif(controleFluxoHistoria.getParte() == "exaustao"):
 		
-		#muda a emoção
-		origemTextbox.mudaEmocaoTexto("triste")
+		if(controleFluxoHistoria.getParte() == 1):
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("triste")
+			
+			#escreve o texto
+			controlaTextbox.adicionaMenssagem(tr("EGO_EXAUSTAO1"),velocidadePadrao)
+			controlaTextbox.adicionaMenssagem(tr("EGO_EXAUSTAO2"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
-		#escreve o texto
-		controleFluxoHistoria.setExclusivoTexto(true)
-		controlaTextbox.adicionaMenssagem(tr("EGO_EXAUSTAO1"),velocidadePadrao)
-		controlaTextbox.adicionaMenssagem(tr("EGO_EXAUSTAO2"),velocidadePadrao)
-		controlaTextbox.comecarEscrever()
-		controleFluxoHistoria.acrescentaIndiceParte(get_name())
+	elif(controleFluxoHistoria.getParte() == "reflexao"):
+		
+		if(controleFluxoHistoria.getIndiceParte() == 0):
+			
+			#muda a emoção
+			origemTextbox.mudaEmocaoTexto("triste")
+			
+			#escreve o texto
+#			controlaTextbox.adicionaMenssagem(tr("EGO_REFLEXAO1"),velocidadePadrao)
+#			controlaTextbox.adicionaMenssagem(tr("EGO_REFLEXAO2"),velocidadePadrao)
+#			controlaTextbox.adicionaMenssagem(tr("EGO_REFLEXAO3"),velocidadePadrao)
+#			controlaTextbox.adicionaMenssagem(tr("EGO_REFLEXAO4"),velocidadePadrao)
+			controlaTextbox.adicionaMenssagemIntervalo("EGO_REFLEXAO",1,4,velocidadePadrao) #adiciona as 4 primeiras menssagens
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+		elif(controleFluxoHistoria.getParte() == 4):
+			
+			controlaTextbox.adicionaMenssagemIntervalo("EGO_REFLEXAO",1,4,velocidadePadrao) #adiciona as 4 primeiras menssagens
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+		
+	elif(controleFluxoHistoria.getParte() == "queda"):
+		
+		pass
 		
 func textoNaoSonho():
 	

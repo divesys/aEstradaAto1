@@ -38,6 +38,11 @@ func iniciaCliques():
 	minCliques = totalCliques * taxaMinCliques
 	randomize()
 	totalCliques = round(rand_range(minCliques,maxCliques))
+	
+	while(totalCliques <= 0):
+		
+		totalCliques = round(rand_range(minCliques,maxCliques))
+	
 	cliquesRestantes = totalCliques
 	
 	#garante que não exista mais cliques que ideias disponiveis

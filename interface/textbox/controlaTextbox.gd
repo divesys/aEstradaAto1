@@ -83,6 +83,12 @@ func adicionaMenssagem(menssagem,vel): #adiciona uma menssagem ao array de menss
 	arrayVelocidades.append(vel)
 	#print(arrayMenssagens.size())
 	
+func adicionaMenssagemIntervalo(stringMenssagemSemNumero,intNumeroInicial,intNumeroFinal,vel):
+	
+	for i in range(intNumeroInicial,intNumeroFinal+1):
+		
+		adicionaMenssagem(tr(stringMenssagemSemNumero + str(i)),vel)
+	
 func adicionaMenssagemEmocao(strMenssagem,intVel,strOrigem,strTipo,strEmocao,strVariacao): #adiciona menssagem e altera a emoção:
 	
 	origemTextBox.mudaOrigemTexto(strOrigem)

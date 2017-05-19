@@ -282,9 +282,21 @@ func _process(delta):
 	
 	elif(controleFluxoHistoria.getParte() == "exaustao"):
 		
-		if(controleFluxoHistoria.getParte() == 1):
+		if(controleFluxoHistoria.getParte() == 0):
+			
+			controleFluxoHistoria.alteraEventoEspecial("andarHabilitado,false") #trava a movimentação
+			controleFluxoHistoria.alteraEventoEspecial("exclusivoTexto,true") #garante que a partir de agora só passe o texto
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+		
+		elif(controleFluxoHistoria.getParte() == 3):
 			
 			controleFluxoHistoria.mudarParte("reflexao")
+			
+	elif(controleFluxoHistoria.getParte() == "reflexao"):
+		
+		if(controleFluxoHistoria.getIndiceParte() == 6):
+			
+			controleFluxoHistoria.mudarParte("queda")
 	
 func atrasaAcresentaIndice():
 	
