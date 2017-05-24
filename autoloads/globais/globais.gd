@@ -6,6 +6,8 @@ extends Node2D
 var passosPrologo = 0 setget getPassosPrologo, setPassosPrologo #numero de passos no prologo
 var passosSupostos = 0 setget getPassosSupostos, setPassosSupostos#numero de passos apos o prologo
 var passosReais = 0 setget getPassosReais, setPassosReais#valor guardado para o ato 3 que representa o numero de passos antes de zerar os passos
+var intervaloPassosEstradaPrincipal = 8.0 #determina o valor do intervalo de passos
+var indiceTextoEstradaPrincipal = 0 #o indice utilizado na estrada principal baseado no número de passos
 
 #conta a energia de realizacao
 var energiaRealizacaoSuposta = 0 setget getEnergiaRealizacaoSuposta, setEnergiaRealizacaoSuposta#quantidade de energia de realizacao no ato 1
@@ -35,7 +37,7 @@ func _ready():
 func _process(delta):
 	
 	totalIdeias = get_tree().get_nodes_in_group("ideias").size()
-
+	indiceTextoEstradaPrincipal = passosSupostos/intervaloPassosEstradaPrincipal #determina o indice atual de passos
 #funções get e set e afins>
 
 #passosPrologo
@@ -176,3 +178,7 @@ func setPosicaoEgo(vector2Posicao):
 func getPosicaoEgo():
 	
 	return posicaoEgo
+	
+func getIndiceTextoEstradaPrincipal():
+	
+	return indiceTextoEstradaPrincipal

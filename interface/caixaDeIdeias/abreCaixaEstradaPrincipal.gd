@@ -67,7 +67,7 @@ func testaProbabilidade():
 		randomize()
 		testaAbrir = rand_range(0,100) #escolhe um número para testar se a caixa ira abrir
 		escolheu = true
-		print(str(testaAbrir) + "/" + str(probabilidadeAbrir))
+#		print(str(testaAbrir) + "/" + str(probabilidadeAbrir))
 		
 		if(testaAbrir <= probabilidadeAbrir):
 			#se o número selecionado for menor que as chances atuais

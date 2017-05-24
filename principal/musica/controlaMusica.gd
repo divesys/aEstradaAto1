@@ -10,6 +10,7 @@ onready var melancolia = preload("res://recursos de base/musicas/melancolia.ogg"
 
 var mudou = false
 var indiceAnterior = -1
+var indiceTextoEstradaPrincipal = 0
 
 func _ready():
 
@@ -21,32 +22,34 @@ func _ready():
 func _process(delta):
 	
 	
+	indiceTextoEstradaPrincipal = globais.getIndiceTextoEstradaPrincipal()
+	
 	if(controleFluxoHistoria.getParte() == "estradaPrincipal"):
 	
-		if(indiceAnterior != controleFluxoHistoria.getIndiceParte()):
+		if(indiceAnterior != indiceTextoEstradaPrincipal):
 			
 			mudou = false
 	
-		if(controleFluxoHistoria.getIndiceParte() == 6 and mudou == false):
+		if(indiceTextoEstradaPrincipal == 7 and mudou == false):
 			
 			stop()
 			set_stream(egoTriste)
 			play()
 			mudou = true
-			indiceAnterior = controleFluxoHistoria.getIndiceParte()
+			indiceAnterior = indiceTextoEstradaPrincipal
 			
-		elif(get_stream() == egoTriste and controleFluxoHistoria.getIndiceParte() == 13):
+		elif(get_stream() == egoTriste and indiceTextoEstradaPrincipal == 14):
 			
 			stop()
 			set_stream(egoRaiva)
 			play()
 			mudou = true
-			indiceAnterior = controleFluxoHistoria.getIndiceParte()
+			indiceAnterior = indiceTextoEstradaPrincipal
 			
-		elif(get_stream() == egoTriste and controleFluxoHistoria.getIndiceParte() == 18):
+		elif(get_stream() == egoRaiva and indiceTextoEstradaPrincipal == 19):
 			
 			stop()
 			set_stream(egoTriste)
 			play()
 			mudou = true
-			indiceAnterior = controleFluxoHistoria.getIndiceParte()
+			indiceAnterior = indiceTextoEstradaPrincipal

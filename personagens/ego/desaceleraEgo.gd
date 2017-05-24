@@ -34,9 +34,9 @@ func _fixed_process(delta):
 	
 	totalIdeias = globais.getTotalIdeias()
 	
-	print(ego.get_animation_speed("egoAndandoDireita"))
-	print(fundoCeu.getVelocidadeMedia())
-	print(fundoMontanhas.getVelocidadeMedia())
+#	print(ego.get_animation_speed("egoAndandoDireita"))
+#	print(fundoCeu.getVelocidadeMedia())
+#	print(fundoMontanhas.getVelocidadeMedia())
 	#print(velocidadeFundoMontanhas - ((velocidadeFundoMontanhas/limiteIdeiasExaustao)*(totalIdeias)))
 	#print(velocidadeFundoMontanhas/11.0)
 	

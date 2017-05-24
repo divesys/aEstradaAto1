@@ -15,6 +15,10 @@ var acelerou = false #determina se o úsuario está acelerando o texto na menssa
 #variaveis de texto
 onready var arrayMenssagens = [] #guarda as menssagens em sequencia
 onready var arrayVelocidades = [] #guarda a velocidade de cada menssagem
+onready var arrayOrigens = [] #guardas as origens de cada menssagem
+onready var arrayTipos = [] #guarda os tipos de cada menssagem
+onready var arrayEmocoes = [] #guarda as emoções de cada menssagem
+onready var arrayVariacoes = [] #guarda as variações da menssagem
 #onready var arrayStack = [] #guarda um outros blocos de menssagem em fila
 onready var indiceAtualMenssagem = 0 #o indice atual da menssagem, usado para o looping de remoção e para imprimir
 export var escrevendo = false setget ,getEscrevendo #indica se a textBox está ativamente escrevendo algum texto
@@ -57,6 +61,10 @@ func pararEscrever(): #para de escrever
 	tie.reset()
 	arrayMenssagens.clear()
 	arrayVelocidades.clear()
+	arrayVariacoes.clear()
+	arrayTipos.clear()
+	arrayOrigens.clear()
+	arrayEmocoes.clear()
 	escrevendo = false
 	indiceAtualMenssagem = 0
 	controleFluxoHistoria.setExclusivoTexto(false) #libera novamente a interação
@@ -76,35 +84,70 @@ func pararEscrever(): #para de escrever
 		adicionouIndiceHistoria = true
 		controleFluxoHistoria.acrescentaIndiceParte(get_name()) #adiciona um ao indice da parte ao encerrar a exibição das menssagens
 
-func adicionaMenssagem(menssagem,vel): #adiciona uma menssagem ao array de menssagens na posição i
+func adicionaMenssagem(menssagem,vel): #adiciona uma menssagem ao array de menssagens na posição i, somente especificando a menssagem e sua velocidade
 	
-	#print(menssagem)
+	#print(arrayMenssagens.size())
+	arrayOrigens.append(origemTextBox.getOrigemTexto())
+	arrayTipos.append(origemTextBox.getTipoTexto())
+	arrayEmocoes.append(origemTextBox.getEmocaoTexto())
+	arrayVariacoes.append(origemTextBox.getVariacaoTexto())
 	arrayMenssagens.append(str(menssagem))
 	arrayVelocidades.append(vel)
 	#print(arrayMenssagens.size())
 	
-func adicionaMenssagemIntervalo(stringMenssagemSemNumero,intNumeroInicial,intNumeroFinal,vel):
+func adicionaMenssagemIntervalo(stringMenssagemSemNumero,intNumeroInicial,intNumeroFinal,vel): #adiciona uma serie de menssagem simplificadas
 	
 	for i in range(intNumeroInicial,intNumeroFinal+1):
 		
 		adicionaMenssagem(tr(stringMenssagemSemNumero + str(i)),vel)
 	
-func adicionaMenssagemEmocao(strMenssagem,intVel,strOrigem,strTipo,strEmocao,strVariacao): #adiciona menssagem e altera a emoção:
+func adicionaMenssagemDetalhada(strMenssagem,intVel,strOrigem,strTipo,strEmocao,strVariacao): #adiciona menssagem detalhada:
 	
-	origemTextBox.mudaOrigemTexto(strOrigem)
-	origemTextBox.mudaTipoTexto(strTipo)
-	origemTextBox.mudaEmocaoTexto(strEmocao)
-	origemTextBox.mudaVariacaoTexto(strVariacao)
+	#print(arrayMenssagens.size())
+	
+	arrayOrigens.append(str(strOrigem))
+	arrayTipos.append(str(strTipo))
+	arrayEmocoes.append(str(strEmocao))
+	print("adicionando emocao " + strEmocao)
+	arrayVariacoes.append(str(strVariacao))
 	arrayMenssagens.append(str(strMenssagem))
-	arrayVelocidades.append(intVel)
+	arrayVelocidades.append(float(intVel))
+	
+func adicionaMenssagemIntervaloDetalhado(strMenssagemSemNumero,intNumeroInicial,intNumeroFinal,intVel,strOrigem,strTipo,strEmocao,strVariacao): #adiciona uma serie de menssagens detalhadas com o mesmo padrão
+	
+	for i in range(intNumeroInicial,intNumeroFinal+1):
+		
+		adicionaMenssagemDetalhada(tr(strMenssagemSemNumero + str(i)),intVel,strOrigem,strTipo,strEmocao,strVariacao)
 	
 func imprimeMenssagem(i): #imprime a menssagem da posição i no arrayMenssagem
 
-	#print("imprimindo")
-	#print(indiceAtualMenssagem)
-	#print(arrayMenssagens[i])
+	print("imprimindo")
+	print(indiceAtualMenssagem)
+	print(arrayMenssagens[i])
+	print(arrayOrigens[i])
+	print(arrayTipos[i])
+	print(arrayEmocoes[i])
+	
+	#se qualquer parametro tiver o valor manter, então esse parametro não deve ser mudado
+	if(arrayOrigens != "manter"):
+		
+		origemTextBox.mudaOrigemTexto(arrayOrigens[i])
+		
+	if(arrayTipos != "manter"):
+		
+		origemTextBox.mudaTipoTexto(arrayTipos[i])
+		
+	if(arrayEmocoes != "manter"):
+		
+		origemTextBox.mudaEmocaoTexto(arrayEmocoes[i])
+		
+	if(arrayVariacoes != "manter"):
+		
+		origemTextBox.mudaVariacaoTexto(arrayVariacoes[i])
+		
 	tie.buff_text(arrayMenssagens[i],arrayVelocidades[i])
 	tie.set_state(tie.STATE_OUTPUT)
+	
 	#indiceAtualMenssagem += 1
 
 func _ready():
@@ -176,7 +219,7 @@ func _process(delta):
 			if(arrayMenssagens.size() >= (indiceAtualMenssagem + 1)): #caso tenha mais menssagens
 				
 				#print("entrei")
-				if(controleFluxoHistoria.getParte() != "prologo"):
+				if(controleFluxoHistoria.getParte() != "prologo" and adicionarIndice == true):
 			
 					controleFluxoHistoria.acrescentaIndiceParte(get_name()) #adiciona um ao indice da parte ao encerrar a menssagen
 				

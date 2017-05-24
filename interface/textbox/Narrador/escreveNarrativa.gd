@@ -36,16 +36,18 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 		
 		if(indiceAtual == 1):
 			
-			#determina a textbox
-			origemTextbox.mudaOrigemTexto("narrador")
-			origemTextbox.mudaTipoTexto("fala")
-			origemTextbox.mudaEmocaoTexto("normal")
-			origemTextbox.mudaVariacaoTexto("")
+#			#determina a textbox
+#			origemTextbox.mudaOrigemTexto("narrador")
+#			origemTextbox.mudaTipoTexto("fala")
+#			origemTextbox.mudaEmocaoTexto("normal")
+#			origemTextbox.mudaVariacaoTexto("")
+			controlaTextbox.adicionaMenssagemIntervaloDetalhado("NARRADOR_PROLOGO",1,3,velocidadePadrao,"narrador","fala","normal","")
 			
 			#escreve o texto
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO1"),velocidadePadrao)
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO2"),velocidadePadrao)
-			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO3"),velocidadePadrao)
+#			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO1"),velocidadePadrao)
+#			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO2"),velocidadePadrao)
+#			controlaTextbox.adicionaMenssagem(tr("NARRADOR_PROLOGO3"),velocidadePadrao)
+
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			

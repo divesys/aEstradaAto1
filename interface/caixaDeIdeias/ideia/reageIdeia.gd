@@ -154,7 +154,7 @@ func _on_interacao_button_down():
 		if(chamouTextoNaoSonho == false):
 			
 			egoTexto.textoNaoSonho() #imprime um texto notificando
-#			chamouTextoNaoSonho = true
+			chamouTextoNaoSonho = true
 	
 	elif(controleFluxoHistoria.getExclusivoTexto() == false):
 		
