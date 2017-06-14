@@ -14,4 +14,4 @@ func _process(delta):
 		
 	else:
 		
-		set_text(str(globais.getPassosPrologo() + globais.getPassosSupostos()))
+		set_text(str(globais.getPassosSupostos()))

@@ -35,6 +35,7 @@ func _ready():
 	controleFluxoHistoria.criaEventoEspecial("ideiasSimultaneas", false) #evento que determina se o jogador podera clicar em duas ideias ao mesmo tempo
 	controleFluxoHistoria.criaEventoEspecial("travaCaixaDeIdeias", false) #evento que impede a caixa de ideias de ser aberta
 	controleFluxoHistoria.criaEventoEspecial("exclusivoSonho", false) #evento que impede de interagir com as outras ideias na existencia de um sonho
+	controleFluxoHistoria.criaEventoEspecial("exclusivoTexto",false) #evento que só permite interação com o texto
 	
 	#inicia a primeira parte
 	controleFluxoHistoria.mudarParte("prologo")
@@ -55,8 +56,7 @@ func _ready():
 	atrasaFluxoHistoria.connect("timeout", self, "atrasaAcresentaIndice")
 	
 	#cria a posição do sonho
-	
-	
+	get_node("Fundo").estradaCorrompida()
 	#inicializa o processo
 	set_process(true)
 	
@@ -278,25 +278,31 @@ func _process(delta):
 		elif(indiceParteAtual == 84):
 			
 			controleFluxoHistoria.mudarParte("estradaPrincipal") #o indice retorna pra zero aqui, a parte muda
-			globais.setPassosSupostos(globais.getPassosSupostos()) #muda o contador de passos do prologo para passos supostos
+			globais.setPassosSupostos(globais.getPassosPrologo()) #muda o contador de passos do prologo para passos supostos
 	
 	elif(controleFluxoHistoria.getParte() == "exaustao"):
 		
-		if(controleFluxoHistoria.getParte() == 0):
+		if(controleFluxoHistoria.getIndiceParte() == 0):
 			
-			controleFluxoHistoria.alteraEventoEspecial("andarHabilitado,false") #trava a movimentação
-			controleFluxoHistoria.alteraEventoEspecial("exclusivoTexto,true") #garante que a partir de agora só passe o texto
+			controleFluxoHistoria.alteraEventoEspecial("andarHabilitado",false) #trava a movimentação
+			controleFluxoHistoria.alteraEventoEspecial("exclusivoTexto",true) #garante que a partir de agora só passe o texto
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		
-		elif(controleFluxoHistoria.getParte() == 3):
+		elif(controleFluxoHistoria.getIndiceParte() == 3):
 			
 			controleFluxoHistoria.mudarParte("reflexao")
 			
 	elif(controleFluxoHistoria.getParte() == "reflexao"):
 		
-		if(controleFluxoHistoria.getIndiceParte() == 6):
+		if(controleFluxoHistoria.getIndiceParte() == 8):
+			
+			self.get_node("clarao").ativaClarao() #ativa um clarão
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 10):
 			
 			controleFluxoHistoria.mudarParte("queda")
+			
 	
 func atrasaAcresentaIndice():
 	

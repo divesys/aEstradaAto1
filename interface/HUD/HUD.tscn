@@ -374,6 +374,18 @@ text = "REFLETIR"
 flat = false
 script/script = ExtResource( 16 )
 
+[node name="TextureFrame" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+stretch_mode = 0
+
 [connection signal="button_up" from="refletir" to="refletir" method="_on_refletir_button_up"]
 
 

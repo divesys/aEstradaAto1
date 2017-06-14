@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://fundo/selecionaTexturaClarao.gd" type="Script" id=1]
+
+[node name="clarao" type="Sprite"]
+
+z/z = 100
+
+[node name="selecionaTextura" type="Node2D" parent="."]
+
+script/script = ExtResource( 1 )
+textura16_9 = null
+textura16_10 = null
+
+

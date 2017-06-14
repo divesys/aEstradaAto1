@@ -182,3 +182,7 @@ func getPosicaoEgo():
 func getIndiceTextoEstradaPrincipal():
 	
 	return indiceTextoEstradaPrincipal
+	
+func getIntervaloPassosEstradaPrincipal():
+	
+	return intervaloPassosEstradaPrincipal

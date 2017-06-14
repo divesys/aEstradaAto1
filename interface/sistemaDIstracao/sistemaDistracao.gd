@@ -33,7 +33,7 @@ func tentaDistracao():
 		randomize()
 		testaDistracao = rand_range(0,100)
 		
-		print(testaDistracao)
+		#print(testaDistracao)
 		
 		if(testaDistracao <= probabilidadeDistracao):
 			

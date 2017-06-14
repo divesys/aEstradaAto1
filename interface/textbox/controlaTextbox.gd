@@ -108,7 +108,7 @@ func adicionaMenssagemDetalhada(strMenssagem,intVel,strOrigem,strTipo,strEmocao,
 	arrayOrigens.append(str(strOrigem))
 	arrayTipos.append(str(strTipo))
 	arrayEmocoes.append(str(strEmocao))
-	print("adicionando emocao " + strEmocao)
+	#print("adicionando emocao " + strEmocao)
 	arrayVariacoes.append(str(strVariacao))
 	arrayMenssagens.append(str(strMenssagem))
 	arrayVelocidades.append(float(intVel))
@@ -121,12 +121,12 @@ func adicionaMenssagemIntervaloDetalhado(strMenssagemSemNumero,intNumeroInicial,
 	
 func imprimeMenssagem(i): #imprime a menssagem da posição i no arrayMenssagem
 
-	print("imprimindo")
-	print(indiceAtualMenssagem)
-	print(arrayMenssagens[i])
-	print(arrayOrigens[i])
-	print(arrayTipos[i])
-	print(arrayEmocoes[i])
+	#print("imprimindo")
+	#print(indiceAtualMenssagem)
+	#print(arrayMenssagens[i])
+	#print(arrayOrigens[i])
+	#print(arrayTipos[i])
+	#print(arrayEmocoes[i])
 	
 	#se qualquer parametro tiver o valor manter, então esse parametro não deve ser mudado
 	if(arrayOrigens != "manter"):
@@ -221,7 +221,8 @@ func _process(delta):
 				#print("entrei")
 				if(controleFluxoHistoria.getParte() != "prologo" and adicionarIndice == true):
 			
-					controleFluxoHistoria.acrescentaIndiceParte(get_name()) #adiciona um ao indice da parte ao encerrar a menssagen
+					pass
+					#controleFluxoHistoria.acrescentaIndiceParte(get_name()) #adiciona um ao indice da parte ao encerrar a menssagen
 				
 				imprimeMenssagem(indiceAtualMenssagem)
 				indiceAtualMenssagem += 1

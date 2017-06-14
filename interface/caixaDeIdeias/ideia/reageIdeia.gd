@@ -4,9 +4,9 @@ extends Sprite
 
 
 onready var interacaoMouse = get_node("interacao")
-onready var chanceRecusa = 50
+onready var chanceRecusa = 40
 onready var chanceEngana = 30
-onready var chanceLibera = 10
+onready var chanceLibera = 20
 onready var decideReacao = 0
 onready var reacao = ""
 onready var resorteou = false
@@ -18,8 +18,6 @@ onready var reduziu = false
 
 var atrasa = Timer.new() #um timer para atrasar o prosseguimento do fluxo da historia
 var iniciouTimer = false
-
-var chamouTextoNaoSonho = false
 
 onready var multiplicaIdeia = get_node("multiplicaIdeia")
 
@@ -151,10 +149,10 @@ func _on_interacao_button_down():
 	#verifica os eventos
 	if(controleFluxoHistoria.getEventoEspecial("exclusivoSonho") == true):
 		
-		if(chamouTextoNaoSonho == false):
+		if(globais.getExibiuTextoNaoSonho() == false):
 			
 			egoTexto.textoNaoSonho() #imprime um texto notificando
-			chamouTextoNaoSonho = true
+			globais.setExibiuTextoNaoSonho(true)
 	
 	elif(controleFluxoHistoria.getExclusivoTexto() == false):
 		

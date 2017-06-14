@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://fundo/parallax.gd" type="Script" id=1]
-[ext_resource path="res://fundo/montanhas/montanhasUnidade.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fundo/determinaTexturaProporcao.gd" type="Script" id=2]
+[ext_resource path="res://fundo/montanhas/montanhas16_9.png" type="Texture" id=3]
+[ext_resource path="res://fundo/montanhas/montanhasUnidade.tscn" type="PackedScene" id=4]
 
 [node name="montanhas" type="Node2D"]
 
 script/script = ExtResource( 1 )
 velocidadeMedia = 0
 
-[node name="montanhasUnidade" parent="." instance=ExtResource( 2 )]
+[node name="determinaTextura" type="Node2D" parent="."]
+
+script/script = ExtResource( 2 )
+textura16_9 = ExtResource( 3 )
+textura16_10 = ExtResource( 3 )
+
+[node name="montanhasUnidade" parent="." instance=ExtResource( 4 )]
 
 
+[editable path="montanhasUnidade"]

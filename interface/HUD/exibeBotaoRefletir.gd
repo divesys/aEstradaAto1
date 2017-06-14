@@ -16,6 +16,7 @@ func exibeBotaoRefletir():
 
 func _on_refletir_button_up():
 	
+	controlaCaixaIdeias.fechaCaixaIdeias()
 	controleFluxoHistoria.mudarParte("reflexao") #muda de parte
 	self.queue_free() #se destroi, possivel animação aqui
 	

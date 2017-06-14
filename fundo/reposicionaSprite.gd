@@ -9,7 +9,11 @@ export(float,0,1,0.01) var porcentagemTela = 0.65 #o quanto a área visivel do j
 
 func _ready():
 	
-	#variaveis
+	reposiciona()
+	
+func reposiciona():
+	
+		#variaveis
 	var alturaPadrao = encontraResolucao.getAlturaPadrao() #captura a altura padrao
 	
 	#var alturaSprite = get_parent().get_texture().get_height() #captura a altura do sprite
@@ -19,4 +23,3 @@ func _ready():
 	
 	#ajusta a posição do sprite
 	parent.set_pos(Vector2(get_pos().x,get_pos().y + (diferencaAltura/2)))
-	

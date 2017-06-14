@@ -15,7 +15,7 @@ var indiceTextoEstradaPrincipal = 0
 func _ready():
 
 	set_volume(0.1) #só para não me incomodar, depois colocar 1
-	set_stream(egoConfiante)
+	set_stream(egoConfiante) #musica do prologo
 	play(0)
 	set_process(true)
 	
@@ -53,3 +53,12 @@ func _process(delta):
 			play()
 			mudou = true
 			indiceAnterior = indiceTextoEstradaPrincipal
+			
+	elif(controleFluxoHistoria.getParte() == "reflexao"):
+		
+		if(get_stream() == egoTriste and controleFluxoHistoria.getIndiceParte() == 6):
+			
+			stop()
+			set_stream(egoTriste)
+			play()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())

@@ -13,6 +13,7 @@ var indiceAtual = 0
 
 #parte = "estradaPrincipal"
 var indiceTextoEstradaPrincipal = 0
+var indiceTextoEstradaPrincipalInt = 0 #gambiarra para quando o indice for um inteiro
 var indiceTextoEstradaPrincipalAnterior = -1
 #var intervaloPassosEstradaPrincipal = 8.0 #determina o valor do intervalo de passos
 var emocaoAtualEstradaPrincipal = "" #determina qual será a emoção de certo texto
@@ -303,39 +304,45 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 		#como o texto está automático, é mais simples somente mudar as emoção
 		indiceTextoEstradaPrincipal = globais.getIndiceTextoEstradaPrincipal()
 		
+		if(fmod(indiceTextoEstradaPrincipal,1) == 0):
+			
+			indiceTextoEstradaPrincipalInt = indiceTextoEstradaPrincipal
+		
 		#print(indiceTextoEstradaPrincipal)
 		
 		#O PROBLEMA ESTÁ NOS INDICES.
 		
 		#muda as emoções dependendo do índice  na estrada principal
-		if(indiceTextoEstradaPrincipal == 1):
+		if(indiceTextoEstradaPrincipalInt == 1):
 			
 			emocaoAtualEstradaPrincipal = "pensativo"
 			
-		elif(indiceTextoEstradaPrincipal == 2):
+		elif(indiceTextoEstradaPrincipalInt == 2):
 			
 			emocaoAtualEstradaPrincipal = "feliz"
 			
-		elif(indiceTextoEstradaPrincipal == 3):
+		elif(indiceTextoEstradaPrincipalInt == 3):
 			
 			emocaoAtualEstradaPrincipal = "confiante"
 			
-		elif(indiceTextoEstradaPrincipal == 6):
+		elif(indiceTextoEstradaPrincipalInt == 6):
 			
 			emocaoAtualEstradaPrincipal = "triste"
 			
-		elif(indiceTextoEstradaPrincipal == 13):
+		elif(indiceTextoEstradaPrincipalInt == 13):
 			
 			emocaoAtualEstradaPrincipal = "raiva"
 			
-		elif(indiceTextoEstradaPrincipal == 18):
+		elif(indiceTextoEstradaPrincipalInt == 18):
 			
 			emocaoAtualEstradaPrincipal = "triste"
 			
 #		origemTextbox.mudaEmocaoTexto(emocaoAtualEstradaPrincipal)
 		
-		if(fmod(globais.getPassosSupostos(),intervaloPassosEstradaPrincipal) == 0 and indiceTextoEstradaPrincipal > 0 and indiceTextoEstradaPrincipal != indiceTextoEstradaPrincipalAnterior): #desse modo a cada n passos escreverá um texto
+		if(indiceTextoEstradaPrincipalInt > 0 and indiceTextoEstradaPrincipalInt != indiceTextoEstradaPrincipalAnterior): #desse modo a cada n passos escreverá um texto
 			
+			print(fmod(indiceTextoEstradaPrincipal,1))
+			print(indiceTextoEstradaPrincipal)
 			#determina a menssagem num processo automatizado
 			menssagemAtualEstradaPrincipal = tr("EGO_ESTRADA_PRINCIPAL" + str(indiceTextoEstradaPrincipal)) #determina menssagem, automático
 			
@@ -353,7 +360,7 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 				
 	elif(controleFluxoHistoria.getParte() == "exaustao"):
 		
-		if(controleFluxoHistoria.getParte() == 1):
+		if(controleFluxoHistoria.getIndiceParte() == 1):
 #			#muda a emoção
 #			origemTextbox.mudaEmocaoTexto("triste")
 #			
@@ -383,6 +390,12 @@ func _process(delta): #ao ser chamado esse texto escreve automaticamente a narra
 		elif(controleFluxoHistoria.getIndiceParte() == 4):
 			
 			controlaTextbox.adicionaMenssagem(tr("EGO_REFLEXAO5"),velocidadePadrao)
+			controlaTextbox.comecarEscrever()
+			controleFluxoHistoria.acrescentaIndiceParte(get_name())
+			
+		elif(controleFluxoHistoria.getIndiceParte() == 6):
+			
+			controlaTextbox.adicionaMenssagemIntervalo("EGO_REFLEXAO",6,13,velocidadePadrao)
 			controlaTextbox.comecarEscrever()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 		

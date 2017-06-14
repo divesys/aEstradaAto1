@@ -39,7 +39,7 @@ func moveSonho():
 	
 	anim.play("moveSonho") #move o sonho
 	
-	print(anim.is_playing())
+	#print(anim.is_playing())
 	
 	
 

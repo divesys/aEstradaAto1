@@ -1,0 +1,215 @@
+[gd_scene load_steps=25 format=1]
+
+[ext_resource path="res://recursos de base/lightning.png" type="Texture" id=1]
+[ext_resource path="res://fundo/ceu/trovao.gd" type="Script" id=2]
+[ext_resource path="res://recursos de base/jute-dh-weather/rain.wav" type="Sample" id=3]
+[ext_resource path="res://recursos de base/jute-dh-weather/rain_2.wav" type="Sample" id=4]
+[ext_resource path="res://recursos de base/jute-dh-weather/rain_indoors.wav" type="Sample" id=5]
+[ext_resource path="res://recursos de base/jute-dh-weather/rain_indoors_2.wav" type="Sample" id=6]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_1_far.wav" type="Sample" id=7]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_1_near.wav" type="Sample" id=8]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_2_far.wav" type="Sample" id=9]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_2_near.wav" type="Sample" id=10]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_3_far.wav" type="Sample" id=11]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_3_near.wav" type="Sample" id=12]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_4_far.wav" type="Sample" id=13]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_4_near.wav" type="Sample" id=14]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_5_far.wav" type="Sample" id=15]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_5_near.wav" type="Sample" id=16]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_6_far.wav" type="Sample" id=17]
+[ext_resource path="res://recursos de base/jute-dh-weather/thunder_6_near.wav" type="Sample" id=18]
+[ext_resource path="res://recursos de base/jute-dh-weather/wind_1.wav" type="Sample" id=19]
+[ext_resource path="res://recursos de base/jute-dh-weather/wind_2.wav" type="Sample" id=20]
+[ext_resource path="res://recursos de base/jute-dh-weather/wind_3.wav" type="Sample" id=21]
+[ext_resource path="res://recursos de base/jute-dh-weather/wind_4.wav" type="Sample" id=22]
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "trovao"
+length = 3.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("SamplePlayer:play/play")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 2,
+"values": [ "thunder_4_near" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visibility/visible")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 0.8 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="SampleLibrary" id=2]
+
+samples/rain = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 3 )
+}
+samples/rain_2 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 4 )
+}
+samples/rain_indoors = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 5 )
+}
+samples/rain_indoors_2 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 6 )
+}
+samples/thunder_1_far = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 7 )
+}
+samples/thunder_1_near = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 8 )
+}
+samples/thunder_2_far = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 9 )
+}
+samples/thunder_2_near = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 10 )
+}
+samples/thunder_3_far = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 11 )
+}
+samples/thunder_3_near = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 12 )
+}
+samples/thunder_4_far = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 13 )
+}
+samples/thunder_4_near = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 14 )
+}
+samples/thunder_5_far = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 15 )
+}
+samples/thunder_5_near = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 16 )
+}
+samples/thunder_6_far = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 17 )
+}
+samples/thunder_6_near = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 18 )
+}
+samples/wind_1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 19 )
+}
+samples/wind_2 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 20 )
+}
+samples/wind_3 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 21 )
+}
+samples/wind_4 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 22 )
+}
+
+[node name="trovao" type="Sprite"]
+
+texture = ExtResource( 1 )
+centered = false
+hframes = 8
+script/script = ExtResource( 2 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/trovao = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="SamplePlayer" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 5
+config/samples = SubResource( 2 )
+config/pitch_random = 0.0
+
+

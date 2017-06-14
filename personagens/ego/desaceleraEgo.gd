@@ -76,7 +76,8 @@ func _fixed_process(delta):
 			
 			botaoRefletir.exibeBotaoRefletir()
 		
-		elif(totalIdeias >= limiteIdeiasExaustao):
+		if(totalIdeias >= limiteIdeiasExaustao):
 		
+			controlaCaixaIdeias.fechaCaixaIdeias() #força o fechamento da caixa de ideias
 			controleFluxoHistoria.mudarParte("exaustao")
 	

@@ -1,26 +1,50 @@
 [gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://fundo/extendeFundo.gd" type="Script" id=1]
-[ext_resource path="res://fundo/selecionaTexturaProporcao.gd" type="Script" id=2]
-[ext_resource path="res://fundo/ceu/ceu16_9.png" type="Texture" id=3]
-[ext_resource path="res://fundo/ceu/ceu16_10.png" type="Texture" id=4]
-[ext_resource path="res://fundo/reposicionaSprite.gd" type="Script" id=5]
+[ext_resource path="res://fundo/ceu/bck_ceuSinistro.png" type="Texture" id=1]
+[ext_resource path="res://fundo/extendeFundo.gd" type="Script" id=2]
+[ext_resource path="res://fundo/selecionaTexturaProporcao.gd" type="Script" id=3]
+[ext_resource path="res://fundo/reposicionaSprite.gd" type="Script" id=4]
+[ext_resource path="res://fundo/ceu/geradorTrovao.tscn" type="PackedScene" id=5]
 
-[node name="ceuUnidade" type="Sprite"]
+[node name="ceuUnidade" type="Sprite" groups=[
+"ceuUnidade",
+]]
 
-z/z = -2
+z/z = -3
+texture = ExtResource( 1 )
 centered = false
-script/script = ExtResource( 1 )
+script/script = ExtResource( 2 )
 
 [node name="selecionaTextura" type="Node2D" parent="."]
 
-script/script = ExtResource( 2 )
-textura16_9 = ExtResource( 3 )
-textura16_10 = ExtResource( 4 )
+transform/pos = Vector2( 1340.11, 149.73 )
+script/script = ExtResource( 3 )
 
 [node name="reposicionaSprite" type="Node2D" parent="."]
 
-script/script = ExtResource( 5 )
+transform/pos = Vector2( 838.677, 200.954 )
+script/script = ExtResource( 4 )
 porcentagemTela = 0.65
+
+[node name="geradorTrovao" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 465.85, 327.268 )
+z/z = -2
+
+[node name="geradorTrovao 2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 139.438, 324.937 )
+
+[node name="geradorTrovao 3" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1295.67, 157.044 )
+
+[node name="geradorTrovao 4" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1698.89, 359.45 )
+
+[node name="geradorTrovao 5" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 870.32, 199.448 )
 
 

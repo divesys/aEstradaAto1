@@ -1,13 +1,29 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://fundo/parallax.gd" type="Script" id=1]
-[ext_resource path="res://fundo/ceu/ceuUnidade.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fundo/determinaTexturaProporcao.gd" type="Script" id=2]
+[ext_resource path="res://fundo/ceu/bck_ceuSinistro.png" type="Texture" id=3]
+[ext_resource path="res://fundo/ceu/ceu16_9.png" type="Texture" id=4]
+[ext_resource path="res://fundo/ceu/ceuUnidade.tscn" type="PackedScene" id=5]
 
 [node name="ceu" type="Node2D"]
 
 script/script = ExtResource( 1 )
 velocidadeMedia = 0
 
-[node name="ceuUnidade" parent="." instance=ExtResource( 2 )]
+[node name="determinaTextura" type="Node2D" parent="."]
+
+script/script = ExtResource( 2 )
+textura16_9 = ExtResource( 3 )
+textura16_10 = ExtResource( 4 )
+
+[node name="ceuUnidade" parent="." instance=ExtResource( 5 )]
+
+texture = null
+
+[node name="reposicionaSprite" parent="ceuUnidade"]
+
+transform/pos = Vector2( 0, 0 )
 
 
+[editable path="ceuUnidade"]
