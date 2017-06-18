@@ -24,7 +24,7 @@ func _ready():
 	
 func _process(delta):
 	
-	if(iniciouTimer == false):
+	if(iniciouTimer == false and get_parent().getGerarTrovao() == true):
 		
 		geraTrovao.start()
 		iniciouTimer = true
@@ -37,7 +37,7 @@ func testaGeraTrovao():
 	
 	if(testaTrovao <= probabilidadeTrovao):
 		
-		print(get_name() + " " + str(get_pos()))
+		#print(get_name() + " " + str(get_pos()))
 		geraTrovao.set_wait_time(intervaloTrovao)
 		node = cena.instance() #instancia a cena
 		get_parent().add_child(node) #adiciona o nó ao nó pai
@@ -48,3 +48,4 @@ func testaGeraTrovao():
 		
 		geraTrovao.set_wait_time(intervaloTeste)
 		iniciouTimer = false
+		

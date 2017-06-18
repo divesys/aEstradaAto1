@@ -56,7 +56,7 @@ func _ready():
 	atrasaFluxoHistoria.connect("timeout", self, "atrasaAcresentaIndice")
 	
 	#cria a posição do sonho
-	get_node("Fundo").estradaCorrompida()
+	#get_node("Fundo").estradaCorrompida()
 	#inicializa o processo
 	set_process(true)
 	
@@ -297,6 +297,7 @@ func _process(delta):
 		if(controleFluxoHistoria.getIndiceParte() == 8):
 			
 			self.get_node("clarao").ativaClarao() #ativa um clarão
+			get_node("Fundo").estradaCorrompida()
 			controleFluxoHistoria.acrescentaIndiceParte(get_name())
 			
 		elif(controleFluxoHistoria.getIndiceParte() == 10):

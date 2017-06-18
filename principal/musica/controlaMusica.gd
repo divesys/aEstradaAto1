@@ -14,7 +14,7 @@ var indiceTextoEstradaPrincipal = 0
 
 func _ready():
 
-	set_volume(0.1) #só para não me incomodar, depois colocar 1
+	set_volume(1) #só para não me incomodar, depois colocar 1
 	set_stream(egoConfiante) #musica do prologo
 	play(0)
 	set_process(true)

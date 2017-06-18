@@ -8,7 +8,7 @@ onready var fundoCeu = get_parent().get_parent().get_node("Fundo/camadas/ceu")
 onready var fundoMontanhas = get_parent().get_parent().get_node("Fundo/camadas/montanhas")
 onready var fundoEstrada = get_parent().get_parent().get_node("Fundo/camadas/estrada")
 
-var limiteIdeiasSobrecarga = 30.0
+var limiteIdeiasSobrecarga = 1.0
 var extensaoSobrecarga = 8.0
 var limiteIdeiasExaustao = limiteIdeiasSobrecarga + extensaoSobrecarga
 var velocidadeEgo = 0.0 #velocidade original da animação do ego
